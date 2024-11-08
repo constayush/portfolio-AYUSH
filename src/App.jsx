@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Test from "./component/test";
+
 import ErrorPage from "./component/errorPage";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
