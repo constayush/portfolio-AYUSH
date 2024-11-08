@@ -1,0 +1,34 @@
+
+.TconLinks {
+    color: #ffbf47d1;
+}
+
+.terminal { font-family: "Source Code Pro", monospace;
+    background-image: url('../public//orangeBg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tinput:focus {
+
+    outline: 0;
+}
+
+.fatfont {
+
+    transition: all .4s ease;
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.linkCL {
+    transition: all .4s ease;
+}
+
+.greeting {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    color: rgb(255, 190, 71);
+    margin: 0;
+  
+  }
