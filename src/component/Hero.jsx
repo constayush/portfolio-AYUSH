@@ -21,13 +21,7 @@ gsap.registerPlugin(ScrollTrigger)
 function Hero() {
 
 
-
-
-
-
-    
     useEffect(() => {
-
 
         const lenis = new Lenis();
 
@@ -38,11 +32,7 @@ function Hero() {
 
         requestAnimationFrame(raf);
 
-
-
     }, [])
-
-
 
 
 
@@ -53,9 +43,6 @@ function Hero() {
             behavior: "smooth"  // Smooth scroll
         });
     }
-
-
-
 
 
 
@@ -107,9 +94,6 @@ function Hero() {
     //gsap animation
     useGSAP(() => {
 
-
-
-
         // org spining animation
 
         gsap.from(org.current, {
@@ -149,12 +133,6 @@ function Hero() {
             duration: .6,
             stagger: .2
         })
-
-
-
-
-
-
 
 
     })
@@ -285,7 +263,7 @@ function Hero() {
 
                     <h1 className="text-3xl md:text-[2.7rem] font-semibold ">About me<span className="font-semibold text-[#f6b64f]">.</span></h1>
 
-                    <p className='text-[1.15rem] text-[#cecece] font-medium '>Hi! I’m <span className='font-semibold text-[#ffc973]'>Ayush Srivastava</span>, an <span className='font-semibold text-[#ffc567]'>18-year-old</span> web developer from <span className='font-semibold text-[#ffc567]'>India</span> crafting seamless user experiences. I’m currently working with <span className='font-semibold text-[#ffc567]'>TypeScript, React, and Next.js</span>. When I’m not coding, you’ll usually find me playing <span className='font-semibold text-[#ffffff]'>chess</span> or relaxing with a game of <span className='font-semibold text-[#ffffff]'>Valorant or CS2</span>. </p>
+                    <p className='text-[1.15rem] text-[#cecece] font-medium '>Hi! I’m <span className='font-semibold text-[#ffc973]'>Ayush Srivastava</span>, an <span className='font-semibold text-[#fff]'>18-year-old</span> web developer from <span className='font-semibold text-[#fff]'>India</span> crafting seamless user experiences. I’m currently working with <span className='font-semibold text-[#ffc567]'>TypeScript, React, and Next.js</span>. When I’m not coding, you’ll usually find me playing <span className='font-semibold text-[#ffffff]'>chess</span> or relaxing with a game of <span className='font-semibold text-[#ffffff]'>Valorant or CS2</span>. </p>
 
                     <h1 className='font-semibold text-xl text-[#ffffff]'>My Tech Stack</h1>
 
@@ -299,10 +277,13 @@ function Hero() {
 
                     </div>
 
+
+                    <hr></hr>
+
                     <h1 className='font-semibold text-xl text-[#ffffff]'>Contact</h1>
 
 
-                    <div className='flex flex-wrap gap-8'>
+                    <div className='flex flex-wrap gap-8 text-center items-center justify-center md:justify-between '>
 
                         <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center">
 
@@ -327,6 +308,8 @@ function Hero() {
 
                                 <h5 className=' hover:text-[#000]'>Resume</h5></a>
                         </div>
+
+                        <p>© 2024 Ayush Srivastava</p>
 
 
                     </div>
