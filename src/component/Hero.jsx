@@ -9,6 +9,7 @@ import styles from '../heroStyles.css'
 import { Link } from 'react-router-dom'
 import Terminal from './Terminal'
 import orange from "../../public/orange.svg"
+import slicedOrg from "../../public/sliced_org.jpg"
 import github from '../../public/github.svg'
 import linkedin from '../../public/linked-in.svg'
 import insta from '../../public/instagram.svg'
@@ -19,6 +20,42 @@ import { TextGenerateEffect } from './ui/text-generate-effect'
 import Lenis from 'lenis';
 gsap.registerPlugin(ScrollTrigger)
 function Hero() {
+
+
+
+    const cursorRef = useRef(null);
+
+    useEffect(() => {
+        const cursor = cursorRef.current;
+
+        const handleMouseMove = (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        };
+
+        const handleMouseEnter = () => {
+            cursor.classList.add('show');
+        };
+
+        const handleMouseLeave = () => {
+            cursor.classList.remove('show');
+        };
+
+        // Attach event listeners
+        document.addEventListener('mousemove', handleMouseMove);
+        const orgLogo = document.querySelector('.orgLogo');
+        orgLogo.addEventListener('mouseenter', handleMouseEnter);
+        orgLogo.addEventListener('mouseleave', handleMouseLeave);
+
+        // Cleanup event listeners on unmount
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            orgLogo.removeEventListener('mouseenter', handleMouseEnter);
+            orgLogo.removeEventListener('mouseleave', handleMouseLeave);
+        };
+    }, []);
+
+
 
 
     useEffect(() => {
@@ -90,9 +127,20 @@ function Hero() {
         }
     };
 
-
+ 
+       
+        
+        const handleMouseLeave_orgLogo = () => {
+            gsap.to(org.current, {
+             
+                rotate: "-=360",
+                // ease: Power3.easeInOut,
+            });
+        };
     //gsap animation
     useGSAP(() => {
+
+       
 
         // org spining animation
 
@@ -138,24 +186,25 @@ function Hero() {
     })
 
     return (
+
         <div className="hero w-full h-auto bg-grid-[#fc9930]/[.04]">
 
-
+            <div ref={cursorRef} className="custom-cursor"></div>
             <nav ref={nav} className="fixed top-0 w-full h-48 flex justify-center items-center z-[99]">
 
                 <div className="flex justify-between items-center w-full h-full px-8 md:px-16 ">
 
-                    <h1 className="logoNav text-2xl lg:text-4xl hover:text-[#fc9930]">
-                        <a href="/">A<span className="accent">0.</span></a>
+                    <h1 className="logoNav text-2xl lg:text-[2.25rem] hover:text-[#fc9930]">
+                        <a href="/">आ<span className="accent">0.</span></a>
                     </h1>
 
                     <ul className="flex gap-4 font-semibold text-lg">
 
-                        <li className="hover:text-[#fc9930] transition-all">
+                        <li className="hover:text-[#fc9930] hover:tracking-widest  ulLinkNav">
                             <Link to="/terminal">Terminal</Link>
                         </li>
 
-                        <li className="hover:text-[#fc9930] transition-all">
+                        <li className="hover:text-[#fc9930]  hover:tracking-widest ulLinkNav">
                             <a href="#">Resume</a>
                         </li>
 
@@ -176,7 +225,11 @@ function Hero() {
                             <h1 className='inline'>
                                 <TextGenerateEffect className={"inline"} words={mainHeadingWords} /></h1>
                             <Link to="/terminal">
-                                <img ref={org} className="ml-4 inline w-12 md:w-[4.25rem]" src={orange} alt="orange logo" />
+                                <img
+                                     onMouseLeave={handleMouseLeave_orgLogo}
+                                     ref={org}
+                                     className="ml-4 inline w-12 md:w-[4.25rem] orgLogo"
+                                     src={orange} alt="orange logo" />
                             </Link>
                         </div>
 
@@ -185,7 +238,7 @@ function Hero() {
 
                     <h2 ref={subHeading} className="text-lg md:text-2xl text-[#d3c6ba] font-medium mb-5">
 
-                        — Hi, I’m <span className="font-semibold text-[#f6b64f]">Ayush</span>, a web developer from <span className="font-semibold text-[#f6b64f]">India</span>.
+                        — Hi, I’m <span className=" font-semibold text-[#f6b64f] ">Ayush</span>, a web developer from <span className="font-semibold text-[#f6b64f]">India</span>.
 
                     </h2>
 
@@ -228,11 +281,11 @@ function Hero() {
                 </div>
 
 
-                <svg onClick={handleScrollArrow} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth=".17" strokeLinecap="round" strokeLinejoin="round" className="lucide  lucide-move-down size-10 hover:cursor-pointer"><path d="M8 18L12 22L16 18"></path></svg>
+                <svg onClick={handleScrollArrow} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth=".17" strokeLinecap="round" strokeLinejoin="round" className="lucide scrollDownArrow  lucide-move-down size-10 hover:cursor-pointer"><path d="M8 18L12 22L16 18"></path></svg>
 
             </main>
 
-            <div ref={projectCon} className="flex justify-center w-full h-auto py-10">
+            <div ref={projectCon} className="flex justify-center w-full h-auto py-10 ">
 
                 <div className="w-full max-w-5xl projectss p-8 flex flex-col gap-16">
 
@@ -287,19 +340,19 @@ function Hero() {
 
                         <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center">
 
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
                                 GitHub
                             </a>
 
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/constayush/">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/constayush/">
                                 LinkedIn
                             </a>
 
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/maihoonayush/">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/maihoonayush/">
                                 Instagram
                             </a>
 
-                            <a target="_blank" rel="noopener noreferrer" href="mailto:aayush@mail.com">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="mailto:aayush@mail.com">
                                 Mail
                             </a>
                             <a download="" className="p-2 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111]  rounded transition duration-300">
