@@ -235,7 +235,7 @@ overflow: hidden;
 } */
 
 main {
-  background-image: url(../public/rings.svg);
+  background-image: url("../public/rings.svg");
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center; 
