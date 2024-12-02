@@ -187,7 +187,7 @@ function Hero() {
 
     return (
 
-        <div className="hero w-full h-auto bg-grid-[#fc9930]/[.04]">
+        <div className="hero w-full h-auto bg-grid-[#fc9930]/[.04] ">
 
             <div ref={cursorRef} className="custom-cursor"></div>
             <nav ref={nav} className="fixed top-0 w-full h-48 flex justify-center items-center z-[99]">
@@ -214,7 +214,7 @@ function Hero() {
 
             </nav>
 
-            <main className="flex justify-center w-full h-auto pt-48 mb-24 flex-col items-center">
+            <main className="flex justify-center relative  w-full min-h-screen pt-48 mb-24 flex-col items-center overflow-x-hidden">
 
                 <div ref={mainCon} className="flex flex-col gap-7 items-center w-11/12 md:w-3/5 text-center md:mb-8">
 
