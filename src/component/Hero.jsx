@@ -15,6 +15,7 @@ import linkedin from '../../public/linked-in.svg'
 import insta from '../../public/instagram.svg'
 import mail from '../../public/mail.svg'
 import tempProjectsImg from '../../public/projects.jpg'
+import projectImg1 from '../../public/project-img1.png'
 import ProjectCard from './ui/projectCard';
 import { TextGenerateEffect } from './ui/text-generate-effect'
 import Lenis from 'lenis';
@@ -87,9 +88,9 @@ function Hero() {
     let projects = [
 
         {
-            projectName: "Project",
-            projectDescription: " this is first project, it is in development",
-            projectImg: tempProjectsImg
+            projectName: "Mihika Arts",
+            projectDescription: "A curated collection of sketches and watercolors, with easy filters and a seamless shopping experience. Find art that speaks to you!",
+            projectImg: projectImg1
         },
         {
             projectName: "Project",
@@ -127,20 +128,20 @@ function Hero() {
         }
     };
 
- 
-       
-        
-        const handleMouseLeave_orgLogo = () => {
-            gsap.to(org.current, {
-             
-                rotate: "-=360",
-                // ease: Power3.easeInOut,
-            });
-        };
+
+
+
+    const handleMouseLeave_orgLogo = () => {
+        gsap.to(org.current, {
+
+            rotate: "-=360",
+            // ease: Power3.easeInOut,
+        });
+    };
     //gsap animation
     useGSAP(() => {
 
-       
+
 
         // org spining animation
 
@@ -226,10 +227,10 @@ function Hero() {
                                 <TextGenerateEffect className={"inline"} words={mainHeadingWords} /></h1>
                             <Link to="/terminal">
                                 <img
-                                     onMouseLeave={handleMouseLeave_orgLogo}
-                                     ref={org}
-                                     className="ml-4 inline w-12 md:w-[4.25rem] orgLogo"
-                                     src={orange} alt="orange logo" />
+                                    onMouseLeave={handleMouseLeave_orgLogo}
+                                    ref={org}
+                                    className="ml-4 inline w-12 md:w-[4.25rem] orgLogo"
+                                    src={orange} alt="orange logo" />
                             </Link>
                         </div>
 
@@ -238,7 +239,13 @@ function Hero() {
 
                     <h2 ref={subHeading} className="text-lg md:text-2xl text-[#d3c6ba] font-medium mb-5">
 
-                        — Hi, I’m <span className=" font-semibold text-[#f6b64f] ">Ayush</span>, a web developer from <span className="font-semibold text-[#f6b64f]">India</span>.
+                        — Hi, I’m
+                        <a
+                            onClick={() => document.querySelector('.about')?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            })}
+                            className=" font-semibold text-[#f6b64f] cursor-pointer "> Ayush</a>, a web developer from <span className="font-semibold text-[#f6b64f]">India</span>.
 
                     </h2>
 
@@ -310,7 +317,7 @@ function Hero() {
 
 
 
-            <div ref={aboutCon} className="flex justify-center w-full h-auto py-10">
+            <div ref={aboutCon} className="about flex justify-center w-full h-auto py-10">
 
                 <div className="w-full max-w-5xl projectss p-8 flex flex-col gap-8 "  >
 
@@ -362,7 +369,7 @@ function Hero() {
                                 <h5 className=' hover:text-[#000]'>Resume</h5></a>
                         </div>
 
-                        <p>© 2024 Ayush Srivastava</p>
+                        <p>© 2025 Ayush Srivastava</p>
 
 
                     </div>

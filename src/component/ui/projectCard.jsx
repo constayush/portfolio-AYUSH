@@ -5,7 +5,7 @@ function ProjectCard(props) {
     <a className="card rounded-lg max-w-[30rem]  ">
 
     <h1 className='projects-h1'>{props.projectName}</h1>
-    <img  src={props.projectImg}/>
+    <img className='projects-img aspect-[16/9] object-cover'  src={props.projectImg}/>
     <p className=''>{props.projectDescription}</p>
 
 

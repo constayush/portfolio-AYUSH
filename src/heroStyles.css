@@ -116,22 +116,19 @@ transform: scale(1.1);
 
 body::-webkit-scrollbar-thumb {
   background-color: rgb(181, 181, 181);
-  border-radius: 10px;
+  border-radius: 3px;
 
-}
-
-body::-webkit-scrollbar-track-piece{
-background: #68616124;
 }
 
 
 body::-webkit-scrollbar {
-  width: .81em;
+
+  width: .5em;
 }
 
 
 body::-webkit-scrollbar-track-piece{
-  background: #68616124;
+  background: #00000000;
   }
  
  .projects-h1{
@@ -235,7 +232,7 @@ overflow: hidden;
 } */
 
 main {
-  background-image: url("../public/rings.svg");
+ 
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center; 
@@ -243,6 +240,7 @@ main {
 }
 
 main:after {
+  
   content: "";
   background: 
     radial-gradient(50% 50% at 50% 50%, #fff 0%, rgba(255, 255, 255, 0) 70%);
@@ -250,10 +248,9 @@ main:after {
   transform: rotate(-45deg);
   position: absolute;
   
-
   width: 250%; 
   height: 100%; 
-  
+
   top: -50%;
   left: -50%;
   pointer-events: none;
