@@ -1,12 +1,25 @@
-import React from 'react'
-
+import React, { useEffect } from 'react'
+import gsap from 'gsap'
 function ProjectCard(props) {
+
+useEffect(() => {
+
+
+
+   
+
+
+
+}, [])
+
+
+
   return (
     <a className="card rounded-lg max-w-[30rem]  ">
 
     <h1 className='projects-h1'>{props.projectName}</h1>
     <img className='projects-img aspect-[16/9] object-cover'  src={props.projectImg}/>
-    <p className=''>{props.projectDescription}</p>
+    <p className='text-[#cecdcd]'>{props.projectDescription}</p>
 
 
 <div class="flex justify-between space-x-4 mt-4 ">

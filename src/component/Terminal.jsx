@@ -110,13 +110,8 @@ function Terminal() {
 
 
   function changeBg(e) {
-
     terminalContainer.current.style.backgroundImage = `url(${bgImgArr[bgCounter]})`;
-
-    if (bgCounter > bgImgArr.length - 1) { bgCounter = 0 }
-
-    else { bgCounter++ }
-
+    bgCounter > bgImgArr.length - 1 ? bgCounter = 0 : bgCounter++ 
   }
 
 
