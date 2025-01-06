@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html{
+    ::selection {
+        color: rgb(76, 76, 76);
+        background: rgb(199, 199, 199);
+      }
+
+}
