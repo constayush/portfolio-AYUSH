@@ -22,13 +22,14 @@ import TypescriptIcon from '../../public/typescript.svg'
 import ReactIcon from '../../public/react-2.svg'
 import JavascriptIcon from '../../public/javascript.svg'
 import NextjsIcon from '../../public/nextjs.svg'
+import pfp from '../../public/pfp.png'
 import Lenis from 'lenis';
 gsap.registerPlugin(ScrollTrigger)
 
 function Hero() {
 
     const cursorRef = useRef(null);
-    const headingWords = "Creating UIs that pop with clean design and code"
+    const headingWords = "Creating Creating UIs that pop with clean design and code"
     const org = useRef();
     const projectCon = useRef();
     const mainHeading = useRef();
@@ -90,15 +91,15 @@ function Hero() {
             projectImg: tempProjectsImg
         },
     ]
-    //nav bar glass-fading  effect
-    // const nav = useRef();
-    // window.onscroll = () => {
-    //     if (window.scrollY > 80) {
-    //         nav.current.classList.add('nav-active');
-    //     } else {
-    //         nav.current.classList.remove('nav-active');
-    //     }
-    // };
+    //navbar effects
+    const nav = useRef();
+    window.onscroll = () => {
+        if (window.scrollY > 80) {
+            nav?.current?.classList.add('nav-active');
+        } else {
+            nav?.current?.classList.remove('nav-active');
+        }
+    };
 
 
     const handleMouseLeave_orgLogo = () => {
@@ -107,93 +108,73 @@ function Hero() {
         });
     };
     //gsap animation
-    // useGSAP(() => {
-
-    //     // org spining animation
-    //     gsap.from(org.current, {
-
-    //         filter: "blur(20px)",
-    //         x: 100,
-    //         scale: .1,
-    //         duration: 1
-    //     })
-
-    //     gsap.from(org.current, {
-    //         ease: Power3,
-
-    //         rotate: 360,
-    //         duration: 80,
-    //         repeat: -1
-    //     })
-
-    //     gsap.from(projectCon.current, {
-    //         x: -100,
-    //         y: 400,
-    //         opacity: 0,
-    //         scrollTrigger: {
-
-    //             trigger: mainCon.current,
-    //             start: "bottom bottom",
-    //             scrub: true,
-
-    //         }
-
-    //     })
-
-    //     gsap.from(mainCon.current, {
-
-    //         y: 100,
-    //         opacity: 0,
-    //         duration: .6,
-    //         stagger: .2
-    //     })
-
-    // })
     useGSAP(() => {
         const tl = gsap.timeline();
-        
+
         tl.from(org.current, {
-          filter: "blur(20px)",
-          x: 100,
-          scale: 0.1,
-          duration: 1,
-        //   ease: Power3.easeInOut,
+            filter: "blur(20px)",
+            x: 100,
+            scale: 0.1,
+            duration: 1,
+            //   ease: Power3.easeInOut,
         })
-        .to(org.current, {
-          rotate: 360,
-          duration: 80,
-          repeat: -1,
-          ease: "none",
-        });
+            .to(org.current, {
+                rotate: 360,
+                duration: 80,
+                repeat: -1,
+                ease: "none",
+            });
 
 
         gsap.from(mainCon.current, {
 
-                  y: 150,
-                  opacity: 0,
-                  duration: .75,
-                  stagger: .2
-              })
-      
+            y: 150,
+            opacity: 0,
+            duration: .75,
+            stagger: .2
+        })
+
         ScrollTrigger.create({
-          trigger: mainCon.current,
-          start: "bottom bottom",
-          animation: gsap.from(projectCon.current, {  y: 500, opacity: 0 }),
-          scrub: true,
+            trigger: mainCon.current,
+            start: "bottom bottom",
+            animation: gsap.from(projectCon.current, { y: 500, opacity: 0 }),
+            scrub: true,
         });
-      
-      }, []);
-      
+
+    }, []);
+
     return (
 
         <div className="hero w-full h-auto bg-grid-[#fc9930]/[.04] relative">
 
             <div ref={cursorRef} className="custom-cursor"></div>
-          
-            
-            <main className="flex justify-center relative  w-full min-h-screen pt-48 mb-[1.75rem] md:mb-[2.5rem] flex-col items-center overflow-x-hidden">
+
+
+            <div className='w-full flex justify-center items-center'>
+                <nav ref={nav} className='flex w-full   z-[99] fixed top-0 p-[7rem] items-center justify-between  '>
+
+                    <a className='text-[rgb(255,255,255)] text-[2rem] logoNav' href="/">आ<span className="accent">0.</span></a>
+                    <ul className='flex gap-4 items-center justify-center'>
+                        <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'>
+                        <a
+                        onClick={() => document.querySelector('.about')?.scrollIntoView({
+                                behavior: "smooth",  
+                            })}
+                         >About me</a>
+
+                         </li>
+                        <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'><Link to="/terminal">Terminal</Link></li>
+                    </ul>
+
+                </nav>
+            </div>
+
+
+            <main className="flex justify-center relative  w-full min-h-screen pt-[8rem] mb-[1.75rem] md:mb-[2.5rem] flex-col items-center overflow-x-hidden">
 
                 <div ref={mainCon} className="flex flex-col gap-7 items-center w-11/12 md:w-3/5 text-center md:mb-8">
+
+
 
                     <div className="flex text-center">
 
@@ -214,7 +195,7 @@ function Hero() {
                     </div>
 
 
-                    <h2 ref={subHeading} className="text-lg md:text-2xl text-[#d3c6ba] font-medium mb-5">
+                    <h2 ref={subHeading} className="text-lg md:text-2xl text-[#cecece] font-medium mb-5">
 
                         — Hi, I’m
                         <a
@@ -274,7 +255,7 @@ function Hero() {
 
                     <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6   place-items-center ">
 
-                        { 
+                        {
                             projects.map((i, a) => {
                                 return <ProjectCard cursorRef={cursorRef.current} key={projects[a].projectName} projectDescription={projects[a].projectDescription} projectImg={projects[a].projectImg} projectName={projects[a].projectName} />
                             })
