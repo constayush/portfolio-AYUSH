@@ -15,8 +15,8 @@ function Navbar() {
     <a className='text-[rgb(255,255,255)] text-[2rem] logoNav' href="/">आ<span className="accent">0.</span></a>
     
     <ul className=' flex justify-center items-center gap-10'>
-<li className='text-[#fff] font-bold text-lg md:text-xl navLinks'><Link to="/terminal">Terminal</Link></li>
-<li className='text-[#fff] font-bold text-lg md:text-xl navLinks'><Link to="">Resume</Link></li>
+
+
     </ul>
     
     </div>
