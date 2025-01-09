@@ -6,7 +6,8 @@
 .terminal { font-family: "Source Code Pro", monospace;
     background-image: url('../public//orangeBg.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
+  
 }
 
 .tinput:focus {

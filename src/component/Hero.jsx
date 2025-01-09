@@ -24,6 +24,7 @@ import JavascriptIcon from '../../public/javascript.svg'
 import NextjsIcon from '../../public/nextjs.svg'
 import pfp from '../../public/pfp.png'
 import Lenis from 'lenis';
+import Navbar from './Navbar';
 gsap.registerPlugin(ScrollTrigger)
 
 function Hero() {
@@ -92,14 +93,7 @@ function Hero() {
         },
     ]
     //navbar effects
-    const nav = useRef();
-    window.onscroll = () => {
-        if (window.scrollY > 80) {
-            nav?.current?.classList.add('nav-active');
-        } else {
-            nav?.current?.classList.remove('nav-active');
-        }
-    };
+   
 
 
     const handleMouseLeave_orgLogo = () => {
@@ -150,24 +144,7 @@ function Hero() {
             <div ref={cursorRef} className="custom-cursor"></div>
 
 
-            <div className='w-full flex justify-center items-center'>
-                <nav ref={nav} className='flex w-full   z-[99] fixed top-0 p-[7rem] items-center justify-between  '>
-
-                    <a className='text-[rgb(255,255,255)] text-[2rem] logoNav' href="/">आ<span className="accent">0.</span></a>
-                    <ul className='flex gap-4 items-center justify-center'>
-                        <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'>
-                        <a
-                        onClick={() => document.querySelector('.about')?.scrollIntoView({
-                                behavior: "smooth",  
-                            })}
-                         >About me</a>
-
-                         </li>
-                        <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'><Link to="/terminal">Terminal</Link></li>
-                    </ul>
-
-                </nav>
-            </div>
+           <Navbar />
 
 
             <main className="flex justify-center relative  w-full min-h-screen pt-[8rem] mb-[1.75rem] md:mb-[2.5rem] flex-col items-center overflow-x-hidden">
