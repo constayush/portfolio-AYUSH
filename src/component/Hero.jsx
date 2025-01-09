@@ -30,7 +30,7 @@ gsap.registerPlugin(ScrollTrigger)
 function Hero() {
 
     const cursorRef = useRef(null);
-    const headingWords = "Creating Creating UIs that pop with clean design and code"
+    const headingWords = "Creating UIs that pop with clean design and code"
     const org = useRef();
     const projectCon = useRef();
     const mainHeading = useRef();
