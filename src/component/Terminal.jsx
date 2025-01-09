@@ -117,10 +117,10 @@ function Terminal() {
 
   return (
 
-    <div ref={terminalContainer} className='terminal w-full lg:h-[100vh] h-[95vh] center flex-col p-[1rem] rounded'>
+    <div ref={terminalContainer} className='terminal w-full lg:h-[98vh] h-[95vh] center flex-col p-[1rem] rounded'>
 
 
-      <div ref={terminal} className='w-full h-full  bg-[#070707cf]  rounded-md'>
+      <div ref={terminal} className='w-full h-full  bg-[#070707cf]  rounded-md will-change-scroll'>
 
 
         <nav className='w-full  h-[8%] text-white bg-[#141414f3] flex items-center justify-between p-[2rem] rounded-md'>
