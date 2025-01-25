@@ -149,7 +149,7 @@ function Hero() {
 
             <main className="flex justify-center relative  w-full min-h-screen pt-[8rem] mb-[1.75rem] md:mb-[2.5rem] flex-col items-center overflow-x-hidden">
 
-                <div ref={mainCon} className="flex flex-col gap-7 items-center w-11/12 md:w-3/5 text-center md:mb-8">
+                <div ref={mainCon} className="flex flex-col gap-7 items-center max-w-5xl text-center md:mb-8">
 
 
 
@@ -180,7 +180,7 @@ function Hero() {
                                 behavior: "smooth",
                                 block: "start"
                             })}
-                            className=" font-semibold text-[#f6b64f] cursor-pointer "> Ayush</a>, a web developer from <span className="font-semibold text-[#f6b64f]">India</span>.
+                            className=" font-semibold text-[#f6b64f] hover:text-[#ff982a]  cursor-pointer "> Ayush</a>, a web developer from <span className="font-semibold text-[#f6b64f]">India</span>.
 
                     </h2>
 
