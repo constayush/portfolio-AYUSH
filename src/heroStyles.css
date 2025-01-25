@@ -80,13 +80,13 @@ nav {
   text-decoration: none;
   backdrop-filter: blur(30px);
   padding: 1.25rem;
-  margin-top: 1.25rem;
+  margin: 1.25rem;
   gap: 2.25rem;
  width: fit-content;
  height: fit-content;
-  background-color: #2020202d;
+  background-color: #2626262d;
   border-radius: 8px;
-
+  
 }
 
 .custom-cursor {
