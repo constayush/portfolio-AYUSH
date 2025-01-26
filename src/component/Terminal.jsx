@@ -133,11 +133,11 @@ function Terminal() {
 
         </nav>
 
-        <div className='w-full p-[1rem] h-[90%] overflow-auto text-white tfont '>
+        <div className='inner-t w-full p-[1rem] h-[90%] overflow-auto text-[#d5d5d5] vt text-[1.3rem] blur-[.45px]'>
 
 
           <p> Welcome to my termianl portfolio!</p>
-          <pre >
+          <pre className='.neon'>
             <br />       __     ___    _  _____ _    _
             <br />     /\\ \   / / |  | |/ ____| |  | |
             <br />    /  \\ \_/ /| |  | | (___ | |__| |
@@ -151,12 +151,12 @@ function Terminal() {
             <p className='pb-[1rem]'>------------------------------------</p></pre>
 
 
-          {prvInputsData.map((data) => <div className='oldCommand  flex'><p>user@ayush:~#</p><p>{data}</p></div>)}
+          {prvInputsData.map((data) => <div className='oldCommand .neon flex'><p>user@ayush:~#</p><p>{data}</p></div>)}
 
 
-          <div className='newCommand flex'>
+          <div className='newCommand flex '>
 
-            <p>user@ayush:~#</p>
+            <p className='neon'>user@ayush:~#</p>
 
             <input ref={input} type='text' onKeyDown={handleKeyPress} onChange={handleInputChange} className='tinput w-full bg-transparent' />
 

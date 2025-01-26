@@ -1,13 +1,25 @@
-
 .TconLinks {
     color: #ffbf47d1;
 }
+.vt {
+    font-family: "VT323", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.terminal {
 
-.terminal { font-family: "Source Code Pro", monospace;
+
+
+    font-family: "VT323", serif;
+    font-weight: 400;
+    font-style: normal;
+
+
     background-image: url('../public//orangeBg.jpg');
     background-repeat: no-repeat;
-    background-size:cover;
-  
+    background-size: cover;
+
 }
 
 .tinput:focus {
@@ -15,21 +27,52 @@
     outline: 0;
 }
 
-.fatfont {
 
-    transition: all .4s ease;
-    font-family: "VT323", monospace;
-    font-weight: 400;
-    font-style: normal;
-}
 
 .linkCL {
     transition: all .4s ease;
 }
 
 .greeting {
+
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
     color: rgb(255, 190, 71);
     margin: 0;
+
+}
+
+
+.neon{
+   
+
+    color:#d5d5d5;
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);
+    animation: flicker 7s infinite;
+    filter:brightness(1);
+  }
   
+  @keyframes flicker{
+    9%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+    10%{
+      text-shadow:none;
+     filter:brightness(.4);
+    }
+    11%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+    12%{
+      text-shadow:none;
+     filter:brightness(.4);
+    }
+    13%{
+    text-shadow: 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 .5vh var(--lights), 0 0 1vh var(--lights);;
+    filter:brightness(1)
+    }
+    
+  
+   
   }
