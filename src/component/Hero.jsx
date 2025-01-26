@@ -139,7 +139,7 @@ function Hero() {
 
     return (
 
-        <div className="hero w-full h-auto bg-grid-[#fc9930]/[.04] relative">
+        <div className="hero w-full h-auto bg-grid-[#fff]/[.015] relative">
 
             <div ref={cursorRef} className="custom-cursor"></div>
 

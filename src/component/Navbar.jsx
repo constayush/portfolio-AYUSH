@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
      <div className='w-full flex justify-center items-center'>
-                    <nav ref={nav}  className='flex px-3 w-full lg:w-[64rem] pt-[5rem] shadow-2xl navbar-short z-[99] fixed top-0  items-center justify-between  '>
+                    <nav ref={nav}  className='flex px-3 w-full lg:w-[64rem] pt-[5rem]  navbar-short z-[99] fixed top-0  items-center justify-between  '>
     
                         <a className='text-[rgb(255,255,255)] text-[2rem] logoNav' href="/">आ<span className="accent">0.</span></a>
                         <ul className='flex gap-4 items-center justify-center'>
