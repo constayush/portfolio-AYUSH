@@ -2,18 +2,6 @@ import React, { useEffect } from 'react'
 import gsap from 'gsap'
 function ProjectCard(props) {
 
-useEffect(() => {
-
-
-
-   
-
-
-
-}, [])
-
-
-
   return (
     <a className="card rounded-lg max-w-[30rem]  ">
 

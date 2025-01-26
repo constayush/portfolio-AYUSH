@@ -33,6 +33,7 @@ function Navbar() {
     
                              </li>
                             <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'><Link to="/terminal">Terminal</Link></li>
+                       
                         </ul>
     
                     </nav>

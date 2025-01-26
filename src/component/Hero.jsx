@@ -25,6 +25,7 @@ import NextjsIcon from '../../public/nextjs.svg'
 import pfp from '../../public/pfp.png'
 import Lenis from 'lenis';
 import Navbar from './Navbar';
+
 gsap.registerPlugin(ScrollTrigger)
 
 function Hero() {
@@ -250,17 +251,17 @@ function Hero() {
 
                     <h1 className="text-3xl md:text-[2.7rem] font-semibold ">About me<span className="font-semibold text-[#f6b64f]">.</span></h1>
 
-                    <p className='text-[1.15rem] text-[#cecece] font-medium '>Hi! I’m <span className='font-semibold'>Ayush Srivastava</span>, an <span className='font-semibold'>19-year-old</span> web developer from <span className='font-semibold'>India</span> crafting seamless user experiences. I’m currently working with <span className='font-semibold'>TypeScript, React, and Next.js</span>. When I’m not coding, you’ll usually find me playing <span className='font-semibold'>chess</span> or relaxing with a game of <span className='font-semibold'>Valorant or CS2</span>. </p>
+                    <p className='text-[1.15rem] text-[#aeadad] font-medium '>Hi! I’m <span className='font-semibold'>Ayush Srivastava</span>, an <span className='font-semibold'>19-year-old</span> web developer from <span className='font-semibold'>India</span> crafting seamless user experiences. I’m currently working with <span className='font-semibold'>TypeScript, React, and Next.js</span>. When I’m not coding, you’ll usually find me playing <span className='font-semibold'>chess</span> or relaxing with a game of <span className='font-semibold'>Valorant or CS2</span>. </p>
 
                     <h1 className='font-semibold text-xl text-[#ffffff]'>My Tech Stack</h1>
 
                     <div className='flex gap-5 flex-wrap'>
 
 
-                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#cecece]'><img className='w-8 h-8' src={JavascriptIcon} />JavaScript</div>
-                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#cecece]'><img className='w-8 h-8' src={TypescriptIcon} />TypeScript</div>
-                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#cecece]'><img className='w-8 h-8' src={ReactIcon} />React</div>
-                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#cecece]'><img className='w-8 h-8' src={NextjsIcon} />Next.js</div>
+                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={JavascriptIcon} />JavaScript</div>
+                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={TypescriptIcon} />TypeScript</div>
+                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={ReactIcon} />React</div>
+                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={NextjsIcon} />Next.js</div>
 
                     </div>
 
@@ -272,7 +273,7 @@ function Hero() {
 
                     <div className='flex flex-wrap gap-8 text-center items-center justify-center md:justify-between '>
 
-                        <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center">
+                        <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[#d5d5d5]">
 
                             <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
                                 GitHub
