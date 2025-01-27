@@ -205,7 +205,7 @@ function Hero() {
                                 </a>
 
                                 <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0ne/">
-                                    <img className="w-10  heroSocialLogos" src={xIcon} alt="Instagram" />
+                                    <img className="w-9  heroSocialLogos" src={xIcon} alt="Instagram" />
                                 </a>
 
                                 <a target="_blank" rel="noopener noreferrer" href="mailto:aayush@mail.com">
