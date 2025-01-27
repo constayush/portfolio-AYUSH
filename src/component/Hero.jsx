@@ -14,6 +14,7 @@ import github from '../../public/github.svg'
 import linkedin from '../../public/linked-in.svg'
 import insta from '../../public/instagram.svg'
 import mail from '../../public/mail.svg'
+import xIcon from '../../public/x.svg'
 import tempProjectsImg from '../../public/projects.jpg'
 import projectImg1 from '../../public/project-img1.png'
 import ProjectCard from './ui/projectCard';
@@ -191,16 +192,20 @@ function Hero() {
 
                             <div className="netbox border-[#ffffff] rounded-lg flex gap-4 p-3">
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0ne">
                                     <img className="w-10  heroSocialLogos" src={github} alt="GitHub" />
                                 </a>
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/constayush/">
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ayush0ne/">
                                     <img className="w-10  heroSocialLogos" src={linkedin} alt="LinkedIn" />
                                 </a>
 
                                 <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/maihoonayush/">
                                     <img className="w-10  heroSocialLogos" src={insta} alt="Instagram" />
+                                </a>
+
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0ne/">
+                                    <img className="w-10  heroSocialLogos" src={xIcon} alt="Instagram" />
                                 </a>
 
                                 <a target="_blank" rel="noopener noreferrer" href="mailto:aayush@mail.com">
@@ -268,27 +273,31 @@ function Hero() {
 
                     <hr></hr>
 
-                    <h1 className='font-semibold text-xl text-[#ffffff]'>Contact</h1>
+                    <h1 className='font-semibold text-xl text-[rgba(255,255,255,0)]'>Contact</h1>
 
 
                     <div className='flex flex-wrap gap-8 text-center items-center justify-center md:justify-between '>
 
                         <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[#d5d5d5]">
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0ne">
                                 GitHub
                             </a>
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/constayush/">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ayush0ne/">
                                 LinkedIn
+                            </a>
+
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0ne/">
+                                X / twitter
                             </a>
 
                             <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/maihoonayush/">
                                 Instagram
                             </a>
-
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="mailto:aayush@mail.com">
-                                Mail
+                           
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="mailto:ayush0ne@proton.me">
+                            ayush0ne@proton.me
                             </a>
                             <a download="" className="p-2 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] border border-[#1f1f1f]  rounded transition duration-300">
 
