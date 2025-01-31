@@ -55,7 +55,7 @@ function Terminal() {
 
   function handleKeyPress(e) {
 
-    if ((e.code === 'Enter' || e.key === 'Enter' || e.key === 'Done')  && input.current.value) {  // checking both condition if key is  = enter and input command is not empty  
+    if ((e.code === 'Enter' || e.key === 'Enter' || e.key === 'Done') && input.current.value) {  // checking both condition if key is  = enter and input command is not empty  
 
       if (commandsArr.includes(input.current.value)) {
 
@@ -77,19 +77,19 @@ function Terminal() {
 
           input.current.value = null
           setPrvInputsData((prvInputsData) => [...prvInputsData, "contact"])
-          setPrvInputsData((prvInputsData) => [...prvInputsData, 
-          
+          setPrvInputsData((prvInputsData) => [...prvInputsData,
+
           <>
-          <p>Feel free to reach out through any platforms :</p>
-          <a href='mailto:aayush@mail.com' className='TconLinks '>aayush@mail.com </a> 
-          <a  target='blank' href='https://www.linkedin.com/in/constayush/' className='TconLinks'>linkedin </a>
-          <a  target='blank' href='https://github.com/constayush' className='TconLinks'>github </a>
-          <a  class='aniText' target='blank' href='https://www.instagram.com/maihoonayush/' className='TconLinks'>instagram </a>
-          
-          </> ])
+            <p>Feel free to reach out through any platforms :</p>
+            <a href='mailto:aayush@mail.com' className='TconLinks '>aayush@mail.com </a>
+            <a target='blank' href='https://www.linkedin.com/in/constayush/' className='TconLinks'>linkedin </a>
+            <a target='blank' href='https://github.com/constayush' className='TconLinks'>github </a>
+            <a class='aniText' target='blank' href='https://www.instagram.com/maihoonayush/' className='TconLinks'>instagram </a>
+
+          </>])
 
         }
-        
+
       }
 
       else {
@@ -111,7 +111,7 @@ function Terminal() {
 
   function changeBg(e) {
     terminalContainer.current.style.backgroundImage = `url(${bgImgArr[bgCounter]})`;
-    bgCounter > bgImgArr.length - 1 ? bgCounter = 0 : bgCounter++ 
+    bgCounter > bgImgArr.length - 1 ? bgCounter = 0 : bgCounter++
   }
 
 
@@ -158,7 +158,7 @@ function Terminal() {
 
             <p className='neon'>user@ayush:~#</p>
 
-            <input ref={input} type='text' onKeyDown={handleKeyPress} onChange={handleInputChange} className='tinput w-full bg-transparent' />
+            <input ref={input} type='text' onKeyDown={handleKeyPress} onChange={handleInputChange} className='tinput w-full bg-transparent caret-amber caret-2 caret-width-2' />
 
           </div>
 

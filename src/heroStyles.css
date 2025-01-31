@@ -86,6 +86,7 @@ nav {
  height: fit-content;
   background-color: #2626262d;
   border-radius: 8px;
+  transform: scale(.9);
   
 }
 
