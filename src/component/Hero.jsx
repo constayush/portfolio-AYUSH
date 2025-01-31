@@ -32,7 +32,7 @@ gsap.registerPlugin(ScrollTrigger)
 function Hero() {
 
     const cursorRef = useRef(null);
-    const headingWords = "Creating UIs that pop with clean design and code"
+    const headingWords = " Creating UIs that pop with clean design and code"
     const org = useRef();
     const projectCon = useRef();
     const mainHeading = useRef();
@@ -95,7 +95,7 @@ function Hero() {
         },
     ]
     //navbar effects
-   
+
 
 
     const handleMouseLeave_orgLogo = () => {
@@ -141,15 +141,15 @@ function Hero() {
 
     return (
 
-        <div className="hero w-full h-auto bg-grid-[#fff]/[.015] relative">
+        <div className=" hero w-full h-auto bg-grid-[#fff]/[.015] relative px-2">
 
             <div ref={cursorRef} className="custom-cursor"></div>
 
 
-           <Navbar />
+            <Navbar />
 
 
-            <main className="flex justify-center relative  w-full min-h-screen pt-[8rem] mb-[1.75rem] md:mb-[2.5rem] flex-col items-center overflow-x-hidden">
+            <main className="flex justify-center relative w-full min-h-screen pt-[8rem] mb-[1.75rem] md:mb-10 flex-col items-center overflow-x-hidden">
 
                 <div ref={mainCon} className="flex flex-col gap-7 items-center max-w-5xl text-center md:mb-8">
 
@@ -230,9 +230,8 @@ function Hero() {
 
             </main>
 
-            <div ref={projectCon} className="flex justify-center w-full h-auto mb-10 ">
-
-                <div className="w-full max-w-5xl projectss p-8 flex flex-col gap-16">
+            <div ref={projectCon} className="flex  justify-center w-full h-auto mb-20 ">
+                <div className="w-full max-w-5xl projectss flex flex-col gap-20">
 
                     <h1 className="text-3xl md:text-[2.7rem] font-semibold mb-2">Projects<span className="font-semibold text-[#f6b64f]">.</span></h1>
 
@@ -247,12 +246,10 @@ function Hero() {
                     </div>
 
                 </div>
-
             </div>
 
-            <div ref={aboutCon} className="about flex justify-center w-full h-auto py-10">
-
-                <div className="w-full max-w-5xl projectss p-8 flex flex-col gap-8 "  >
+            <div ref={aboutCon} className="about  flex justify-center w-full h-auto mb-8 ">
+                <div className="w-full max-w-5xl projectss  flex flex-col gap-8 "  >
 
                     <h1 className="text-3xl md:text-[2.7rem] font-semibold ">About me<span className="font-semibold text-[#f6b64f]">.</span></h1>
 
@@ -273,7 +270,7 @@ function Hero() {
 
                     <hr></hr>
 
-                    <h1 className='font-semibold text-xl text-[rgba(255,255,255,0)]'>Contact</h1>
+                    <h1 className='font-semibold text-xl text-white'>Contact</h1>
 
 
                     <div className='flex flex-wrap gap-8 text-center items-center justify-center md:justify-between '>
@@ -295,9 +292,9 @@ function Hero() {
                             <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/maihoonayush/">
                                 Instagram
                             </a>
-                           
+
                             <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="mailto:ayush0ne@proton.me">
-                            ayush0ne@proton.me
+                                ayush0ne@proton.me
                             </a>
                             <a download="" className="p-2 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] border border-[#1f1f1f]  rounded transition duration-300">
 
