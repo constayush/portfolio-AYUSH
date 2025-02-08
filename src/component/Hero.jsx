@@ -192,11 +192,11 @@ function Hero() {
 
                             <div className="netbox border-[#ffffff] rounded-lg flex gap-4 p-3">
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0ne">
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0x1">
                                     <img className="w-10  heroSocialLogos" src={github} alt="GitHub" />
                                 </a>
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ayush0ne/">
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ayush0x1/">
                                     <img className="w-10  heroSocialLogos" src={linkedin} alt="LinkedIn" />
                                 </a>
 
@@ -204,11 +204,11 @@ function Hero() {
                                     <img className="w-10  heroSocialLogos" src={insta} alt="Instagram" />
                                 </a>
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0ne/">
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0x1/">
                                     <img className="w-9  heroSocialLogos" src={xIcon} alt="Instagram" />
                                 </a>
 
-                                <a target="_blank" rel="noopener noreferrer" href="mailto:aayush@mail.com">
+                                <a target="_blank" rel="noopener noreferrer" href="mailto:ayushcodes@outlook.com">
                                     <img className="w-10  heroSocialLogos" src={mail} alt="Mail" />
                                 </a>
 
@@ -277,15 +277,15 @@ function Hero() {
 
                         <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[#d5d5d5]">
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0ne">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0x1">
                                 GitHub
                             </a>
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ayush0ne/">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ayush0x1/">
                                 LinkedIn
                             </a>
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0ne/">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0x1/">
                                 X / twitter
                             </a>
 
@@ -293,8 +293,9 @@ function Hero() {
                                 Instagram
                             </a>
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="mailto:ayush0ne@proton.me">
-                                ayush0ne@proton.me
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="mailto:ayushcodes@outlook.com">
+                                
+ayushcodes@outlook.com
                             </a>
                             <a download="" className="p-2 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] border border-[#1f1f1f]  rounded transition duration-300">
 
