@@ -10,3 +10,8 @@ html{
       }
 
 }
+.projects-img{transition: all ease .2s;}
+.projects-img:hover{
+
+  transform: scale(1.2);
+}

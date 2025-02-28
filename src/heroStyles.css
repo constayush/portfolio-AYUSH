@@ -47,7 +47,7 @@ nav {
 
 .logoNav:hover {
 
-  cursor: text;
+  cursor:crosshair;
   letter-spacing: 1rem;
 }
 
@@ -236,10 +236,3 @@ main {
   
   margin-bottom: 2px;
 }
-
-main{
-
-  background-image: ;
- 
-}
-  
