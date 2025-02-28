@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { use, useEffect } from 'react'
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import LocomotiveScroll from 'locomotive-scroll';
@@ -26,6 +26,7 @@ import NextjsIcon from '../../public/nextjs.svg'
 import pfp from '../../public/pfp.png'
 import Lenis from 'lenis';
 import Navbar from './Navbar';
+import DinoGame from './Dino';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -39,6 +40,10 @@ function Hero() {
     const mainCon = useRef();
     const subHeading = useRef();
     const aboutCon = useRef();
+const miniGame =useRef();
+
+  
+
 
     useEffect(() => {
         const cursor = cursorRef.current;
@@ -84,8 +89,8 @@ function Hero() {
     // rendering project card with this obj
     let projects = [
         {
-            projectName: "Mihika Arts",
-            projectDescription: "A curated collection of sketches and watercolors, with easy filters and a seamless shopping experience. Find art that speaks to you!",
+            projectName: "Incognito-Art",
+            projectDescription: "AI Image Gallery is a free AI-powered image generation platform where users can generate AI images and submit them anonymously to a Hall of Fame. No one knows who created the images, making it a fun and open space for creative exploration.",
             projectImg: projectImg1
         },
         {
@@ -136,6 +141,7 @@ function Hero() {
             animation: gsap.from(projectCon.current, { y: 500, opacity: 0 }),
             scrub: true,
         });
+        
 
     }, []);
 
@@ -192,7 +198,7 @@ function Hero() {
 
                             <div className="netbox border-[#ffffff] rounded-lg flex gap-4 p-3">
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0x1">
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ayushkodes">
                                     <img className="w-10  heroSocialLogos" src={github} alt="GitHub" />
                                 </a>
 
@@ -204,7 +210,7 @@ function Hero() {
                                     <img className="w-10  heroSocialLogos" src={insta} alt="Instagram" />
                                 </a>
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0x1/">
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayushkodes/">
                                     <img className="w-9  heroSocialLogos" src={xIcon} alt="Instagram" />
                                 </a>
 
@@ -277,7 +283,7 @@ function Hero() {
 
                         <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[#d5d5d5]">
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/ayush0x1">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/ayushkodes">
                                 GitHub
                             </a>
 
@@ -285,7 +291,7 @@ function Hero() {
                                 LinkedIn
                             </a>
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayush0x1/">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayushkodes/">
                                 X / twitter
                             </a>
 
@@ -305,6 +311,8 @@ ayushcodes@outlook.com
                         </div>
 
                         <p>© 2025 Ayush Srivastava</p>
+
+                    
 
                     </div>
                 </div>
