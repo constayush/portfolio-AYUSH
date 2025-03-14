@@ -95,15 +95,17 @@ function Hero() {
             projectDescriptionLong: "Users can generate AI images and submit them anonymously to a Hall of Fame. No one knows who created the images, making it a fun and open space for creative exploration.",
             projectImg: projectImg1,
             projectCode: "https://github.com/constayush/Incognito-Art",
-            projectLive: "https://incognito-art.vercel.app/"
+            projectLive: "https://incognito-art.vercel.app/",
+            projectId: 1
         },
         {
             projectName: "Can you remember?",
             projectDescriptionShort: "Test your memory and challenge your brain by recalling tile sequences",
-            projectDescriptionLong: "",
+            projectDescriptionLong: "Sharpen your memory and boost cognitive skills with this fun tile-sequence game. Challenge yourself by recalling and replicating patterns that increase in complexity. Improve focus, pattern recognition, and short-term memory in an engaging way!",
             projectImg: projectImg2,
             projectCode: "https://github.com/constayush/can-you-remember",
-            projectLive: "https://can-you-remember.vercel.app/"
+            projectLive: "https://can-you-remember.vercel.app/",
+            projectId: 2
         },
     ]
     //navbar effects
@@ -252,7 +254,7 @@ function Hero() {
 
                         {
                             projects.map((i, a) => {
-                                return <ProjectCard  cursorRef={cursorRef.current} key={projects[a].projectName} projectDescriptionShort={projects[a].projectDescriptionShort} projectDescriptionLong={projects[a].projectDescriptionLong} projectImg={projects[a].projectImg} projectLive={projects[a].projectLive} projectCode={projects[a].projectCode} projectName={projects[a].projectName} />
+                                return <ProjectCard projectId={projects[a].projectId}  cursorRef={cursorRef.current} key={projects[a].projectName} projectDescriptionShort={projects[a].projectDescriptionShort} projectDescriptionLong={projects[a].projectDescriptionLong} projectImg={projects[a].projectImg} projectLive={projects[a].projectLive} projectCode={projects[a].projectCode} projectName={projects[a].projectName} />
                             })
                         }
 
