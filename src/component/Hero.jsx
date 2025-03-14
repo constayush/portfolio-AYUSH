@@ -17,6 +17,7 @@ import mail from '../../public/mail.svg'
 import xIcon from '../../public/x.svg'
 import tempProjectsImg from '../../public/projects.jpg'
 import projectImg1 from '../../public/project-img1.png'
+import projectImg2 from '../../public/project-img2.png'
 import ProjectCard from './ui/projectCard';
 import { TextGenerateEffect } from './ui/text-generate-effect'
 import TypescriptIcon from '../../public/typescript.svg'
@@ -90,15 +91,19 @@ function Hero() {
     let projects = [
         {
             projectName: "Incognito-Art",
-            projectDescriptionShort: "AI Image Gallery is a free AI-powered image generation platform",
+            projectDescriptionShort: "AI Image Gallery is a free AI-powered image generation platform [Under Development, will be completed on April 2025]",
             projectDescriptionLong: "Users can generate AI images and submit them anonymously to a Hall of Fame. No one knows who created the images, making it a fun and open space for creative exploration.",
-            projectImg: projectImg1
+            projectImg: projectImg1,
+            projectCode: "https://github.com/constayush/Incognito-Art",
+            projectLive: "https://incognito-art.vercel.app/"
         },
         {
-            projectName: "Project",
-            projectDescriptionShort: " this is second project, it is in development",
+            projectName: "Can you remember?",
+            projectDescriptionShort: "Test your memory and challenge your brain by recalling tile sequences",
             projectDescriptionLong: "",
-            projectImg: tempProjectsImg
+            projectImg: projectImg2,
+            projectCode: "https://github.com/constayush/can-you-remember",
+            projectLive: "https://can-you-remember.vercel.app/"
         },
     ]
     //navbar effects
@@ -247,7 +252,7 @@ function Hero() {
 
                         {
                             projects.map((i, a) => {
-                                return <ProjectCard  cursorRef={cursorRef.current} key={projects[a].projectName} projectDescriptionShort={projects[a].projectDescriptionShort} projectDescriptionLong={projects[a].projectDescriptionLong} projectImg={projects[a].projectImg} projectName={projects[a].projectName} />
+                                return <ProjectCard  cursorRef={cursorRef.current} key={projects[a].projectName} projectDescriptionShort={projects[a].projectDescriptionShort} projectDescriptionLong={projects[a].projectDescriptionLong} projectImg={projects[a].projectImg} projectLive={projects[a].projectLive} projectCode={projects[a].projectCode} projectName={projects[a].projectName} />
                             })
                         }
 
