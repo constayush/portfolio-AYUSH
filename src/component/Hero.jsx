@@ -40,7 +40,7 @@ function Hero() {
     const mainCon = useRef();
     const subHeading = useRef();
     const aboutCon = useRef();
-const miniGame =useRef();
+    const miniGame =useRef();
 
   
 
@@ -90,12 +90,14 @@ const miniGame =useRef();
     let projects = [
         {
             projectName: "Incognito-Art",
-            projectDescription: "AI Image Gallery is a free AI-powered image generation platform where users can generate AI images and submit them anonymously to a Hall of Fame. No one knows who created the images, making it a fun and open space for creative exploration.",
+            projectDescriptionShort: "AI Image Gallery is a free AI-powered image generation platform",
+            projectDescriptionLong: "Users can generate AI images and submit them anonymously to a Hall of Fame. No one knows who created the images, making it a fun and open space for creative exploration.",
             projectImg: projectImg1
         },
         {
             projectName: "Project",
-            projectDescription: " this is second project, it is in development",
+            projectDescriptionShort: " this is second project, it is in development",
+            projectDescriptionLong: "",
             projectImg: tempProjectsImg
         },
     ]
@@ -138,7 +140,7 @@ const miniGame =useRef();
         ScrollTrigger.create({
             trigger: mainCon.current,
             start: "bottom bottom",
-            animation: gsap.from(projectCon.current, { y: 500, opacity: 0 }),
+            animation: gsap.from(projectCon.current, { y: 20, ease: "easeIn",  opacity: 0,}),
             scrub: true,
         });
         
@@ -198,7 +200,7 @@ const miniGame =useRef();
 
                             <div className="netbox border-[#ffffff] rounded-lg flex gap-4 p-3">
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ayushkodes">
+                                <a target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
                                     <img className="w-10  heroSocialLogos" src={github} alt="GitHub" />
                                 </a>
 
@@ -210,7 +212,7 @@ const miniGame =useRef();
                                     <img className="w-10  heroSocialLogos" src={insta} alt="Instagram" />
                                 </a>
 
-                                <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayushkodes/">
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.x.com/constayush/">
                                     <img className="w-9  heroSocialLogos" src={xIcon} alt="Instagram" />
                                 </a>
 
@@ -245,7 +247,7 @@ const miniGame =useRef();
 
                         {
                             projects.map((i, a) => {
-                                return <ProjectCard cursorRef={cursorRef.current} key={projects[a].projectName} projectDescription={projects[a].projectDescription} projectImg={projects[a].projectImg} projectName={projects[a].projectName} />
+                                return <ProjectCard  cursorRef={cursorRef.current} key={projects[a].projectName} projectDescriptionShort={projects[a].projectDescriptionShort} projectDescriptionLong={projects[a].projectDescriptionLong} projectImg={projects[a].projectImg} projectName={projects[a].projectName} />
                             })
                         }
 
@@ -283,7 +285,7 @@ const miniGame =useRef();
 
                         <div className="  w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[#d5d5d5]">
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/ayushkodes">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
                                 GitHub
                             </a>
 
@@ -291,7 +293,7 @@ const miniGame =useRef();
                                 LinkedIn
                             </a>
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.x.com/ayushkodes/">
+                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="https://www.x.com/constayush/">
                                 X / twitter
                             </a>
 

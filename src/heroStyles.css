@@ -236,3 +236,15 @@ main {
   
   margin-bottom: 2px;
 }
+
+
+#SHOWMOREIncognito-Art:checked~.showmore-project-card{
+display: inline;
+}
+
+#SHOWMOREProject:checked~.showmore-project-card{
+  display: inline;
+  }
+.showmore-project-card{
+  display: none;
+}
