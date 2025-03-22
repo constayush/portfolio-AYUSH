@@ -229,7 +229,7 @@ function Hero() {
 
                             </div>
 
-                            <a download="" class="p-4 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] md:px-3 md:py-1 rounded transition duration-300 border border-white">
+                            <a download="" className="p-4 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] md:px-3 md:py-1 rounded transition duration-300 border border-white">
 
                                 <svg stroke="currentColor" fill="currentColor" viewBox="0 0 384 512" className="mr-2" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg>
 
@@ -267,8 +267,13 @@ function Hero() {
                 <div className="w-full max-w-5xl projectss  flex flex-col gap-8 "  >
 
                     <h1 className="text-3xl md:text-[2.7rem] font-semibold ">About me<span className="font-semibold text-[#f6b64f]">.</span></h1>
+                    <p className='text-[1.15rem] text-[#aeadad] font-medium'>
+  Hi! I’m <span className='font-semibold'>Ayush Srivastava</span>, a <span className='font-semibold'>19-year-old</span> web developer from <span className='font-semibold'>India</span>.  
+  I work with <span className='font-semibold'>TypeScript, React, and Next.js</span>, building clean and efficient web applications.  
+  Beyond the IDE, I enjoy <span className='font-semibold'>chess</span> and fast-paced FPS games like <span className='font-semibold'>Valorant</span> and <span className='font-semibold'>CS2</span>.  
+</p>
 
-                    <p className='text-[1.15rem] text-[#aeadad] font-medium '>Hi! I’m <span className='font-semibold'>Ayush Srivastava</span>, an <span className='font-semibold'>19-year-old</span> web developer from <span className='font-semibold'>India</span> crafting seamless user experiences. I’m currently working with <span className='font-semibold'>TypeScript, React, and Next.js</span>. When I’m not coding, you’ll usually find me playing <span className='font-semibold'>chess</span> or relaxing with a game of <span className='font-semibold'>Valorant or CS2</span>. </p>
+
 
                     <h1 className='font-semibold text-xl text-[#ffffff]'>My Tech Stack</h1>
 
@@ -278,7 +283,7 @@ function Hero() {
                         <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={JavascriptIcon} />JavaScript</div>
                         <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={TypescriptIcon} />TypeScript</div>
                         <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={ReactIcon} />React</div>
-                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8' src={NextjsIcon} />Next.js</div>
+                        <div className='w-auto border flex justify-center items-center gap-1 p-2 text-[#d5d5d5]'><img className='w-8 h-8 bg-[#D8D8D8] p-[.07rem]' src={NextjsIcon} />Next.js</div>
 
                     </div>
 

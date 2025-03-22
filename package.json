@@ -8,9 +8,12 @@
   "author": "Ayush Srivastava",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.13.5",
     "@gsap/react": "^2.1.0",
+    "axios": "^1.8.3",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.11",
+    "graphql-request": "^7.1.2",
     "gsap": "^3.12.5",
     "lenis": "^1.1.16",
     "locomotive-scroll": "^5.0.0-beta.11",
@@ -24,6 +27,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-raw": "^2.13.3",
+    "buffer": "^6.0.3",
     "parcel": "^2.11.0",
     "process": "^0.11.10",
     "tailwindcss": "^3.4.1"
