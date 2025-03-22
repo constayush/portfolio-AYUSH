@@ -325,8 +325,8 @@ ayushcodes@outlook.com
                         </div>
 
                         <p>© 2025 Ayush Srivastava</p>
+                    <Link className='text-[rgb(255,255,255)] text-[2rem] logoNav' to="/mini-game">आ<span className="accent">1.</span></Link>
 
-                    
 
                     </div>
                 </div>

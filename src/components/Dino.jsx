@@ -111,13 +111,22 @@ const DinoGame = ({ className }) => {
           }}
         />
       ))}
-     
+
       <div className="flex w-[70%] flex-wrap m-5 gap-5 justify-between">
-        <Link className="w-full md:w-fit" to="/">
-          <button className="text-white text-lg md:text-[1.4rem] w-full md:w-fit outline p-2 transition-all duration-300 rounded-sm hover:text-black hover:font-bold hover:bg-[rgb(255,190,71)]">
-            HOME
-          </button>
-        </Link>
+        <div className="flex gap-6">
+          <Link
+            className="text-[rgb(255,255,255)] text-[2rem] logoNav"
+            to="/mini-game"
+          >
+            आ<span className="accent">1.</span>
+          </Link>
+
+          <Link className="w-full md:w-fit" to="/">
+            <button className="text-white text-lg md:text-[1.4rem] w-full md:w-fit border-2 p-2 transition-all duration-300 rounded-sm hover:text-black hover:font-semibold hover:bg-[rgb(255,190,71)]">
+              HOME
+            </button>
+          </Link>
+        </div>
 
         <div className="flex flex-wrap gap-5 text-center">
           <p className="text-center">High Score: {highscore.current}</p>
