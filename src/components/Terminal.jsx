@@ -120,10 +120,10 @@ function Terminal() {
     <div ref={terminalContainer} className='terminal w-full lg:h-[98vh] h-[95vh] center flex-col p-[1rem] rounded'>
 
 
-      <div ref={terminal} className='w-full h-full z-[99]  bg-[#070707cf]  rounded-md will-change-scroll'>
+      <div ref={terminal} className='w-full h-full z-[99]  bg-[#070707e6]  rounded-md will-change-scroll'>
 
 
-        <nav className='w-full  h-[8%] text-white bg-[#141414f3] flex items-center justify-between p-[2rem] rounded-md'>
+        <nav className='w-full  h-[8%] text-white bg-[#000000] flex items-center justify-between p-[2rem] rounded-md'>
 
           <div className=" text-xl ">
             <img src={themeIco} className='changeBgBtn  cursor-pointer w-8 h-8 rounded-full' onClick={changeBg} />

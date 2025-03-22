@@ -39,15 +39,12 @@ nav {
   font-weight: 600;
   color: #fff;
   transition: all .35s ease-in-out;
-
-
-
 }
 
 .logoNav:hover {
 
   cursor: crosshair;
-  letter-spacing: 1rem;
+  
 }
 
 .heroSocialLogos {

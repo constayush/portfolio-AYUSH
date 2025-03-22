@@ -22,7 +22,7 @@ function Navbar() {
      <div className='w-full flex justify-center items-center'>
                     <nav ref={nav}  className='flex px-3 w-full lg:w-[64rem]  pt-[5rem]  navbar-short z-[99] fixed top-0  items-center justify-between  '>
     
-                        <Link className='text-[rgb(255,255,255)] text-[2rem] logoNav' to="/mini-game">आ<span className="accent">0.</span></Link>
+                        <Link className='text-[rgb(255,255,255)] text-[2rem] hover:tracking-[1rem] logoNav' to="/mini-game">आ<span className="accent">1.</span></Link>
                         <ul className='flex gap-8 items-center justify-center'>
                             <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'>
                             <a className='cursor-pointer'
