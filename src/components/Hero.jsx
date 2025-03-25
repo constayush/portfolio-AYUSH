@@ -277,8 +277,8 @@ function Hero() {
                     <h1 className="text-3xl md:text-[2.7rem] font-semibold ">About me<span className="font-semibold text-[#f6b64f]">.</span></h1>
                     <p className='text-[1.15rem] text-[#aeadad] font-medium'>
   Hi! I’m <span className='font-semibold'>Ayush Srivastava</span>, a <span className='font-semibold'>19-year-old</span> web developer from <span className='font-semibold'>India</span>.  
-  I work with <span className='font-semibold'>TypeScript, React, and Next.js</span>, building clean and efficient web applications.  
-  Beyond the IDE, I enjoy <span className='font-semibold'>chess</span> and fast-paced FPS games like <span className='font-semibold'>Valorant</span> and <span className='font-semibold'>CS2</span>.  
+  Currently a second-year <span className='font-semibold'>Computer Science</span> student, I work with <span className='font-semibold'>TypeScript, React, and Next.js</span>, building clean and efficient web applications.  
+  Beyond the IDE, I enjoy <span className='font-semibold'>chess</span> and <span className='font-semibold'>Valorant</span>.  
 </p>
 
 
