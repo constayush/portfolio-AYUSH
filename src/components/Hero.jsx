@@ -99,14 +99,22 @@ function Hero() {
             projectId: 1
         },
         {
-            projectName: "Can you remember?",
-            projectDescriptionShort: "Test your memory and challenge your brain by recalling tile sequences",
-            projectDescriptionLong: "Sharpen your memory and boost cognitive skills with this fun tile-sequence game. Challenge yourself by recalling and replicating patterns that increase in complexity. Improve focus, pattern recognition, and short-term memory in an engaging way!",
+            projectName: "Boxit",
+            projectDescriptionShort: "Box'It is a boxing app that helps users learn, practice, and stay updated, offering valuable resources for all skill levels.",
+            projectDescriptionLong: "Box'It is a comprehensive boxing app designed for all skill levels, from beginners to experienced fighters. It offers interactive tutorials, guided training sessions, and personalized workout plans. Users can stay updated with real-time boxing news and fight schedules.",
             projectImg: projectImg2,
-            projectCode: "https://github.com/constayush/can-you-remember",
-            projectLive: "https://can-you-remember.vercel.app/",
+            projectCode: "https://github.com/constayush/Boxit",
+            projectLive: "https://boxit-two.vercel.app/",
             projectId: 2
         },
+        // {    projectName: "Can you remember?",
+        //     projectDescriptionShort: "Test your memory and challenge your brain by recalling tile sequences",
+        //     projectDescriptionLong: "Sharpen your memory and boost cognitive skills with this fun tile-sequence game. Challenge yourself by recalling and replicating patterns that increase in complexity. Improve focus, pattern recognition, and short-term memory in an engaging way!",
+        //     projectImg: projectImg2,
+        //     projectCode: "https://github.com/constayush/can-you-remember",
+        //     projectLive: "https://can-you-remember.vercel.app/",
+        //     projectId: 2
+        // },
     ]
     //navbar effects
 
@@ -313,9 +321,9 @@ function Hero() {
                                 Instagram
                             </a>
 
-                            <a className='footerLinks' target="_blank" rel="noopener noreferrer" href="mailto:ayushcodes@outlook.com">
+                            <a className='hover:cursor-pointer hover:text-[#f6b64f]' target="_blank" rel="noopener noreferrer" href="mailto:ayushcodes@outlook.com">
                                 
-ayushcodes@outlook.com
+                                        ayushcodes@outlook.com
                             </a>
                             <a download="" className="p-2 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] border border-[#1f1f1f]  rounded transition duration-300">
 
