@@ -3,22 +3,23 @@ import React, { useEffect } from 'react'
 function ProjectCard(props) {
 
   return (
-    <div className="card max-w-[30rem]  border-2 shadow-2xl border-[#ffffff10] rounded-lg ">
+    <div className="card porject-card group max-w-[30rem] transition-all  border-2 shadow-2xl border-[#ffffff10] rounded-lg ">
 
       <input type="checkbox" id={`SHOWMORE${props.projectId}`} className="hidden" />
 
 
-      <div className='group flex flex-col gap-[1.5rem]'>
-        <h1 className='projects-h1 group-hover:tracking-[.02rem] transition-all  duration-300 group-hover:text-[#ffffff] text-[#c5c5c5]'>{props.projectName}</h1>
-        <div className='aspect-[16/9] w-full overflow-hidden peer'>
+      <div className=' flex flex-col gap-[1.5rem]'>
+        <h1 className='projects-h1  transition-all  duration-300 group-hover:text-[#ffffff] text-[#c5c5c5]'>{props.projectName}</h1>
+        <div className='aspect-[16/9] w-full overflow-hidden '>
           <img className='projects-img aspect-[16/9] object-contain  border-2 shadow-2xl border-[#ffffff1d] rounded-lg' src={props.projectImg} />
         </div>
       </div>
 
       <p className='text-[#cecdcd]'>{props.projectDescriptionShort}</p>
 
-
       <p className='text-[#cecdcd] showmore-project-card '>{props.projectDescriptionLong}</p>
+
+
       <label htmlFor={`SHOWMORE${props.projectId}`} className="btn showmore cursor-pointer">Read more</label>
       <label htmlFor={`SHOWMORE${props.projectId}`} className="btn showless cursor-pointer">Show less</label>
       <div className="flex justify-between space-x-4 ">
