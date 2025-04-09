@@ -164,7 +164,7 @@ function Hero() {
 
     return (
 
-        <div className=" hero w-full h-auto bg-grid-[#fff]/[.015] relative px-2">
+        <div className=" hero w-full h-auto bg-grid-[#fff]/[.015] relative px-6">
 
             <div ref={cursorRef} className="custom-cursor"></div>
 
@@ -181,7 +181,7 @@ function Hero() {
                     <div className="flex text-center">
 
 
-                        <div ref={mainHeading} className="text-[1.35rem] md:text-[2.2rem] lg:text-[2.8rem] font-semibold text-[#fafafa]">
+                        <div ref={mainHeading} className="text-[2rem] md:text-[2.6rem] lg:text-[2.8rem] font-semibold text-[#dedede]">
                             <h1 className='inline'>
                                 <TextGenerateEffect className={"inline"} words={headingWords} /></h1>
                             <Link to="/terminal">
@@ -213,7 +213,7 @@ function Hero() {
 
                         <div className="networks flex lg:flex-row-reverse flex-wrap flex-col gap-4 ">
 
-                            <div className="netbox border-[#ffffff] rounded-lg flex gap-4 p-3">
+                            <div className="netbox  rounded-lg flex gap-4 p-3">
 
                                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">
                                     <img className="w-10  heroSocialLogos" src={github} alt="GitHub" />
@@ -237,7 +237,7 @@ function Hero() {
 
                             </div>
 
-                            <a download="" className="p-4 flex items-center bg-[#111111] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] md:px-3 md:py-1 rounded transition duration-300 border border-white">
+                            <a download="" className="p-4 flex items-center bg-[#dedede0f] w-auto text-center justify-center hover:bg-white text-white hover:text-[#111111] md:px-3 md:py-1 rounded transition duration-300 border border-[#dedede58]">
 
                                 <svg stroke="currentColor" fill="currentColor" viewBox="0 0 384 512" className="mr-2" height="18" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"></path></svg>
 
