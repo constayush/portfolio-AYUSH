@@ -2,12 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root {
+  /* Light theme colors */
+  --light-bg-color: #c3c2c2;
+  --light-text-color: #111111;
+  --light-accent-color: #FE8808;
+  --light-secondary-text: #333333;
+  --light-border-color: #1e1d1d;
+  --light-nav-text-color: #111111;
+  --light-grid-bg-color: #000000;
+  --light-glass-color:#ffffff88;
+  /* Dark theme colors */
+  --dark-bg-color: #080808;
+  --dark-text-color: #dedede;
+  --dark-accent-color: #FE8808;
+  --dark-secondary-text: #bfbfbf;
+  --dark-border-color: #8f8f8f;
+  --dark-nav-text-color: #c0c0c0;
+  --dark-grid-bg-color: #ffffff;
+ --dark-glass-color:#0000004f;
+ --dark-nav-bg-color: #9797972d;
+  /* Default to dark theme */
+  
+  --nav-bg-color: var(--dark-nav-bg-color);
+  --bg-color: var(--dark-bg-color);
+  --text-color: var(--dark-text-color);
+  --accent-color: var(--dark-accent-color);
+  --secondary-text: var(--dark-secondary-text);
+  --border-color: var(--dark-border-color);
+  --nav-text-color: var(--dark-nav-text-color);
+--glass-bg-color: var(--dark-glass-color);
+--grid-bg-color: var(--dark-grid-bg-color);
+--netbox-bg-color: var(--dark-bg-color);
+--icon-color:1;
+}
+
+[data-theme="light"] {
+  --nav-bg-color: var(--light-glass-color);
+  --icon-color:0;
+  --bg-color: var(--light-bg-color);
+  --text-color: var(--light-text-color);
+  --accent-color: var(--light-accent-color);
+  --secondary-text: var(--light-secondary-text);
+  --border-color: var(--light-border-color);
+  --nav-text-color: var(--light-nav-text-color);
+  --glass-bg-color: var(--light-glass-color);
+  --grid-bg-color: var(--light-grid-bg-color);
+  --netbox-bg-color: #ffffff35;
+  --resume-btn-color: #ffffff35;
+  --box-shadow: rgba(0, 0, 0, 0.034) 0px 12px 28px 0px, rgba(0, 0, 0, 0.025) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+[data-theme="dark"] {
+  --nav-bg-color: var(--dark-nav-bg-color);
+  --icon-color:1;
+  --bg-color: var(--dark-bg-color);
+  --text-color: var(--dark-text-color);
+  --accent-color: var(--dark-accent-color);
+  --secondary-text: var(--dark-secondary-text);
+  --border-color: var(--dark-border-color);
+  --nav-text-color: var(--dark-nav-text-color);
+  --glass-bg-color: var(--dark-glass-color);
+  --grid-bg-color: var(--dark-grid-bg-color);
+  --netbox-bg-color: var(--dark-bg-color);
+  --resume-btn-color: #ffffff0c;
+  --box-shadow: rgba(255, 255, 255, 0.025) 0px 12px 28px 0px, rgba(255, 255, 255, 0) 0px 2px 4px 0px, rgba(60, 60, 60, 0.527) 0px 0px 0px 1px inset;
+}
 
 html{
     ::selection {
         color: rgb(76, 76, 76);
-        background: rgb(199, 199, 199);
+        background: rgb(0, 0, 0);
       }
+
+      background: var(--bg-color);
 
 }
 .projects-img{transition: all ease .2s;}
@@ -15,52 +87,6 @@ html{
 
   
   transform: scale(1.2);
-}
-
-.blog-section {
-  padding: 2rem;
-  background-color: #f9f9f9;
-}
-
-.blog-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.blog-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.blog-card {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.blog-card img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-.blog-card h3 {
-  font-size: 1.25rem;
-  margin: 0.5rem 0;
-}
-
-.blog-card p {
-  font-size: 0.875rem;
-  color: gray;
-}
-
-.blog-card a {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-weight: bold;
-  color: #0073e6;
-  text-decoration: none;
 }
 
 @keyframes ripple {
@@ -78,7 +104,31 @@ html{
   position: absolute;
   width: 50px;
   height: 50px;
-  background: #f6b64f;
+  background: #FE8808;
   border-radius: 50%;
   animation: ripple 0.6s ease-out forwards;
+}
+
+
+
+.text-shadow-lg {
+  text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 3px;
+
+}
+
+
+body::-webkit-scrollbar {
+
+  width: .5em;
+}
+
+
+body::-webkit-scrollbar-track-piece {
+  background: #00000000;
 }
