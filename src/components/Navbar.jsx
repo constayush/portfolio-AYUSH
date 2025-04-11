@@ -1,44 +1,54 @@
-import React , { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { Power1 } from 'gsap'
-function Navbar() {
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import { useTheme } from "../ThemeContext";
 
-  const currentScrollY = window.scrollY;
-  let lastScrollY = window.scrollY;
+function Navbar() {
+  const { theme, toggleTheme } = useTheme();
   const nav = useRef();
 
-
   window.onscroll = () => {
-      if (window.scrollY > 80) {
-          nav?.current?.classList.add('nav-active');
-      } else {
-          nav?.current?.classList.remove('nav-active');
-      }
+    if (window.scrollY > 80) {
+      nav?.current?.classList.add("nav-active");
+    } else {
+      nav?.current?.classList.remove("nav-active");
+    }
   };
 
   return (
-     <div className='w-full flex justify-center items-center'>
-                    <nav ref={nav}  className='flex px-6 w-full lg:w-[64rem] sm:gap-9 gap-3 pt-[5rem]  navbar-short z-[99] fixed top-0  items-center justify-between  '>
-    
-                        <Link className='text-[rgb(255,255,255)] text-[2rem] hover:tracking-[1rem] logoNav' to="/mini-game">आ<span className="accent">1.</span></Link>
-                        <ul className='flex gap-3 text-center items-center justify-center'>
-                            <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'>
-                            <a className='cursor-pointer'
-                            onClick={() => document.querySelector('.about')?.scrollIntoView({
-                                    behavior: "smooth",  
-                                })}
-                             >About me</a>
-    
-                             </li>
-                             <li className='text-[#cecece] font-medium text-[1.1rem]  navLinks'><Link to="/terminal">Terminal</Link></li>
-                           
-                       
-                        </ul>
-    
-                    </nav>
-                </div>)
+    <div className="w-full flex justify-center items-center  ">
+      <nav
+        ref={nav}
+        className="flex px-6 w-full  lg:w-[64rem] sm:gap-9 gap-3 pt-[5rem]   navbar-short z-[99] fixed top-0  items-center justify-between  "
+      >
+        <Link
+          className="text-[var(--text-color)]   text-[2rem] hover:tracking-[1rem] logoNav"
+          to="/orange-rollllllllling"
+        >
+          आ<span className="accent">1.</span>
+        </Link>
+        <ul className="flex gap-3 text-center items-center font-semibold justify-center">
+          <li className="text-[var(--nav-text-color)]  text-[1.1rem]  navLinks">
+            <a
+              className="cursor-pointer"
+              onClick={() =>
+                document.querySelector(".about")?.scrollIntoView({
+                  behavior: "smooth",
+                })
+              }
+            >
+              About me
+            </a>
+          </li>
+          <li className="text-[var(--nav-text-color)] text-[1.1rem]  navLinks">
+            <Link to="/terminal">Terminal</Link>
+          </li>
+          <button aria-label="theme-button" onClick={toggleTheme} className="theme-toggle text-shadow-lg hover:rotate-180 hover:scale-150 transition duration-500">
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>{" "}
+        </ul>
+      </nav>
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;

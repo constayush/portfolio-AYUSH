@@ -1,112 +1,67 @@
-:root {
-  --background-color: #090909;
-  --text-color: #ffffff;
-  --accent-color: #ffffff;
-}
 
-.light-mode {
-  --background-color: #e9e9e9;
-  --text-color: #000000;
-  --accent-color: #fc9930;
-
-}
 
 body,
 html {
-
-
-  background-color: var(--background-color);
   margin: 0;
   box-sizing: border-box;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
-
 nav {
-
   transform-origin: center;
   transition: all .6s ease;
   background-color: #ffffff00;
 }
-
-.hero {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
 .logoNav {
   font-family: "Zen Dots", sans-serif;
   font-weight: 600;
-  color: #fff;
   transition: all .35s ease-in-out;
 }
-
 .logoNav:hover {
-
   cursor: crosshair;
-  
 }
-
 .heroSocialLogos {
-  background-clip: border-box;
-  mix-blend-mode: exclusion;
-  filter: grayscale(1);
-  transition: all .2s ease;
+  opacity: .8;
+ filter:invert(var(--icon-color));
+  transition: all .3s ease;
 }
-
 .heroSocialLogos:hover {
-
-
-  filter: grayscale(0);
-  filter: contrast(100);
+  opacity: 1;
   transform: scale(1.3);
 }
-
 .accent {
 
   filter: grayscale(1);
-  color: #fc9930;
-  outline: dashed #fff 1px;
+  color: #FE8808;
+  outline: dashed  1px;
 }
-
-
-
 .nav-active {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  box-shadow: var(--box-shadow);
   text-decoration: none;
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(15px);
   padding: 1.25rem;
   margin: 1.25rem;
   width: fit-content;
   height: fit-content;
-  background-color: #9797972d;
+  background-color: var(--nav-bg-color);
   border-radius: 8px;
   transform: scale(.9);
-
-
 }
-
 .custom-cursor {
   width: 30px;
   height: 30px;
   border: 2px solid #fc9930;
-  /* Orange color */
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 1000;
-  /* Ensure it stays on top */
   transform: translate(-50%, -50%);
-  /* Center the cursor */
   transition: transform 0.1s ease-out;
   mix-blend-mode: difference;
-  /* Optional: For a cool effect */
 }
-
 .resumeLogo {
-  transition: all ease .2s;
+  transition: all ease .3s;
 }
-
 .resumeLogo:hover {
   filter: brightness(2);
   transform: scale(1.1);
@@ -118,7 +73,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #dedede58;
+  border: 1px solid ;
   color: #444;
 }
 
@@ -129,29 +84,11 @@ nav {
 
 }
 
-
-body::-webkit-scrollbar-thumb {
-  background-color: rgb(181, 181, 181);
-  border-radius: 3px;
-
-}
-
-
-body::-webkit-scrollbar {
-
-  width: .5em;
-}
-
-
-body::-webkit-scrollbar-track-piece {
-  background: #00000000;
-}
-
 .projects-h1 {
 
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .card {
@@ -159,7 +96,6 @@ body::-webkit-scrollbar-track-piece {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  background-color: #04040492;
   flex-direction: column;
   gap: 1.5rem;
   padding: 1.5rem;
@@ -232,13 +168,6 @@ main {
   overflow: hidden;
 }
 
-
-#root {
-
-  margin-bottom: 2px;
-}
-
-
 .showmore-project-card {
   display: none;
 }
@@ -270,8 +199,29 @@ main {
 #SHOWMORE2:checked~.showmore {
   display: none;
 }
+/* f77300 */
 
+.text-glow {
+  background: linear-gradient(
+    125deg,
+    #FE8808 20%,
+    #ffffff 40%,
+    #FE8808 60%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 3s linear infinite;
+}
 
-
-
+@keyframes textShine {
+  0% {
+    background-position: -150% 0%;
+  }
+  100% {
+    background-position: 150% 0%;
+  }
+}
 
