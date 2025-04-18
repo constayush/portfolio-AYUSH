@@ -11,7 +11,7 @@ function ProjectCard(props) {
       <div className=' flex flex-col gap-[1.5rem]'>
         <h1 className='projects-h1  transition-all opacity-[.9]  duration-300 font-bold text-[var(--text-color)] '>{props.projectName}</h1>
         <div className='aspect-[16/9] w-full overflow-hidden '>
-          <img className='projects-img aspect-[16/9] object-contain  border-2 shadow-2xl border-[#ffffff1d] rounded-lg' src={props.projectImg} />
+          <img className='projects-img aspect-[16/9] object-contain  border-2 shadow-2xl bg-black border-[#ffffff1d] rounded-lg' src={props.projectImg} />
         </div>
       </div>
 
