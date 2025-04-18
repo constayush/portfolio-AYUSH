@@ -22,26 +22,24 @@ function Navbar() {
       >
         <Link
           className="text-[var(--text-color)]   text-[2rem] hover:tracking-[1rem] logoNav"
-          to="/orange-rollllllllling"
+          to="/"
         >
           आ<span className="accent">1.</span>
         </Link>
         <ul className="flex gap-3 text-center items-center font-semibold justify-center">
+            {/* <li className="text-[var(--nav-text-color)] text-[1.1rem]  navLinks">
+            <Link to="/">Projects</Link>
+          </li> */}
+          
           <li className="text-[var(--nav-text-color)]  text-[1.1rem]  navLinks">
-            <a
-              className="cursor-pointer"
-              onClick={() =>
-                document.querySelector(".about")?.scrollIntoView({
-                  behavior: "smooth",
-                })
-              }
-            >
-              About me
-            </a>
+          <Link to="/gists">Gists</Link>
           </li>
+
+
           <li className="text-[var(--nav-text-color)] text-[1.1rem]  navLinks">
             <Link to="/terminal">Terminal</Link>
-          </li>
+          </li>       
+
           <button aria-label="theme-button" onClick={toggleTheme} className="theme-toggle text-shadow-lg hover:rotate-180 hover:scale-150 transition duration-500">
             {theme === "dark" ? "☀️" : "🌙"}
           </button>{" "}

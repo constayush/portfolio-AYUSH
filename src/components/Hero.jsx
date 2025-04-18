@@ -1,68 +1,20 @@
-import React, { useEffect, useCallback, useMemo } from "react";
-import { useRef } from "react";
+import React, { useEffect, useCallback, useMemo ,useRef} from "react";
 import { useGSAP } from "@gsap/react";
-import LocomotiveScroll from "locomotive-scroll";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../heroStyles.css";
 import { Link } from "react-router-dom";
 import orange from "../../public/orange.svg";
-import github from "../../public/github.svg";
-import linkedin from "../../public/linked-in.svg";
-import insta from "../../public/instagram.svg";
-import mail from "../../public/mail.svg";
-import xIcon from "../../public/x.svg";
-import tempProjectsImg from "../../public/projects.jpg";
-import projectImg1 from "../../public/project-img1.png";
-import projectImg2 from "../../public/project-img2.png";
 import ProjectCard from "./ui/projectCard";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
-import TypescriptIcon from "../../public/typescript.svg";
-import ReactIcon from "../../public/react-2.svg";
-import JavascriptIcon from "../../public/javascript.svg";
-import NextjsIcon from "../../public/nextjs.svg";
 import Lenis from "lenis";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from '../ThemeContext';
-
+import GistsCard from "./ui/GistsCard";
+import {GISTS_DATA, SOCIAL_LINKS, PROJECTS, TECH_STACK} from '../constants.js';
 gsap.registerPlugin(ScrollTrigger);
 
-const SOCIAL_LINKS = [
-  { href: "https://github.com/constayush", icon: github, alt: "GitHub" },
-  { href: "https://www.linkedin.com/in/ayush0x1/", icon: linkedin, alt: "LinkedIn" },
-  { href: "https://www.instagram.com/maihoonayush/", icon: insta, alt: "Instagram" },
-  { href: "https://www.x.com/constayush/", icon: xIcon, alt: "X" },
-  { href: "mailto:ayushcodes@outlook.com", icon: mail, alt: "Mail" }
-];
-
-const PROJECTS = [
-  {
-    projectName: "Incognito-Art",
-    projectDescriptionShort: "AI Image Gallery is a free AI-powered image generation platform [Under Development, will be completed on April 2025]",
-    projectDescriptionLong: "Users can generate AI images and submit them anonymously to a Hall of Fame. No one knows who created the images, making it a fun and open space for creative exploration.",
-    projectImg: projectImg1,
-    projectCode: "https://github.com/constayush/Incognito-Art",
-    projectLive: "https://incognito-art.vercel.app/",
-    projectId: 1,
-  },
-  {
-    projectName: "Boxit",
-    projectDescriptionShort: "Box'It is a boxing app that helps users learn, practice, and stay updated, offering valuable resources for all skill levels.",
-    projectDescriptionLong: "Box'It is a comprehensive boxing app designed for all skill levels, from beginners to experienced fighters. It offers interactive tutorials, guided training sessions, and personalized workout plans. Users can stay updated with real-time boxing news and fight schedules.",
-    projectImg: projectImg2,
-    projectCode: "https://github.com/constayush/Boxit",
-    projectLive: "https://boxit-two.vercel.app/",
-    projectId: 2,
-  },
-];
-
-const TECH_STACK = [
-  { icon: JavascriptIcon, name: "JavaScript" },
-  { icon: TypescriptIcon, name: "TypeScript" },
-  { icon: ReactIcon, name: "React" },
-  { icon: NextjsIcon, name: "Next.js" }
-];
 
 function Hero() {
   const { theme, toggleTheme } = useTheme();
@@ -76,7 +28,8 @@ function Hero() {
   const aboutCon = useRef();
   const miniGame = useRef();
   const textName = useRef();
-  const bottomSectionRef = useRef();
+  const gistscon = useRef();
+  
   const navigate = useNavigate();
 
   // Memoized event handlers
@@ -179,14 +132,20 @@ function Hero() {
 
   const renderProjects = useMemo(() => (
     PROJECTS.map((project) => (
-      <ProjectCard
-        key={project.projectId}
-        cursorRef={cursorRef.current}
-        theme={theme}
+      <ProjectCard     
         {...project}
       />
     ))
-  ), [theme]);
+  ), []);
+
+  const renderGists = useMemo(() => (
+    GISTS_DATA.map((gist) => (
+      <GistsCard
+
+        {...gist}
+      />
+    ))
+  ), []);
 
   const renderTechStack = useMemo(() => (
     TECH_STACK.map(({ icon, name }) => (
@@ -279,7 +238,7 @@ function Hero() {
         </svg>
       </main>
 
-      <div ref={projectCon} className="flex justify-center w-full h-auto mb-20">
+      <div id="projects" ref={projectCon} className="flex justify-center w-full h-auto mb-20">
         <div className="w-full max-w-5xl projectss flex flex-col gap-20">
           <h1 className="text-3xl md:text-[2.7rem] font-semibold mb-2 text-[var(--text-color)]">
             Projects<span className="font-semibold text-[var(--accent-color)]">.</span>
@@ -287,6 +246,20 @@ function Hero() {
 
           <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
             {renderProjects}
+          </div>
+        </div>
+      </div>
+
+      <div ref={gistscon} className="flex justify-center w-full h-auto mb-20">
+        <div className="w-full max-w-5xl projectss flex flex-col gap-20">
+
+          <span className="flex justify-between items-end">
+          <h1 className="text-3xl md:text-[2.7rem] font-semibold mb-2 text-[var(--text-color)]">
+            Gists / Snippets<span className="font-semibold text-[var(--accent-color)]">.</span>
+          </h1><Link to="/gists"><span className="font-semibold text-[var(--accent-color)] opacity- underline mr-3">view all</span></Link></span>
+
+          <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6  place-items-center">
+            {renderGists}
           </div>
         </div>
       </div>

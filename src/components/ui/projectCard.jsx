@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 function ProjectCard(props) {
 
   return (
-    <div className="card porject-card group max-w-[30rem] transition-all bg-[var(--glass-bg-color)]  border-2 shadow-2xl border-[#ffffff10] rounded-lg ">
-
+    <div key={props.projectId} className="card  min-h-full relative overflow-hidden porject-card group max-w-[30rem] min-w-full transition-all bg-[var(--glass-bg-color)]  border-2 shadow-2xl border-[#ffffff10] rounded-lg ">
+<div className="shine"></div>
       <input type="checkbox" id={`SHOWMORE${props.projectId}`} className="hidden" />
 
 
