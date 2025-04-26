@@ -1,5 +1,16 @@
 {
-   "rewrites":  [
-       {"source": "/(.*)", "destination": "/"}
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/sitemap.xml",
+        "destination": "/sitemap.xml",
+        "permanent": true
+      }
     ]
-}
+  }
+  
