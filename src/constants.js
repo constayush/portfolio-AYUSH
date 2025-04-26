@@ -12,8 +12,6 @@ import projectImg2 from "../public/project-img2.png";
 import ExpressjsIcon from "../public/express.svg";
 import NodejsIcon from "../public/nodejs.svg";
 import MongoDBIcon from "../public/mongodb.svg";
-import { g } from "framer-motion/client";
-
 
 export const GISTS_DATA = [{
     gistName: "Navbar Dock",
