@@ -7,6 +7,7 @@ import { CodeBlock } from './ui/CodeBlock';
 import GistsCard from './ui/GistsCard';
 import { GISTS_DATA } from '../constants';
 import { useTheme } from '../ThemeContext';
+import {Helmet} from "react-helmet";
 function Gists() {
 const { theme, toggleTheme } = useTheme();
   const main_con = useRef();
@@ -22,6 +23,32 @@ const { theme, toggleTheme } = useTheme();
  
 
   return (
+    <>
+       <Helmet>
+        <title>Ayush | Gists</title>
+        <meta
+          name="description"
+          content="Explore useful code snippets and mini projects shared by Ayush Srivastava. Grab some gems to level up your dev skills!"
+        />
+        <meta
+          name="keywords"
+          content="Ayush Srivastava, code snippets, gists, developer resources, coding tips, software engineer, useful code"
+        />
+        <meta name="author" content="Ayush Srivastava" />
+        <meta property="og:title" content="Ayush Srivastava | Code Gists" />
+        <meta
+          property="og:description"
+          content="Explore useful code snippets and mini projects shared by Ayush Srivastava. Grab some gems to level up your dev skills!"
+        />
+        <meta
+          property="og:image"
+          content="https://constayush.vercel.app/your-thumbnail.jpg" // Replace with actual thumbnail for the Gists page
+        />
+        <meta property="og:url" content="https://constayush.vercel.app/gists" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://constayush.vercel.app/gists" />
+      </Helmet>
+
     <div data-theme={theme}>
       <Navbar/>
     <main ref={main_con} className='text-[var(--text-color)]  flex relative w-full min-h-screen pt-[14rem] flex-col items-center overflow-x-hidden'>
@@ -36,7 +63,7 @@ const { theme, toggleTheme } = useTheme();
  </div>
         
 
-    </main></div>
+    </main></div></>
   )
 }
 

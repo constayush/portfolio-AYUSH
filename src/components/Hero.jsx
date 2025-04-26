@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useTheme } from '../ThemeContext';
 import GistsCard from "./ui/GistsCard";
 import {GISTS_DATA, SOCIAL_LINKS, PROJECTS, TECH_STACK} from '../constants.js';
+import { Helmet } from "react-helmet";
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -156,7 +157,26 @@ function Hero() {
     ))
   ), []);
 
-  return (
+  return (<>
+  <Helmet>
+    <title>Ayush Srivastava's Portfolio</title>
+    <meta
+      name="description"
+      content="Hi, I'm Ayush Srivastava, a web developer and coder. Check out my work, connect with me, and explore my journey!"
+    />
+    <meta
+      name="keywords"
+      content="Ayush Srivastava, portfolio, web developer, coder, software engineer, Ayush Srivastava, front-end, back-end, projects, Ayush social links"
+    />
+    <meta name="author" content="Ayush Srivastava" />
+    <meta property="og:title" content="Ayush Srivastava's Portfolio" />
+    <meta
+      property="og:description"
+      content="Hi, I'm Ayush Srivastava, a web developer and coder. Check out my work, connect with me, and explore my journey!"
+    />
+    <meta property="og:url" content="https://constayush.vercel.app/" />
+    <link rel="canonical" href="https://constayush.vercel.app/" />
+  </Helmet>
     <div className="hero w-full h-auto bg-grid-[#000]/[.030] relative px-6 bg-[var(--bg-color)]" data-theme={theme}>
       <div ref={cursorRef} className="custom-cursor"></div>
 
@@ -326,7 +346,7 @@ function Hero() {
           </div>
         </div>
       </div>
-    </div>
+    </div></>
   );
 }
 
