@@ -1,15 +1,8 @@
 {
     "rewrites": [
       {
-        "source": "/(.*)",
+        "source": "/((?!sitemap\\.xml|google.*\\.html).*)",
         "destination": "/"
-      }
-    ],
-    "redirects": [
-      {
-        "source": "/sitemap.xml",
-        "destination": "/sitemap.xml",
-        "permanent": true
       }
     ]
   }
