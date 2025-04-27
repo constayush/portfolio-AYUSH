@@ -40,7 +40,7 @@ function Navbar() {
             <Link to="/terminal">Terminal</Link>
           </li>       
 
-          <button aria-label="theme-button" onClick={toggleTheme} className="theme-toggle text-shadow-lg hover:rotate-180 hover:scale-150 transition duration-500">
+          <button aria-label="theme-button" onClick={toggleTheme} className="theme-toggle text-[1.5rem] rounded-full  text-shadow-lg hover:rotate-180 hover:scale-150 transition duration-500">
             {theme === "dark" ? "☀️" : "🌙"}
           </button>{" "}
         </ul>

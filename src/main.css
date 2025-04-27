@@ -13,7 +13,7 @@
   
   /* Light Theme Colors */
   --light-accent-color: #FE8808;
-  --light-bg-color: #c3c2c2;
+  --light-bg-color: #eeeeee;
   --light-border-color: #1e1d1d;
   --light-glass-color: #ffffff88;
   --light-glassy-bg-color: #ffffff35;
@@ -78,7 +78,7 @@
   --shine-color: var(--light-shine-color);
   --text-color: var(--light-text-color);
 
-  --box-shadow: rgba(0, 0, 0, 0.034) 0px 12px 28px 0px, 
+  --box-shadow: rgba(0, 0, 0, 0.234) 0px 12px 28px 0px, 
                 rgba(0, 0, 0, 0.025) 0px 2px 4px 0px, 
                 rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
@@ -142,6 +142,9 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+.porject-card{
+  box-shadow: var(--box-shadow);
+}
 
 body::-webkit-scrollbar {
 
