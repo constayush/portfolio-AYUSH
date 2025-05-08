@@ -275,7 +275,7 @@ function Hero() {
 
           <span className="flex justify-between items-end">
           <h1 className="text-3xl md:text-[2.7rem] font-semibold mb-2 text-[var(--text-color)]">
-            Gists / Snippets<span className="font-semibold text-[var(--accent-color)]">.</span>
+          Slices<span className="font-semibold text-[var(--accent-color)]">.</span>
           </h1><Link to="/gists"><span className="font-semibold text-[var(--accent-color)] opacity- underline mr-3">view all</span></Link></span>
 
           <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6  place-items-center">

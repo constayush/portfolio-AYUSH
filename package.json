@@ -14,7 +14,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.11",
     "graphql-request": "^7.1.2",
-    "gsap": "^3.12.5",
+    "gsap": "^3.13.0",
     "lenis": "^1.1.16",
     "locomotive-scroll": "^5.0.0-beta.11",
     "lucide-react": "^0.487.0",
