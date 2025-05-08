@@ -15,10 +15,75 @@ import MongoDBIcon from "../public/mongodb.svg";
 
 export const GISTS_DATA = [{
     gistName: "Navbar Dock",
-    gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page", 
+    gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page",
     gistId: 1,
     gistTags: ["React", "Tailwind"],
-    gistCode: "console.log('comming soon')",   
+    gistCode: `
+    import React, { useRef } from "react";
+    import { useTheme } from "../ThemeContext"; //using custom theme context hook
+    
+    function Navbar() {
+      const { theme, toggleTheme } = useTheme();
+      const nav = useRef();
+    
+      window.onscroll = () => { //on scroll will shrink the dock, and stay at the top of the page
+        if (window.scrollY > 80) {
+          nav?.current?.classList.add("nav-active");
+        } else {
+          nav?.current?.classList.remove("nav-active");
+        }
+      };
+    
+      return (
+        <div className="w-full flex justify-center items-center  ">
+          <nav
+            ref={nav}
+            className="flex px-6 w-full lg:w-[64rem] sm:gap-9 gap-3 pt-[5rem] z-[99] fixed top-0 items-center justify-between "
+          >
+            <div
+              className="text-[var(--text-color)] text-[2rem] hover:tracking-[1rem]"
+             
+            >
+              Your LOGO
+            </div>
+            <ul className="flex gap-3 text-center items-center font-semibold justify-center">
+               
+              
+              <li className="text-[var(--nav-text-color)] text-[1.1rem]  navLinks">
+               #1
+              </li>     
+    
+              <li className="text-[var(--nav-text-color)]  text-[1.1rem]  navLinks">
+              #2
+              </li>
+           
+    
+              <button aria-label="theme-button" onClick={toggleTheme} className="theme-toggle text-[1.5rem] rounded-full  text-shadow-lg hover:rotate-180 hover:scale-150 transition duration-500">
+                {theme === "dark" ? "☀️" : "🌙"}
+              </button>{" "}
+            </ul>
+          </nav>
+        </div>
+      );
+    }
+    
+    export default Navbar;
+    
+    `
+    ,
+    gistCss:`.nav-active {
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+  backdrop-filter: blur(15px);
+  padding: 1.25rem;
+  margin: 1.25rem;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--nav-bg-color);
+  border-radius: 8px;
+  transform: scale(.9);
+}`,
+    gistDeps:"",
     gistLanguage: "javascript",
 },
 {
@@ -26,7 +91,7 @@ export const GISTS_DATA = [{
     gistDescription: "Card with shine effect on hover using tailwind",
     gistId: 2,
     gistTags: ["React", "Tailwind"],
-    gistCode: "console.log('comming soon')",   
+    gistCode: "console.log('comming soon')",
     gistLanguage: "javascript",
 },
 ]

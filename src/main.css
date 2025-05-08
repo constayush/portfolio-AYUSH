@@ -95,8 +95,8 @@
 
 html{
     ::selection {
-        color: rgb(76, 76, 76);
-        background: rgb(0, 0, 0);
+        color: var(--text-color);
+        background: rgba(255, 186, 130, 0.453);
       }
 
       background: var(--bg-color);

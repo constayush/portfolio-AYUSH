@@ -1,11 +1,19 @@
 
 import { Highlight, themes } from "prism-react-renderer"
-
+import { ThemeProvider, useTheme } from "../../ThemeContext"
 export function CodeBlock({ code, language }) {
-  const theme =  themes.nightOwl 
 
+   
+ const { theme } = useTheme()
+let code_theme;
+ if( theme === 'dark') {
+code_theme =  themes.duotoneDark
+ }
+ else {
+ code_theme =  themes.oneLight
+ }
   return (
-    <Highlight theme={theme} code={code} language={language}>
+    <Highlight theme={code_theme} code={code}  language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={`${className} overflow-x-auto rounded-md p-4 text-sm`} style={style}>
           {tokens.map((line, i) => (

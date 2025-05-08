@@ -27,18 +27,16 @@ function Navbar() {
           आ<span className="accent">1.</span>
         </Link>
         <ul className="flex gap-3 text-center items-center font-semibold justify-center">
-            {/* <li className="text-[var(--nav-text-color)] text-[1.1rem]  navLinks">
-            <Link to="/">Projects</Link>
-          </li> */}
+           
           
-          <li className="text-[var(--nav-text-color)]  text-[1.1rem]  navLinks">
-          <Link to="/gists">Gists</Link>
-          </li>
-
-
           <li className="text-[var(--nav-text-color)] text-[1.1rem]  navLinks">
-            <Link to="/terminal">Terminal</Link>
-          </li>       
+            <Link to="/">Home</Link>
+          </li>     
+
+          <li className="text-[var(--nav-text-color)]  text-[1.1rem]  navLinks">
+          <Link to="/gists">Slices</Link>
+          </li>
+       
 
           <button aria-label="theme-button" onClick={toggleTheme} className="theme-toggle text-[1.5rem] rounded-full  text-shadow-lg hover:rotate-180 hover:scale-150 transition duration-500">
             {theme === "dark" ? "☀️" : "🌙"}
