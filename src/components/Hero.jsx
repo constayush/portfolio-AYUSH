@@ -142,7 +142,7 @@ function Hero() {
   const renderGists = useMemo(() => (
     GISTS_DATA.map((gist) => (
       <GistsCard
-
+gist= {gist}
         {...gist}
       />
     ))

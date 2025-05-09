@@ -20,7 +20,7 @@ const copybtn =useRef(null);
     navigator.clipboard.writeText(code);
 
     // Update the button text
-    if (copyBtnRef.current) {
+    if (copyBtnRef.current.textContent) {
       copyBtnRef.current.textContent = 'Copied!';
       setTimeout(() => {
         copyBtnRef.current.textContent = 'Copy';

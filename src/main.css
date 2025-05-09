@@ -7,113 +7,70 @@
 }
 
 :root {
-  /* ==================== */
-  /* Theme Color Variables */
-  /* ==================== */
-
-  /* Light Theme Colors */
-
+  /* ========== Shared ========== */
   --light-accent-color: #FE8808;
-  --light-bg-color: #eeeeee;
-  --light-border-color: #1e1d1d;
-  --light-glass-color: #ffffff88;
-  --light-glassy-bg-color: #ffffff35;
-  --light-grid-bg-color: #000000;
-  --light-nav-text-color: #111111;
-  --light-secondary-text: #333333;
-  --light-shine-color: rgba(0, 0, 0, 0.653);
-  --light-text-color: #111111;
-  --light-glass: #ffffff4a;
-  /* Dark Theme Colors */
   --dark-accent-color: #FE8808;
-  --dark-bg-color: #080808;
-  --dark-border-color: #8f8f8f;
-  --dark-glass-color: #0000004f;
-  --dark-grid-bg-color: #ffffff;
-  --dark-nav-bg-color: #9797972d;
-  --dark-nav-text-color: #c0c0c0;
-  --dark-secondary-text: #bfbfbf;
-  --dark-shine-color: rgba(255, 255, 255, 0.08);
-  --dark-text-color: #dedede;
-  --dark-glass: #00000082;
-
-  /* ==================== */
-  /* Default Theme (Dark) */
-  /* ==================== */
-  --glass: var(--dark-glass);
-  --card-bg-darker: #0f1117;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --hover-color: rgba(255, 255, 255, 0.05);
   --accent-color: var(--dark-accent-color);
-  --bg-color: var(--dark-bg-color);
-  --border-color: var(--dark-border-color);
-  --glass-bg-color: var(--dark-glass-color);
-  --grid-bg-color: var(--dark-grid-bg-color);
-  --icon-color: 1;
-  --nav-bg-color: var(--dark-nav-bg-color);
-  --nav-text-color: var(--dark-nav-text-color);
-  --netbox-bg-color: var(--dark-bg-color);
-  --resume-btn-color: #ffffff0c;
-  --secondary-text: var(--dark-secondary-text);
-  --shine-color: var(--dark-shine-color);
-  --text-color: var(--dark-text-color);
 
-  /* ==================== */
-  /* Shadow Variables */
-  /* ==================== */
-  --box-shadow: rgba(255, 255, 255, 0.025) 0px 12px 28px 0px,
+  --card-bg-darker: #0f1117;
+  --resume-btn-color: #ffffff0c;
+  --hover-color: rgba(255, 255, 255, 0.05);
+  --icon-color: 1;
+
+  /* ========== Dark Theme Defaults ========== */
+  --bg-color: #080808;
+  --text-color: #dedede;
+  --secondary-text: #bfbfbf;
+  --border-color: #8f8f8f;
+  --border-2-color: #ffffff32;
+  --glass: #00000082;
+  --glass-bg-color: #0000004f;
+  --grid-bg-color: #ffffff;
+  --nav-bg-color: #9797972d;
+  --nav-text-color: #c0c0c0;
+  --netbox-bg-color: #080808;
+  --shine-color: rgba(255, 255, 255, 0.08);
+
+  --box-shadow: 
+    rgba(255, 255, 255, 0.025) 0px 12px 28px 0px,
     rgba(255, 255, 255, 0) 0px 2px 4px 0px,
     rgba(60, 60, 60, 0.527) 0px 0px 0px 1px inset;
 }
 
-/* ==================== */
-/* Light Theme Overrides */
-/* ==================== */
+/* ========== Light Theme Overrides ========== */
 [data-theme="light"] {
-    --glass: var(--light-glass);
-  --card-bg-darker: #f0f2f5;
-  --border-color: rgba(0, 0, 0, 0.1);
-  --hover-color: rgba(0, 0, 0, 0.05);
   --accent-color: var(--light-accent-color);
-  --bg-color: var(--light-bg-color);
-  --border-color: var(--light-border-color);
-  --glass-bg-color: var(--light-glass-color);
-  --grid-bg-color: var(--light-grid-bg-color);
+  --bg-color: #eeeeee;
+  --text-color: #111111;
+  --secondary-text: #333333;
+  --border-color: #1e1d1d;
+    --border-2-color: #0000007c;
+  --glass: #ffffff4a;
+  --glass-bg-color: #ffffff88;
+  --grid-bg-color: #000000;
+  --nav-bg-color: #ffffff88;
+  --nav-text-color: #111111;
+  --netbox-bg-color: #ffffff35;
+  --resume-btn-color: #ffffff35;
+  --card-bg-darker: #f0f2f5;
+  --hover-color: rgba(0, 0, 0, 0.05);
   --icon-color: 0;
-  --nav-bg-color: var(--light-glass-color);
-  --nav-text-color: var(--light-nav-text-color);
-  --netbox-bg-color: var(--light-glassy-bg-color);
-  --resume-btn-color: var(--light-glassy-bg-color);
-  --secondary-text: var(--light-secondary-text);
-  --shine-color: var(--light-shine-color);
-  --text-color: var(--light-text-color);
+  --shine-color: rgba(0, 0, 0, 0.653);
 
-  --box-shadow: rgba(0, 0, 0, 0.234) 0px 12px 28px 0px,
+  --box-shadow:
+    rgba(0, 0, 0, 0.234) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.025) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
-/* ==================== */
-/* Dark Theme Overrides */
-/* ==================== */
-[data-theme="dark"] {
-  /* Note: Most values already set as defaults in :root */
-  --shine-color: var(--dark-shine-color);
-  --nav-bg-color: var(--dark-nav-bg-color);
-  --icon-color: 1;
-  --card-bg-darker: #0f1117;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --hover-color: rgba(255, 255, 255, 0.05);
-}
 
 html {
   ::selection {
     color: var(--text-color);
     background: rgba(255, 186, 130, 0.453);
   }
-
-  background: var(--bg-color);
-
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .projects-img {
@@ -177,23 +134,30 @@ html {
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
-
-body::-webkit-scrollbar-thumb {
-  background-color: var(--text-color);
-  border-radius: 3px;
-
-}
-
 .porject-card {
   box-shadow: var(--box-shadow);
 }
 
 body::-webkit-scrollbar {
-
-  width: .5em;
+  width: 8px;
 }
 
 body::-webkit-scrollbar-track {
-  background: #ffffff00;
+  background: transparent; 
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--hover-color);
+  border-radius: 10px;
+  border: none;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
+}
+
+body {
+  scrollbar-color: var(--hover-color) transparent; 
+  scrollbar-width: thin;
 }
 
