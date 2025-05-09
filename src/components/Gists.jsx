@@ -26,7 +26,7 @@ function Gists() {
   return (
     <div
       data-theme={theme}
-      className="bg-[var(--bg-color)] min-h- flex flex-col px-6 pb-[3rem] pt-[12rem]"
+      className="bg-[var(--bg-color)] min-h-screen flex flex-col px-6  pt-[12rem]"
     >
       <Helmet>
         <title>Slices UI</title>
@@ -58,7 +58,7 @@ function Gists() {
       <div className="flex flex-col md:flex-row flex-1 gap-4 relative">
         {/* Sidebar with gradient */}
         <aside
-          className="w-full md:w-80 md:sticky md:top-[6rem] md:h-[calc(100vh-6rem)] overflow-y-auto 
+          className="w-full md:w-80 md:sticky md:top-[2rem] md:h-[calc(100vh-15rem)] overflow-y-auto 
                          bg-gradient-to-b from-[var(--card-bg)] to-[var(--card-bg-darker)] 
                          border border-[var(--border-color)] rounded-xl p-4 shadow-lg"
         >
@@ -104,13 +104,13 @@ function Gists() {
         {/* Main content with gradient */}
         <main
           ref={main_con}
-          className="flex-1 relative md:h-[calc(100vh-6rem)] md:overflow-y-auto p-4 rounded-lg  flex flex-col items-center border-t-2 border-[var(--border-color)]"
+          className="flex-1 relative md:overflow-y-auto p-4 rounded-lg  flex flex-col items-center border-t-2 border-[var(--border-color)]"
         >
-          <span className="absolute -z-1 top-0 left-0 w-[60%] h-[10%] bg-[#ffffff] blur-[200px] "></span>
-          <span className="absolute -z-1 top-0 right-0 w-[40%] h-[10%] bg-[#fda7657f] blur-[200px] rounded-"></span>
+          <span className="fixed pointer-events-none border border-[#ffffff9a] -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[#ffffff] blur-[200px]"></span>
+          <span className="fixed pointer-events-none border border-[#fff] -z-1 top-0 right-0 w-[40%]     h-[6rem] bg-[#fe9b32] blur-[100px]"></span>
           {selectedGist ? (
             <div
-              className="w-full z-[5]  max-w-3xl  bg-[var(--bg-color)]
+              className="w-full z-[5]  max-w-7xl  bg-[var(--glass)]
                           rounded-xl p-6 shadow-lg border border-[var(--border-color)]"
             >
               <h2 className="text-2xl font-semibold mb-2 text-[var(--text-color)]">

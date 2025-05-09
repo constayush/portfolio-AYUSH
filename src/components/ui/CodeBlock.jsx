@@ -41,7 +41,7 @@ const copybtn =useRef(null);
           padding: '5px 10px',
           cursor: 'pointer',
         }}
-        className="bg-[var(--bg-color)] text-white rounded-md"  
+        className="bg-[var(--bg-color)] text-[var(--text-color)] border border-[var(--border-color)] rounded-md"  
       >
         Copy
       </button>   
