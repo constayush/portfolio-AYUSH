@@ -38,6 +38,9 @@
   /* ==================== */
   /* Default Theme (Dark) */
   /* ==================== */
+    --card-bg-darker: #0f1117;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --hover-color: rgba(255, 255, 255, 0.05);
   --accent-color: var(--dark-accent-color);
   --bg-color: var(--dark-bg-color);
   --border-color: var(--dark-border-color);
@@ -64,6 +67,9 @@
 /* Light Theme Overrides */
 /* ==================== */
 [data-theme="light"] {
+    --card-bg-darker: #f0f2f5;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --hover-color: rgba(0, 0, 0, 0.05);
   --accent-color: var(--light-accent-color);
   --bg-color: var(--light-bg-color);
   --border-color: var(--light-border-color);
@@ -91,6 +97,9 @@
   --shine-color: var(--dark-shine-color);
   --nav-bg-color: var(--dark-nav-bg-color);
   --icon-color: 1;
+    --card-bg-darker: #0f1117;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --hover-color: rgba(255, 255, 255, 0.05);
 }
 
 html{
@@ -129,7 +138,31 @@ html{
   animation: ripple 0.6s ease-out forwards;
 }
 
+/* Add this to your CSS file or create a new one */
+.code-block-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) var(--card-bg-darker);
+}
 
+.code-block-wrapper::-webkit-scrollbar {
+  width: 2px;
+  height: 8px;
+}
+
+.code-block-wrapper::-webkit-scrollbar-track {
+  background: var(--card-bg-darker);
+  border-radius: 4px;
+}
+
+.code-block-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--accent-fade);
+  border-radius: 4px;
+  border: 2px solid var(--card-bg-darker);
+}
+
+.code-block-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-color);
+}
 
 .text-shadow-lg {
   text-shadow: 1px 1px 1px rgb(0, 0, 0);

@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import Navbar from "./Navbar"
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
-import { Helmet } from "react-helmet"
-import { GISTS_DATA } from "../constants"
-import { useTheme } from "../ThemeContext"
-import { CodeBlock } from "./ui/CodeBlock"
-
+import { useRef, useState } from "react";
+import Navbar from "./Navbar";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Helmet } from "react-helmet";
+import { GISTS_DATA } from "../constants";
+import { useTheme } from "../ThemeContext";
+import { CodeBlock } from "./ui/CodeBlock";
+import slicesIcon from '../../public/slices.svg';
 function Gists() {
-  const { theme } = useTheme()
-  const main_con = useRef()
-  const [selectedGist, setSelectedGist] = useState(null)
+  const { theme } = useTheme();
+  const main_con = useRef();
+  const [selectedGist, setSelectedGist] = useState(null);
 
   useGSAP(() => {
     gsap.from(main_con.current, {
@@ -20,13 +20,16 @@ function Gists() {
       opacity: 0,
       duration: 0.65,
       filter: "blur(5px)",
-    })
-  }, [])
+    });
+  }, []);
 
   return (
-    <div data-theme={theme} className="bg-[var(--bg-color)] min-h-screen flex flex-col px-2 pt-[12rem]">
+    <div
+      data-theme={theme}
+      className="bg-[var(--bg-color)] min-h- flex flex-col px-6 pb-[3rem] pt-[12rem]"
+    >
       <Helmet>
-        <title>Ayush | Gists</title>
+        <title>Slices UI</title>
         <meta
           name="description"
           content="Explore useful code snippets and mini projects shared by Ayush Srivastava. Grab some gems to level up your dev skills!"
@@ -41,7 +44,10 @@ function Gists() {
           property="og:description"
           content="Explore useful code snippets and mini projects shared by Ayush Srivastava. Grab some gems to level up your dev skills!"
         />
-        <meta property="og:image" content="https://constayush.vercel.app/your-thumbnail.jpg" />
+        <meta
+          property="og:image"
+          content="https://constayush.vercel.app/your-thumbnail.jpg"
+        />
         <meta property="og:url" content="https://constayush.vercel.app/gists" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://constayush.vercel.app/gists" />
@@ -57,15 +63,18 @@ function Gists() {
                          border border-[var(--border-color)] rounded-xl p-4 shadow-lg"
         >
           <div className="relative">
-            {/* Top gradient fade */}
-            <div className="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-[var(--card-bg)] to-transparent z-10 pointer-events-none"></div>
 
+
+             <div className="flex justify-center items-center gap-1">
+              <img src={slicesIcon} className="w-[2rem]" />
             <h1 className="text-2xl md:text-3xl font-bold mb-2 text-[var(--text-color)] text-center">
               Slices<span className="text-[var(--accent-color)]">.</span>
-            </h1>
-            <p className="mb-6 text-center text-[var(--secondary-text)]">— components I cut, styled, and served</p>
+            </h1></div>
+            <p className="mb-6 text-center text-[var(--secondary-text)]">
+              — components I cut, styled, and served
+            </p>
 
-            <div className="space-y-2 max-h-[calc(100vh-12rem)] overflow-y-auto pr-2 pb-4">
+            <div className="space-y-2 max-h-[calc(100vh-12rem)] overflow-y-auto  pb-4">
               {GISTS_DATA.map((gist) => (
                 <div
                   key={gist.gistId}
@@ -73,11 +82,13 @@ function Gists() {
                   className={`cursor-pointer p-3 rounded-lg transition-all duration-200 
                             ${
                               selectedGist?.gistId === gist.gistId
-                                ? "bg-[var(--accent-fade)] border border-[var(--accent-color)] shadow-md"
+                                ? " border border-[var(--accent-color)] shadow-md"
                                 : "hover:bg-[var(--hover-color)] border border-transparent"
                             }`}
                 >
-                  <div className="text-[var(--text-color)] font-medium">{gist.gistName}</div>
+                  <div className="text-[var(--text-color)] font-medium">
+                    {gist.gistName}
+                  </div>
                   {selectedGist?.gistId === gist.gistId && (
                     <div className="text-xs text-[var(--secondary-text)] mt-1 truncate">
                       {gist.gistDescription.substring(0, 60)}
@@ -87,24 +98,27 @@ function Gists() {
                 </div>
               ))}
             </div>
-
-            {/* Bottom gradient fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[var(--card-bg-darker)] to-transparent z-10 pointer-events-none"></div>
           </div>
         </aside>
 
         {/* Main content with gradient */}
         <main
           ref={main_con}
-          className="flex-1 md:h-[calc(100vh-6rem)] md:overflow-y-auto p-4 flex flex-col items-center"
+          className="flex-1 relative md:h-[calc(100vh-6rem)] md:overflow-y-auto p-4 rounded-lg  flex flex-col items-center border-t-2 border-[var(--border-color)]"
         >
+          <span className="absolute -z-1 top-0 left-0 w-[60%] h-[10%] bg-[#ffffff] blur-[200px] "></span>
+          <span className="absolute -z-1 top-0 right-0 w-[40%] h-[10%] bg-[#fda7657f] blur-[200px] rounded-"></span>
           {selectedGist ? (
             <div
-              className="w-full max-w-3xl bg-gradient-to-br from-[var(--card-bg)] to-[var(--card-bg-darker)] 
+              className="w-full z-[5]  max-w-3xl  bg-[var(--bg-color)]
                           rounded-xl p-6 shadow-lg border border-[var(--border-color)]"
             >
-              <h2 className="text-2xl font-semibold mb-2 text-[var(--text-color)]">{selectedGist.gistName}</h2>
-              <p className="text-[var(--secondary-text)] mb-6">{selectedGist.gistDescription}</p>
+              <h2 className="text-2xl font-semibold mb-2 text-[var(--text-color)]">
+                {selectedGist.gistName}
+              </h2>
+              <p className="text-[var(--secondary-text)] mb-6">
+                {selectedGist.gistDescription}
+              </p>
 
               <div className="space-y-6">
                 <div>
@@ -114,7 +128,10 @@ function Gists() {
                   </h3>
                   <div className="rounded-lg overflow-hidden border border-[var(--border-color)] shadow-inner">
                     <div className="code-block-wrapper overflow-auto max-h-[400px]">
-                      <CodeBlock code={selectedGist.gistCode} language={selectedGist.gistLanguage || "javascript"} />
+                      <CodeBlock
+                        code={selectedGist.gistCode}
+                        language={selectedGist.gistLanguage || "javascript"}
+                      />
                     </div>
                   </div>
                 </div>
@@ -136,19 +153,24 @@ function Gists() {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center p-8">
-              <div
-                className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-fade)] to-[var(--accent-color)] 
-                           flex items-center justify-center mb-4 shadow-lg"
-              >
-                <span className="text-2xl">👆</span>
-              </div>
-              <p className="text-[var(--secondary-text)] text-lg">Select a slice from the sidebar to view its code</p>
+            
+            <div className="flex justify-center items-center">
+              
+              <img src={slicesIcon} className="w-[2rem] md:w-[4rem] gap-2"/>
+               <h1 className="text-2xl md:text-6xl font-bold mb-2 text-[var(--text-color)] text-center">
+              Slices<span className="text-[var(--accent-color)]">.</span>
+            </h1></div>
+            <p className="mb-6 text-center text-base md:text-xl text-[var(--secondary-text)]">
+              — components I cut, styled, and served
+            </p>
+            <p className="mb-6 text-center text-base md:text-lg opacity-50 text-[var(--secondary-text)]">(Select a slice from the sidebar)</p>
+
             </div>
           )}
         </main>
       </div>
     </div>
-  )
+  );
 }
 
-export default Gists
+export default Gists;
