@@ -10,8 +10,9 @@
   /* ==================== */
   /* Theme Color Variables */
   /* ==================== */
-  
+
   /* Light Theme Colors */
+
   --light-accent-color: #FE8808;
   --light-bg-color: #eeeeee;
   --light-border-color: #1e1d1d;
@@ -22,7 +23,7 @@
   --light-secondary-text: #333333;
   --light-shine-color: rgba(0, 0, 0, 0.653);
   --light-text-color: #111111;
-
+  --light-glass: #ffffff4a;
   /* Dark Theme Colors */
   --dark-accent-color: #FE8808;
   --dark-bg-color: #080808;
@@ -34,11 +35,13 @@
   --dark-secondary-text: #bfbfbf;
   --dark-shine-color: rgba(255, 255, 255, 0.08);
   --dark-text-color: #dedede;
+  --dark-glass: #00000082;
 
   /* ==================== */
   /* Default Theme (Dark) */
   /* ==================== */
-    --card-bg-darker: #0f1117;
+  --glass: var(--dark-glass);
+  --card-bg-darker: #0f1117;
   --border-color: rgba(255, 255, 255, 0.1);
   --hover-color: rgba(255, 255, 255, 0.05);
   --accent-color: var(--dark-accent-color);
@@ -58,16 +61,17 @@
   /* ==================== */
   /* Shadow Variables */
   /* ==================== */
-  --box-shadow: rgba(255, 255, 255, 0.025) 0px 12px 28px 0px, 
-                rgba(255, 255, 255, 0) 0px 2px 4px 0px, 
-                rgba(60, 60, 60, 0.527) 0px 0px 0px 1px inset;
+  --box-shadow: rgba(255, 255, 255, 0.025) 0px 12px 28px 0px,
+    rgba(255, 255, 255, 0) 0px 2px 4px 0px,
+    rgba(60, 60, 60, 0.527) 0px 0px 0px 1px inset;
 }
 
 /* ==================== */
 /* Light Theme Overrides */
 /* ==================== */
 [data-theme="light"] {
-    --card-bg-darker: #f0f2f5;
+    --glass: var(--light-glass);
+  --card-bg-darker: #f0f2f5;
   --border-color: rgba(0, 0, 0, 0.1);
   --hover-color: rgba(0, 0, 0, 0.05);
   --accent-color: var(--light-accent-color);
@@ -84,9 +88,9 @@
   --shine-color: var(--light-shine-color);
   --text-color: var(--light-text-color);
 
-  --box-shadow: rgba(0, 0, 0, 0.234) 0px 12px 28px 0px, 
-                rgba(0, 0, 0, 0.025) 0px 2px 4px 0px, 
-                rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  --box-shadow: rgba(0, 0, 0, 0.234) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.025) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 /* ==================== */
@@ -97,24 +101,28 @@
   --shine-color: var(--dark-shine-color);
   --nav-bg-color: var(--dark-nav-bg-color);
   --icon-color: 1;
-    --card-bg-darker: #0f1117;
+  --card-bg-darker: #0f1117;
   --border-color: rgba(255, 255, 255, 0.1);
   --hover-color: rgba(255, 255, 255, 0.05);
 }
 
-html{
-    ::selection {
-        color: var(--text-color);
-        background: rgba(255, 186, 130, 0.453);
-      }
+html {
+  ::selection {
+    color: var(--text-color);
+    background: rgba(255, 186, 130, 0.453);
+  }
 
-      background: var(--bg-color);
+  background: var(--bg-color);
 
 }
-.projects-img{transition: all ease .2s;}
-.porject-card:hover .projects-img{
 
-  
+.projects-img {
+  transition: all ease .2s;
+}
+
+.porject-card:hover .projects-img {
+
+
   transform: scale(1.2);
 }
 
@@ -123,6 +131,7 @@ html{
     transform: scale(0);
     opacity: 0.7;
   }
+
   100% {
     transform: scale(2.5);
     opacity: 0;
@@ -175,7 +184,7 @@ body::-webkit-scrollbar-thumb {
 
 }
 
-.porject-card{
+.porject-card {
   box-shadow: var(--box-shadow);
 }
 
@@ -184,7 +193,7 @@ body::-webkit-scrollbar {
   width: .5em;
 }
 
-
-body::-webkit-scrollbar-track-piece {
-  background: #00000000;
+body::-webkit-scrollbar-track {
+  background: #ffffff00;
 }
+
