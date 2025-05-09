@@ -29,12 +29,12 @@ function Navbar() {
         <ul className="flex gap-3 text-center items-center font-semibold justify-center">
            
           
-          <li className="text-[var(--nav-text-color)] text-[1.1rem]  navLinks">
+          <li className="text-[var(--text-color)] text-[1.1rem]  navLinks">
             <Link to="/">Home</Link>
           </li>     
 
-          <li className="text-[var(--nav-text-color)]  text-[1.1rem]  navLinks">
-          <Link to="/gists">Slices</Link>
+          <li className="text-[var(--text-color)]  text-[1.1rem]  navLinks">
+          <Link to="/slices">Slices</Link>
           </li>
        
 

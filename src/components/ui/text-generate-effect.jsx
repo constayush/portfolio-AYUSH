@@ -39,7 +39,7 @@ export const TextGenerateEffect = ({
       </motion.div>)
     );
   };
-console.log(words)
+
   return (
     (<div className= {cn("font-bold", className)}>
       <div className="mt-4 inline">
