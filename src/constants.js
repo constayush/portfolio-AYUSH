@@ -105,15 +105,16 @@ export const SOCIAL_LINKS = [
 ];
 
 export const PROJECTS = [
-    {
-        projectName: "Incognito-Art",
-        projectDescriptionShort: "AI Image Gallery is a free AI-powered image generation platform [Under Development, will be completed on April 2025]",
-        projectDescriptionLong: "Users can generate AI images and submit them anonymously to a Hall of Fame. No one knows who created the images, making it a fun and open space for creative exploration.",
-        projectImg: projectImg1,
-        projectCode: "https://github.com/constayush/Incognito-Art",
-        projectLive: "https://incognito-art.vercel.app/",
-        projectId: 1,
-    },
+  {
+    projectName: "Slices UI",
+    projectDescriptionShort: "Slices UI is my personal component library — a fresh collection of UI elements I cut, styled, and served.",
+    projectDescriptionLong: "Inspired by libraries like Hero UI and Aceternity UI, Slices UI is a curated set of sleek, reusable components designed for fast, modern web dev. Built with love, Tailwind, and way too much coffee.",
+    projectImg: projectImg1, 
+    projectCode: "https://github.com/constayush/portfolio-AYUSH/blob/master/src/components/Slices.jsx",
+    projectLive: "https://constayush.vercel.app/slices",
+    projectId: 1,
+}
+,
     {
         projectName: "Boxit",
         projectDescriptionShort: "Box'It is a boxing app that helps users learn, practice, and improve, offering valuable resources for all skill levels.",
