@@ -1,10 +1,19 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../ThemeContext";
-
+import { motion, useScroll, useTransform } from "framer-motion";
 function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const nav = useRef();
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"]
+  });
+
+
+    // Scale border width/height from center
+  const borderTopBottom = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   window.onscroll = () => {
     if (window.scrollY > 80) {
@@ -20,6 +29,14 @@ function Navbar() {
         ref={nav}
         className="flex px-6 w-full  lg:w-[64rem] sm:gap-9 gap-3 pt-[5rem]   navbar-short z-[99] fixed top-0  items-center justify-between  "
       >
+
+
+
+      <motion.div
+        style={{ width: borderTopBottom }}
+        className="absolute bottom-0 left-1/2 h-[2px] bg-[var(--border-color)]  -translate-x-1/2 origin-center"
+      />
+     
         <Link
           className="text-[var(--text-color)]   text-[2rem] hover:tracking-[1rem] logoNav"
           to="/"
