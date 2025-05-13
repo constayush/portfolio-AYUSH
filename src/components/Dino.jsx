@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import orng from "../../public/orange.svg";
 import obs from "../../public/obs.svg";
 import { Link } from "react-router-dom";
-import '../main.css'
+import "../main.css";
 import { useTheme } from "../ThemeContext";
 const DinoGame = ({ className }) => {
-   const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const [isJumping, setIsJumping] = useState(false);
   const [dinoPositionX, setDinoPositionX] = useState(
     300 - (window.innerWidth < 700 ? 250 : 0)
@@ -21,7 +21,7 @@ const DinoGame = ({ className }) => {
   const gameInterval = useRef(null);
   const highscore = useRef(0);
   const currentScore = useRef(0);
-  const speedOrg = useRef(15);
+  const speedOrg = useRef(20);
 
   useEffect(() => {
     startGame();
@@ -38,10 +38,10 @@ const DinoGame = ({ className }) => {
   }, []);
 
   const levelup = () => {
-    toggleTheme();
-    speedOrg.current = Math.max(6, speedOrg.current - 0.45);
+    speedOrg.current = Math.max(5, speedOrg.current - 1);
     currentScore.current += 10;
     if (currentScore.current > highscore.current) {
+      document.querySelector(".highscore").style.color = "#ffbf47d1";
       highscore.current = currentScore.current;
     }
     clearInterval(gameInterval.current);
@@ -67,14 +67,14 @@ const DinoGame = ({ className }) => {
   }, [obstaclePosition, dinoPositionY]);
 
   const endGame = () => {
-    speedOrg.current = 15;
+    speedOrg.current = 20;
     currentScore.current = 0;
     setIsGameOver(true);
     clearInterval(gameInterval.current);
+     document.querySelector(".highscore").style.color = "var(--secondary-text)";
   };
 
   const handleJump = (e) => {
-
     if (!isJumping) {
       setIsJumping(true);
       setDinoPositionY(40);
@@ -109,7 +109,6 @@ const DinoGame = ({ className }) => {
       onClick={handleJump}
       className="w-full h-screen p-3 gap-5 md:p-0 flex select-none flex-col justify-center items-center relative cursor-crosshair text-[var(--text-color)] overflow-hidden bg-[var(--bg-color)]"
     >
- 
       {/* Ripples */}
       {ripples.map((ripple) => (
         <span
@@ -139,7 +138,7 @@ const DinoGame = ({ className }) => {
         </div>
 
         <div className="flex flex-wrap gap-5 text-center">
-          <p className="text-center text-[var(--secondary-text)]">
+          <p className="text-center highscore text-[var(--secondary-text)]">
             High Score: {highscore.current}
           </p>
           <p className="text-center text-[var(--secondary-text)]">
