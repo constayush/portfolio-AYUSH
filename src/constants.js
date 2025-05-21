@@ -15,7 +15,8 @@ import MongoDBIcon from "../public/mongodb.svg";
 
 export const GISTS_DATA = [{
   gistName: "Navbar Dock",
-  gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page",
+    gistShortDescription: "Dock styled navbar which shrinks on scroll",
+  gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page, toggle between css classes to shrink and expand",
   gistId: 1,
   gistTags: ["React", "Tailwind"],
   gistCode: `
@@ -88,6 +89,7 @@ export const GISTS_DATA = [{
 },
 {
   gistName: "useSwipe hook",
+  gistShortDescription: "hook for detecting swipe gestures",
   gistDescription: `hook for detecting swipe gestures, hook accepts onSwipeLeft, onSwipeRight callbacks and threshold as arguments.
    Threshold defaults to 50, onSwipeLeft and onSwipeRight you can pass a callback function to handle what happen when swipe is detected`, 
   gistId: 2,

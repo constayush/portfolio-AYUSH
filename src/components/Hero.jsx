@@ -89,7 +89,7 @@ function Hero() {
       requestAnimationFrame(raf);
     };
     requestAnimationFrame(raf);
-    return () => cancelAnimationFrame(raf);
+    return () => lenis.destroy();
   }, []);
 
   // GSAP animations
@@ -182,6 +182,7 @@ function Hero() {
         <meta property="og:url" content="https://constayush.vercel.app/" />
         <link rel="canonical" href="https://constayush.vercel.app/" />
       </Helmet>
+      
       <div
         className="hero w-full h-auto bg-grid-[#000]/[.030] relative px-6 bg-[var(--bg-color)]"
         data-theme={theme}
@@ -191,8 +192,8 @@ function Hero() {
         <Navbar theme={theme} toggleTheme={toggleTheme} />
 
         <main className="flex  justify-center relative w-full min-h-screen pt-[8rem] mb-[1.75rem] md:mb-10 flex-col items-center overflow-x-hidden">
-          <div
-            ref={mainCon}
+          <div  ref={mainCon}
+          
             className="flex flex-col gap-7 items-center max-w-5xl text-center md:mb-8"
           >
             <div className="flex text-center">
@@ -281,9 +282,9 @@ function Hero() {
           </svg>
         </main>
 
-        <div
+        <div ref={projectCon}
           id="projects"
-          ref={projectCon}
+          
           className="flex justify-center w-full h-auto mb-20"
         >
           <div className="w-full max-w-5xl projectss flex flex-col gap-20">
@@ -322,8 +323,8 @@ function Hero() {
           </div>
         </div>
 
-        <div
-          ref={aboutCon}
+        <div ref={aboutCon}
+          
           className="about flex justify-center w-full h-auto pb-8"
         >
           <div className="w-full max-w-5xl projectss flex flex-col gap-8">
@@ -445,6 +446,7 @@ function Hero() {
             </div>
           </div>
         </div>
+
       </div>
     </>
   );

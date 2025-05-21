@@ -20,6 +20,13 @@ function Slices() {
   const [selectedGist, setSelectedGist] = useState(initial_gist);
   const [isExpanded, setIsExpanded] = useState(false);
 
+
+
+useEffect(() => {
+window.scrollTo(0, 0);
+},[]);
+
+
   useGSAP(() => {
     gsap.from(main_con.current, {
      
