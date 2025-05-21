@@ -14,11 +14,11 @@ import NodejsIcon from "../public/nodejs.svg";
 import MongoDBIcon from "../public/mongodb.svg";
 
 export const GISTS_DATA = [{
-    gistName: "Navbar Dock",
-    gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page",
-    gistId: 1,
-    gistTags: ["React", "Tailwind"],
-    gistCode: `
+  gistName: "Navbar Dock",
+  gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page",
+  gistId: 1,
+  gistTags: ["React", "Tailwind"],
+  gistCode: `
     import React, { useRef } from "react";
     import { useTheme } from "../ThemeContext"; //using custom theme context hook
     
@@ -70,8 +70,8 @@ export const GISTS_DATA = [{
     export default Navbar;
     
     `
-    ,
-    gistCss:`.nav-active {
+  ,
+  gistCss: `.nav-active {
   box-shadow: var(--box-shadow);
   text-decoration: none;
   backdrop-filter: blur(15px);
@@ -83,25 +83,64 @@ export const GISTS_DATA = [{
   border-radius: 8px;
   transform: scale(.9);
 }`,
-    gistDeps:"",
-    gistLanguage: "javascript",
+  gistDeps: "",
+  gistLanguage: "javascript",
 },
 {
-    gistName: "Card with Shine Effect",
-    gistDescription: "Card with shine effect on hover using tailwind",
-    gistId: 2,
-    gistTags: ["React", "Tailwind"],
-    gistCode: "console.log('comming soon')",
-    gistLanguage: "javascript",
+  gistName: "useSwipe hook",
+  gistDescription: `hook for detecting swipe gestures, hook accepts onSwipeLeft, onSwipeRight callbacks and threshold as arguments.
+   Threshold defaults to 50, onSwipeLeft and onSwipeRight you can pass a callback function to handle what happen when swipe is detected`, 
+  gistId: 2,
+  gistTags: ["React", "Javascript"],
+  gistCode: `import { useEffect } from 'react';
+    
+    const useSwipe = (onSwipeLeft, onSwipeRight, threshold = 50) => {
+      useEffect(() => {
+        let touchStartX = 0;
+        let touchEndX = 0;
+    
+        const handleTouchStart = (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        };
+    
+        const handleTouchEnd = (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        };
+    
+        const handleSwipe = () => {
+          const distance = touchEndX - touchStartX;
+          if (distance > threshold) onSwipeRight?.(); // Right swipe
+          if (distance < -threshold) onSwipeLeft?.(); // Left swipe
+        };
+    
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
+    
+        return () => {
+          window.removeEventListener('touchstart', handleTouchStart);
+          window.removeEventListener('touchend', handleTouchEnd);
+        };
+      }, [onSwipeLeft, onSwipeRight, threshold]);
+    };
+    export default useSwipe;`,
+  gistLanguage: "javascript",
+  gistUsage: `
+    useSwipe(
+      () => setIsSidebarVisible(false), // swipe left to close
+      () => setIsSidebarVisible(true), // swipe right to open
+      100 // threshold for swipe detection
+    );
+    `
 },
 ]
 
 export const SOCIAL_LINKS = [
-    { href: "https://github.com/constayush", icon: github, alt: "GitHub" },
-    { href: "https://www.linkedin.com/in/ayush0x1/", icon: linkedin, alt: "LinkedIn" },
-    { href: "https://www.instagram.com/maihoonayush/", icon: insta, alt: "Instagram" },
-    { href: "https://www.x.com/constayush/", icon: xIcon, alt: "X" },
-    { href: "mailto:ayushcodes@outlook.com", icon: mail, alt: "Mail" }
+  { href: "https://github.com/constayush", icon: github, alt: "GitHub" },
+  { href: "https://www.linkedin.com/in/ayush0x1/", icon: linkedin, alt: "LinkedIn" },
+  { href: "https://www.instagram.com/maihoonayush/", icon: insta, alt: "Instagram" },
+  { href: "https://www.x.com/constayush/", icon: xIcon, alt: "X" },
+  { href: "mailto:ayushcodes@outlook.com", icon: mail, alt: "Mail" }
 ];
 
 export const PROJECTS = [
@@ -109,29 +148,29 @@ export const PROJECTS = [
     projectName: "Slices UI",
     projectDescriptionShort: "Slices UI is my personal component library — a fresh collection of UI elements I cut, styled, and served.",
     projectDescriptionLong: "Inspired by libraries like Hero UI and Aceternity UI, Slices UI is a curated set of sleek, reusable components designed for fast, modern web dev. Built with love, Tailwind, and way too much coffee.",
-    projectImg: projectImg1, 
+    projectImg: projectImg1,
     projectCode: "https://github.com/constayush/portfolio-AYUSH/blob/master/src/components/Slices.jsx",
     projectLive: "https://constayush.vercel.app/slices",
     projectId: 1,
-}
-,
-    {
-        projectName: "Boxit",
-        projectDescriptionShort: "Box'It is a boxing app that helps users learn, practice, and improve, offering valuable resources for all skill levels.",
-        projectDescriptionLong: "Box'It is a comprehensive boxing app designed for everyone—from beginners to experienced fighters. It features interactive tutorials, guided training sessions, and personalized workout plans to help users sharpen their skills and track their progress.",
-        projectImg: projectImg2,
-        projectCode: "https://github.com/constayush/Boxit",
-        projectLive: "https://boxit-two.vercel.app/",
-        projectId: 2,
-    },
+  }
+  ,
+  {
+    projectName: "Boxit",
+    projectDescriptionShort: "Box'It is a boxing app that helps users learn, practice, and improve, offering valuable resources for all skill levels.",
+    projectDescriptionLong: "Box'It is a comprehensive boxing app designed for everyone—from beginners to experienced fighters. It features interactive tutorials, guided training sessions, and personalized workout plans to help users sharpen their skills and track their progress.",
+    projectImg: projectImg2,
+    projectCode: "https://github.com/constayush/Boxit",
+    projectLive: "https://boxit-two.vercel.app/",
+    projectId: 2,
+  },
 ];
 
 export const TECH_STACK = [
-    { icon: JavascriptIcon, name: "JavaScript" },
-    { icon: TypescriptIcon, name: "TypeScript" },
-    { icon: ReactIcon, name: "React" },
-    { icon: NextjsIcon, name: "Next.js" },
-    { icon: NodejsIcon, name: "Node.js" },
-    { icon: ExpressjsIcon, name: "Express.js" },
-    { icon: MongoDBIcon, name: "MongoDB" },
+  { icon: JavascriptIcon, name: "JavaScript" },
+  { icon: TypescriptIcon, name: "TypeScript" },
+  { icon: ReactIcon, name: "React" },
+  { icon: NextjsIcon, name: "Next.js" },
+  { icon: NodejsIcon, name: "Node.js" },
+  { icon: ExpressjsIcon, name: "Express.js" },
+  { icon: MongoDBIcon, name: "MongoDB" },
 ];
