@@ -71,7 +71,7 @@ function Slices() {
       <div className="flex flex-col md:flex-row flex-1 gap-4 relative">
         {/* Sidebar for md> devices */}
         <aside
-          className="w-full hidden md:block md:w-80 md:sticky md:top-[2rem] md:h-[calc(100vh-15rem)] overflow-y-auto 
+          className="w-full hidden md:block md:w-80 md:sticky md:top-6 md:h-[calc(100vh-15rem)] overflow-y-auto 
                   bg-[var(--glass)]
                          border z-[10000] border-[var(--border-2-color)] rounded-xl p-4 shadow-lg"
         >
@@ -83,7 +83,7 @@ function Slices() {
               </h1>
             </div>
             <p className="mb-6 text-center text-[var(--secondary-text)]">
-              — components I cut, styled, and served
+              — components & utils I cut, styled, and served
             </p>
 
             <div className="space-y-2 max-h-[calc(100vh-12rem)] overflow-y-auto  pb-4">
@@ -236,6 +236,28 @@ function Slices() {
                     </div>
                   </div>
                 )}
+
+
+{selectedGist.gistUsage  && (
+     <div>
+                    <h3 className="text-lg font-semibold text-[var(--text-color)] mb-3 flex items-center">
+                      <span className="inline-block w-2 h-2 bg-[var(--accent-color)] rounded-full mr-2"></span>
+                      Usage
+                    </h3>
+                    <div className="rounded-lg overflow-hidden border border-[var(--border-2-color)] shadow-inner">
+                      <div className="code-block-wrapper overflow-auto max-h-[400px]">
+                        <CodeBlock code={selectedGist.gistUsage} language="js" />
+                      </div>
+                    </div>
+                  </div>
+
+
+) }
+
+
+
+
+
               </div>
             </div>
           ) : (
