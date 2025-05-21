@@ -23,7 +23,7 @@ function handleClick() {
           alt="->"
         />
       </span>
-      <p>{props.gistDescription}</p>
+      <p>{props.gistShortDescription}</p>
 
       <div className="flex gap-2 flex-wrap">
         {props?.gistTags?.map((tag) => {
