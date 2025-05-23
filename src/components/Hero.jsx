@@ -1,5 +1,6 @@
 import React, { useEffect, useCallback, useMemo, useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import {motion} from "framer-motion";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../heroStyles.css";
@@ -27,13 +28,7 @@ function Hero() {
   const headingWords = " Creating UIs that pop with clean design and code";
   const org = useRef();
   const projectCon = useRef();
-  const mainHeading = useRef();
-  const mainCon = useRef();
-  const subHeading = useRef();
-  const aboutCon = useRef();
-  const miniGame = useRef();
   const textName = useRef();
-  const gistscon = useRef();
 
   const navigate = useNavigate();
 
@@ -52,7 +47,7 @@ function Hero() {
   }, []);
 
   const scrollToAbout = useCallback(() => {
-    document.querySelector(".about")?.scrollIntoView({
+    document.querySelector("#about")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
@@ -67,8 +62,8 @@ function Hero() {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
     };
-    const handleMouseEnter = () => cursor.classList.add("show");
-    const handleMouseLeave = () => cursor.classList.remove("show");
+    const handleMouseEnter = () => cursor?.classList.add("show");
+    const handleMouseLeave = () => cursor?.classList.remove("show");
 
     document.addEventListener("mousemove", handleMouseMove);
     orgLogo?.addEventListener("mouseenter", handleMouseEnter);
@@ -90,41 +85,6 @@ function Hero() {
     };
     requestAnimationFrame(raf);
     return () => lenis.destroy();
-  }, []);
-
-  // GSAP animations
-  useGSAP(() => {
-    const tl = gsap.timeline();
-
-    tl.from(org.current, {
-      filter: "blur(20px)",
-      x: 100,
-      scale: 0.1,
-      duration: 1,
-    }).to(org.current, {
-      rotate: 360,
-      duration: 80,
-      repeat: -1,
-      ease: "none",
-    });
-
-    gsap.from(mainCon.current, {
-      y: 150,
-      opacity: 0,
-      duration: 0.75,
-      stagger: 0.2,
-    });
-
-    ScrollTrigger.create({
-      trigger: mainCon.current,
-      start: "bottom bottom",
-      animation: gsap.from(projectCon.current, {
-        y: 20,
-        ease: "easeIn",
-        opacity: 0,
-      }),
-      scrub: true,
-    });
   }, []);
 
   const renderSocialIcons = useMemo(
@@ -152,9 +112,9 @@ function Hero() {
       TECH_STACK.map(({ icon, name }) => (
         <div
           key={name}
-          className={`w-auto border flex justify-center items-center gap-1 p-2 text-[var(--secondary-text)] border-[var(--border-color)]`}
+          className={`w-auto border grow flex justify-center items-center gap-1 p-2 text-[var(--secondary-text)] border-[var(--border-color)]`}
         >
-          <img className="w-8 h-8" src={icon} alt={name} />
+          <img className="w-8 h-8 " src={icon} alt={name} />
           {name}
         </div>
       )),
@@ -182,47 +142,34 @@ function Hero() {
         <meta property="og:url" content="https://constayush.vercel.app/" />
         <link rel="canonical" href="https://constayush.vercel.app/" />
       </Helmet>
-      
-      <div
-        className="hero w-full h-auto bg-grid-[#000]/[.030] relative px-6 bg-[var(--bg-color)]"
-        data-theme={theme}
-      >
+
+      <div data-theme={theme} className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]">
         <div ref={cursorRef} className="custom-cursor"></div>
+          <Navbar />
 
-        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <motion.div 
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}  
+        transition={{ duration: 1 }}
+        className="w-full max-w-5xl flex flex-col justify-center items-center  gap-24 md:gap-48 px-4">
+          <main className="main-hero-section-container text-center items-center justify-center flex flex-col gap-4 md:gap-8">
+            <h1 className="hero-heading text-[2.8rem] inline text-center">
+              <TextGenerateEffect className={"inline"} words={headingWords} />
+              <Link to="/orange-rollllllllling">
+                <motion.img
+                initial={{ opacity: 0, scale: 0,y: 100 ,x: 100, filter: "blur(10px)" }}
+                animate={{ opacity: 1, scale: 1, y: 0 , x: 0, filter: "blur(0px)" }}
+                transition={{ duration: 1 }}
+                  onMouseLeave={handleMouseLeave_orgLogo}
+                  ref={org}
+                  className="ml-4 inline w-12 md:w-[4.25rem] orgLogo"
+                  src={orange}
+                  alt="o"
+                />
+              </Link>
+            </h1>
 
-        <main className="flex  justify-center relative w-full min-h-screen pt-[8rem] mb-[1.75rem] md:mb-10 flex-col items-center overflow-x-hidden">
-          <div  ref={mainCon}
-          
-            className="flex flex-col gap-7 items-center max-w-5xl text-center md:mb-8"
-          >
-            <div className="flex text-center">
-              <div
-                ref={mainHeading}
-                className="text-[2rem] md:text-[2.6rem] lg:text-[2.8rem] font-semibold text-[var(--text-color)]"
-              >
-                <h1 className="inline text-shadow">
-                  <TextGenerateEffect
-                    className={"inline"}
-                    words={headingWords}
-                  />
-                </h1>
-                <Link to="/orange-rollllllllling">
-                  <img
-                    onMouseLeave={handleMouseLeave_orgLogo}
-                    ref={org}
-                    className="ml-4 inline w-12 md:w-[4.25rem] orgLogo"
-                    src={orange}
-                    alt="o"
-                  />
-                </Link>
-              </div>
-            </div>
-
-            <h1
-              ref={subHeading}
-              className="text-lg md:text-2xl text-[var(--secondary-text)] text-shadow font-medium mb-5"
-            >
+            <p className="hero-para text-lg md:text-2xl text-[var(--secondary-text)] text-shadow font-medium">
               — Hi, I'm{" "}
               <a
                 onClick={scrollToAbout}
@@ -231,14 +178,14 @@ function Hero() {
               >
                 Ayush
               </a>
-              , a web developer from{" "}
+              , a UI Engineer from {" "}
               <span className="font-semibold text-[var(--accent-color)]">
                 India
               </span>
               .
-            </h1>
+            </p>
 
-            <div className="flex space-x-4">
+            <div className="social-container flex">
               <div className="networks  flex flex-col lg:flex-row-reverse  justify-center items-center gap-4">
                 <div className="netbox relative bg-[var(--netbox-bg-color)] border-[var(--border-color)] rounded-lg flex gap-4 p-3">
                   {renderSocialIcons}
@@ -263,32 +210,30 @@ function Hero() {
                 </a>
               </div>
             </div>
-          </div>
 
-          <svg
-            onClick={handleScrollArrow}
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth=".17"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide scrollDownArrow lucide-move-down size-10 hover:cursor-pointer text-[var(--text-color)]"
+            <button className="scrollDown-btn" onClick={handleScrollArrow}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth=".17"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide scrollDownArrow lucide-move-down size-10 hover:cursor-pointer text-[var(--text-color)]"
+              >
+                <path d="M8 18L12 22L16 18"></path>
+              </svg>
+            </button>
+          </main>
+
+          <section
+            ref={projectCon}
+            className="flex flex-col justify-center w-full gap-8 md:gap-16"
           >
-            <path d="M8 18L12 22L16 18"></path>
-          </svg>
-        </main>
-
-        <div ref={projectCon}
-          id="projects"
-          
-          className="flex justify-center w-full h-auto mb-20"
-        >
-          <div className="w-full max-w-5xl projectss flex flex-col gap-20">
-            <h1 className="text-3xl md:text-[2.7rem] font-semibold mb-2 text-[var(--text-color)]">
+            <h1 className="text-3xl md:text-[2.7rem] font-semibold text-[var(--text-color)]">
               Projects
               <span className="font-semibold text-[var(--accent-color)]">
                 .
@@ -298,155 +243,122 @@ function Hero() {
             <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
               {renderProjects}
             </div>
-          </div>
-        </div>
+          </section>
 
-        <div ref={gistscon} className="flex justify-center w-full h-auto mb-20">
-          <div className="w-full max-w-5xl projectss flex flex-col gap-20">
-            <span className="flex justify-between items-end">
-              <h1 className="text-3xl md:text-[2.7rem] font-semibold mb-2 text-[var(--text-color)]">
-                Slices
-                <span className="font-semibold text-[var(--accent-color)]">
-                  .
-                </span>
-              </h1>
-              <Link to="/gists">
-                <span className="font-semibold text-[var(--accent-color)] opacity- underline mr-3">
-                  view all
-                </span>
-              </Link>
-            </span>
-
-            <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6  place-items-center">
-              {renderGists}
-            </div>
-          </div>
-        </div>
-
-        <div ref={aboutCon}
-          
-          className="about flex justify-center w-full h-auto pb-8"
-        >
-          <div className="w-full max-w-5xl projectss flex flex-col gap-8">
+          <section
+            id="about"
+            className="flex flex-col justify-center w-full gap-8 md:gap-10"
+          >
             <h1 className="text-3xl md:text-[2.7rem] font-semibold text-[var(--text-color)]">
               About me
               <span className="font-semibold text-[var(--accent-color)]">
                 .
               </span>
             </h1>
-            <p className="text-[1.15rem] text-[var(--secondary-text)] font-medium">
-              Hi! I'm <span className="font-semibold">Ayush Srivastava</span>, a{" "}
-              <span className="font-semibold">19-year-old</span> web developer
-              from <span className="font-semibold">India</span>. Currently a
-              second-year{" "}
-              <span className="font-semibold">Computer Science</span> student, I
-              work with{" "}
-              <span className="font-semibold">
-                TypeScript, React, and Next.js
-              </span>
-              , building clean and efficient web applications. Beyond the IDE, I
-              enjoy <span className="font-semibold">chess</span> and{" "}
-              <span className="font-semibold">Valorant</span>.
+
+            <p className="hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
+              Hi! I'm <b>Ayush Srivastava</b>, a 19-year-old web developer from
+              India. Currently a second-year Computer Science student, I work
+              with TypeScript, React, and Next.js, building clean and efficient
+              web applications. Beyond the IDE, I enjoy chess and Valorant.
             </p>
 
-            <div className="">
-            <h1 className="font-semibold text-xl text-[var(--text-color)] mb-8">
-              Education
-            </h1>
+            <div>
+              <h1 className="text-[1.15rem] ] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Education
+              </h1>
+              <p className="flex flex-col gap-2  hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
+                <span className="flex flex-wrap w-full justify-between">
+                  <p>Bachelor of Technology in Computer Science</p>( Expected:
+                  2025 – 2028 )
+                </span>
 
-              <span className="flex w-full felx-col flex-wrap md:flex-row justify-between">
-              <p className="text-[1.15rem] text-[var(--secondary-text)] font-medium">
-               Bachelor of Technology in Computer Science
-              </p>{" "}
-              <p>( 2025 - 2028 )</p>
-            </span>
+                <span className="flex flex-wrap w-full justify-between">
+                  <p> Diploma in Computer Science and Engineering</p>( 2022 – 2025 |
+                  CGPA: 8.5/10 )
+                </span>
+              </p>
+            </div>
 
+            <div className="tech-stack-container">
+              <h1 className="text-[1.15rem] ] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Tech Stack
+              </h1>
 
-            <span className="flex w-full felx-col flex-wrap md:flex-row justify-between">
-              <p className="text-[1.15rem] text-[var(--secondary-text)] font-medium">
-                Diploma in Computer Science and Enggnineering: 8.5 cgpa
-              </p>{" "}
-              <p>( 2022 - 2025 )</p>
-            </span></div>
-
-             
-            <h1 className="font-semibold text-xl text-[var(--text-color)]">
-              My Tech Stack
-            </h1>
-
-            <div className="flex gap-5 flex-wrap">{renderTechStack}</div>
+              <span className="flex gap-4 flex-wrap">{renderTechStack}</span>
+            </div>
 
             <hr className="border-[var(--nav-text-color)]"></hr>
+            <footer>
+              <h1 className="text-[1.15rem] ] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Contact
+              </h1>
 
-            <h1 className="font-semibold text-xl text-[var(--text-color)]">
-              Contact
-            </h1>
+              <div className="flex flex-wrap gap-4 text-center items-center justify-center md:justify-between">
+                <div className="w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[var(--secondary-text)]">
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/constayush"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/ayush0x1/"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.x.com/constayush/"
+                  >
+                    X / twitter
+                  </a>
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/maihoonayush/"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    className="hover:cursor-pointer hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:ayushcodes@outlook.com"
+                  >
+                    ayushcodes@outlook.com
+                  </a>
+                  <a
+                    className="hover:cursor-pointer hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:ayushcodes@outlook.com"
+                  >
+                    Resume
+                  </a>
+                </div>
 
-            <div className="flex flex-wrap gap-4 text-center items-center justify-center md:justify-between">
-              <div className="w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[var(--secondary-text)]">
-                <a
-                  className="footerLinks hover:text-[var(--accent-color)]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/constayush"
+                <p className="text-[var(--secondary-text)]">
+                  © 2025 Ayush Srivastava
+                </p>
+                <Link
+                  className="text-[var(--text-color)] text-[2rem] hover:tracking-[1rem] logoNav"
+                  to="/terminal"
                 >
-                  GitHub
-                </a>
-                <a
-                  className="footerLinks hover:text-[var(--accent-color)]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.linkedin.com/in/ayush0x1/"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  className="footerLinks hover:text-[var(--accent-color)]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.x.com/constayush/"
-                >
-                  X / twitter
-                </a>
-                <a
-                  className="footerLinks hover:text-[var(--accent-color)]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.instagram.com/maihoonayush/"
-                >
-                  Instagram
-                </a>
-                <a
-                  className="hover:cursor-pointer hover:text-[var(--accent-color)]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="mailto:ayushcodes@outlook.com"
-                >
-                  ayushcodes@outlook.com
-                </a>
-                <a
-                  className="hover:cursor-pointer hover:text-[var(--accent-color)]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="mailto:ayushcodes@outlook.com"
-                >
-                  Resume
-                </a>
+                  आ<span className="accent">1.</span>
+                </Link>
               </div>
-
-              <p className="text-[var(--secondary-text)]">
-                © 2025 Ayush Srivastava
-              </p>
-              <Link
-                className="text-[var(--text-color)] text-[2rem] hover:tracking-[1rem] logoNav"
-                to="/terminal"
-              >
-                आ<span className="accent">1.</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-
+            </footer>
+          </section>
+        </motion.div>
       </div>
     </>
   );
