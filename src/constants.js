@@ -148,7 +148,7 @@ export const SOCIAL_LINKS = [
 export const PROJECTS = [
   {
     projectName: "Slices UI",
-    projectDescriptionShort: "Slices UI is my personal component library — a fresh collection of UI elements I cut, styled, and served.",
+    projectDescriptionShort: "Slices — a fresh collection of UI elements and reusable code snippets I cut, styled, and served.",
     projectDescriptionLong: "Inspired by libraries like Hero UI and Aceternity UI, Slices UI is a curated set of sleek, reusable components designed for fast, modern web dev. Built with love, Tailwind, and way too much coffee.",
     projectImg: projectImg1,
     projectCode: "https://github.com/constayush/portfolio-AYUSH/blob/master/src/components/Slices.jsx",

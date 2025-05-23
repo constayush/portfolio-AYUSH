@@ -20,7 +20,7 @@
   /* ========== Dark Theme Defaults ========== */
   --bg-color: #080808;
   --text-color: #dedede;
-  --secondary-text: #bfbfbf;
+  --secondary-text: #a8a8a8;
   --border-color: #8f8f8f;
   --border-2-color: #ffffff32;
   --glass: #00000082;
@@ -40,7 +40,7 @@
 /* ========== Light Theme Overrides ========== */
 [data-theme="light"] {
   --accent-color: var(--light-accent-color);
-  --bg-color: #eeeeee;
+  --bg-color: #fffffff0;
   --text-color: #111111;
   --secondary-text: #333333;
   --border-color: #1e1d1d;
