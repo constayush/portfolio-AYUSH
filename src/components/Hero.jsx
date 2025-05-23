@@ -1,8 +1,5 @@
-import React, { useEffect, useCallback, useMemo, useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import { useEffect, useCallback, useMemo, useRef } from "react";
 import {motion} from "framer-motion";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../heroStyles.css";
 import { Link } from "react-router-dom";
 import orange from "../../public/orange.svg";
@@ -20,7 +17,7 @@ import {
   TECH_STACK,
 } from "../constants.js";
 import { Helmet } from "react-helmet";
-gsap.registerPlugin(ScrollTrigger);
+
 
 function Hero() {
   const { theme, toggleTheme } = useTheme();
@@ -33,11 +30,7 @@ function Hero() {
   const navigate = useNavigate();
 
   // Memoized event handlers
-  const handleMouseLeave_orgLogo = useCallback(() => {
-    gsap.to(org.current, {
-      rotate: "-=360",
-    });
-  }, []);
+
 
   const handleScrollArrow = useCallback(() => {
     window.scrollTo({
@@ -158,9 +151,9 @@ function Hero() {
               <Link to="/orange-rollllllllling">
                 <motion.img
                 initial={{ opacity: 0, scale: 0,y: 100 ,x: 100, filter: "blur(10px)" }}
-                animate={{ opacity: 1, scale: 1, y: 0 , x: 0, filter: "blur(0px)" }}
+                animate={{ opacity: 1, scale: 1, y: 0 , x: 0, filter: "blur(0px)" , rotate: 360 }}
                 transition={{ duration: 1 }}
-                  onMouseLeave={handleMouseLeave_orgLogo}
+                 
                   ref={org}
                   className="ml-4 inline w-12 md:w-[4.25rem] orgLogo"
                   src={orange}
