@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.45s ease, color 0.45s ease;
 }
 
 :root {
@@ -74,13 +74,13 @@ html {
 }
 
 .projects-img {
-  transition: all ease .2s;
+  transition: all ease 2s;
 }
 
 .porject-card:hover .projects-img {
 
 
-  transform: scale(1.2);
+  transform: scale(1.5);
 }
 
 @keyframes ripple {

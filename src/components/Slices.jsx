@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Navbar from "./Navbar";
-
+import {motion} from "framer-motion";
 import { Helmet } from "react-helmet";
 import { GISTS_DATA } from "../constants";
 import { useTheme } from "../ThemeContext";
@@ -69,19 +69,29 @@ window.scrollTo(0, 0);
                          border z-[10000] border-[var(--border-2-color)] rounded-xl p-4 shadow-lg"
         >
           <div className="relative">
-            <div ref={logo} className="flex justify-center items-center gap-1">
+            <motion.div 
+            
+            initial={{ opacity: 0, scale: 3, letterSpacing: 10 }}
+              animate={{ opacity: 1, scale: 1, letterSpacing: 0 }}
+              transition={{ duration: .25 , ease: "easeInOut"}}
+            className="flex justify-center items-center gap-1 transition-all duration-700">
               <img src={slicesIcon} className="w-[3rem]" />
               <h1 className="text-2xl md:text-4xl font-bold mb-2 text-[var(--text-color)] text-center">
                 Slices<span className="text-[var(--accent-color)]">.</span>
               </h1>
-            </div>
+            </motion.div>
             <p className="mb-6 text-center text-[var(--secondary-text)]">
               — components & utils I cut, styled, and served
             </p>
 
-            <div className="space-y-2 max-h-[calc(100vh-12rem)] overflow-y-auto  pb-4">
+            
+            <motion.div 
+             initial={{ opacity: 0, y: 110 }} 
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 , ease: "easeInOut" }}
+            className="space-y-2 max-h-[calc(100vh-12rem)] overflow-y-auto  pb-4">
               {GISTS_DATA.map((gist) => (
-                <div
+                <div                 
                   key={gist.gistId}
                   onClick={() => setSelectedGist(gist)}
                   className={`cursor-pointer p-3 rounded-lg transition-all duration-200 
@@ -102,7 +112,7 @@ window.scrollTo(0, 0);
                   )}
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </aside>
 
@@ -185,11 +195,18 @@ window.scrollTo(0, 0);
         </nav>
 
         {/* Main content Code Block n shit */}
-        <main className="flex-1 relative rounded-lg shadow-lg flex flex-col items-center mb-12">
+        <main 
+      
+
+        className="flex-1 relative rounded-lg shadow-lg flex flex-col items-center mb-12">
           <span className="fixed pointer-events-none border border-[#ffffff9a] -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[#ffffff] blur-[200px]"></span>
           <span className="fixed pointer-events-none border border-[#fff] -z-1 top-0 right-0 w-[40%]     h-[6rem] bg-[#fe9b32] blur-[100px]"></span>
           {selectedGist ? (
-            <div
+            <motion.div
+              initial={{ opacity: 0 , filter:"blur(5px)"}}
+              animate={{ opacity: 1 , filter:"blur(0px)"}}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
               className="w-full z-[5]  max-w-7xl  bg-[var(--glass)]
                           rounded-xl p-6 shadow-lg border border-[var(--border-2-color)]  "
             >
@@ -252,7 +269,7 @@ window.scrollTo(0, 0);
 
 
               </div>
-            </div>
+            </motion.div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center p-8">
               <div className="flex justify-center items-center">

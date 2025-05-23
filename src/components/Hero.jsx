@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useMemo, useRef } from "react";
-import {motion} from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import styles from "../heroStyles.css";
 import { Link } from "react-router-dom";
 import orange from "../../public/orange.svg";
@@ -18,7 +18,6 @@ import {
 } from "../constants.js";
 import { Helmet } from "react-helmet";
 
-
 function Hero() {
   const { theme, toggleTheme } = useTheme();
   const cursorRef = useRef(null);
@@ -30,8 +29,6 @@ function Hero() {
   const navigate = useNavigate();
 
   // Memoized event handlers
-
-
   const handleScrollArrow = useCallback(() => {
     window.scrollTo({
       top: 630,
@@ -80,6 +77,33 @@ function Hero() {
     return () => lenis.destroy();
   }, []);
 
+  const controls = useAnimation();
+
+  useEffect(() => {
+    // Start entrance animation
+    controls
+      .start({
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        filter: "blur(0px)",
+        transition: { duration: 0.8 },
+      })
+      .then(() => {
+        // After entrance finishes, start infinite spin
+        controls.start({
+          rotate: 360,
+          transition: {
+            repeat: Infinity,
+            duration: 2,
+            ease: "linear",
+            repeatType: "loop",
+          },
+        });
+      });
+  }, [controls]);
+
   const renderSocialIcons = useMemo(
     () =>
       SOCIAL_LINKS.map(({ href, icon, alt }) => (
@@ -105,7 +129,7 @@ function Hero() {
       TECH_STACK.map(({ icon, name }) => (
         <div
           key={name}
-          className={`w-auto border grow flex justify-center items-center gap-1 p-2 text-[var(--secondary-text)] border-[var(--border-color)]`}
+          className={`w-auto border grow flex justify-center items-center gap-1 hover:bg-[#1b1b1b] hover:text-white p-2 text-[var(--secondary-text)] border-[var(--border-color)]`}
         >
           <img className="w-8 h-8 " src={icon} alt={name} />
           {name}
@@ -136,24 +160,57 @@ function Hero() {
         <link rel="canonical" href="https://constayush.vercel.app/" />
       </Helmet>
 
-      <div data-theme={theme} className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]">
+      <div
+        data-theme={theme}
+        className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-48 md:pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]"
+      >
         <div ref={cursorRef} className="custom-cursor"></div>
-          <Navbar />
+        <Navbar />
 
-        <motion.div 
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}  
-        transition={{ duration: 1 }}
-        className="w-full max-w-5xl flex flex-col justify-center items-center  gap-24 md:gap-48 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="w-full max-w-5xl flex flex-col justify-center items-center  gap-24 md:gap-48 px-4"
+        >
           <main className="main-hero-section-container text-center items-center justify-center flex flex-col gap-4 md:gap-8">
-            <h1 className="hero-heading text-[2.8rem] inline text-center">
+            <h1 className="hero-heading text-[1.8rem] md:text-[2.8rem] inline text-center">
               <TextGenerateEffect className={"inline"} words={headingWords} />
               <Link to="/orange-rollllllllling">
                 <motion.img
-                initial={{ opacity: 0, scale: 0,y: 100 ,x: 100, filter: "blur(10px)" }}
-                animate={{ opacity: 1, scale: 1, y: 0 , x: 0, filter: "blur(0px)" , rotate: 360 }}
-                transition={{ duration: 1 }}
-                 
+                  style={{
+                    shapeRendering: "geometricPrecision",
+                    transformOrigin: "center center",
+                    backfaceVisibility: "hidden", // just in case
+                  }}
+                  initial={{
+                    opacity: 0,
+                    scale: 0,
+                    y: 100,
+                    x: 100,
+                    filter: "blur(10px)",
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    x: 0,
+                    filter: "blur(0px)",
+                    rotate: [0, 360], // keyframe for infinite rotation
+                  }}
+                  transition={{
+                    opacity: { duration: 0.8 },
+                    scale: { duration: 0.8 },
+                    y: { duration: 0.8 },
+                    x: { duration: 0.8 },
+                    filter: { duration: 0.8 },
+                    rotate: {
+                      repeat: Infinity,
+                      duration: 30,
+                      ease: "linear",
+                      repeatType: "loop",
+                    },
+                  }}
                   ref={org}
                   className="ml-4 inline w-12 md:w-[4.25rem] orgLogo"
                   src={orange}
@@ -171,7 +228,7 @@ function Hero() {
               >
                 Ayush
               </a>
-              , a UI Engineer from {" "}
+              , a UI Engineer from{" "}
               <span className="font-semibold text-[var(--accent-color)]">
                 India
               </span>
@@ -238,6 +295,28 @@ function Hero() {
             </div>
           </section>
 
+          <section className="flex flex-col justify-center w-full gap-8 md:gap-16">
+            <span className="flex items-end w-full  justify-between ">
+              <h1 className="text-3xl md:text-[2.7rem] font-semibold text-[var(--text-color)]">
+                Slices
+                <span className="font-semibold text-[var(--accent-color)]">
+                  .
+                </span>
+              </h1>
+
+              <Link
+                className="mr-2 underline underline-offset-4 hover:text-[var(--accent-color)]"
+                to="/slices"
+              >
+                view all
+              </Link>
+            </span>
+
+            <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
+              {renderGists}
+            </div>
+          </section>
+
           <section
             id="about"
             className="flex flex-col justify-center w-full gap-8 md:gap-10"
@@ -267,8 +346,8 @@ function Hero() {
                 </span>
 
                 <span className="flex flex-wrap w-full justify-between">
-                  <p> Diploma in Computer Science and Engineering</p>( 2022 – 2025 |
-                  CGPA: 8.5/10 )
+                  <p> Diploma in Computer Science and Engineering</p>( 2022 –
+                  2025 | CGPA: 8.5/10 )
                 </span>
               </p>
             </div>
