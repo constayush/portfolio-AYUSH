@@ -2,8 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 import { Helmet } from "react-helmet";
 import { GISTS_DATA } from "../constants";
 import { useTheme } from "../ThemeContext";
@@ -27,20 +26,7 @@ window.scrollTo(0, 0);
 },[]);
 
 
-  useGSAP(() => {
-    gsap.from(main_con.current, {
-     
-      opacity: 0,
-      duration: 1,
-    });
-
-    gsap.from(logo.current, {
-     scale: 5,
-      opacity: 0,
-      duration: 1,
-      letterSpacing: "1rem",
-    });
-  }, []);
+ 
 
   return (
     <div
