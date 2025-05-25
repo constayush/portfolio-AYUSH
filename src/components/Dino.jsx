@@ -4,6 +4,7 @@ import obs from "../../public/obs.svg";
 import { Link } from "react-router-dom";
 import "../main.css";
 import { useTheme } from "../ThemeContext";
+import { motion } from "framer-motion";
 const DinoGame = ({ className }) => {
   const { theme, toggleTheme } = useTheme();
   const [isJumping, setIsJumping] = useState(false);
@@ -109,6 +110,19 @@ const DinoGame = ({ className }) => {
       onClick={handleJump}
       className="w-full h-screen p-3 gap-5 md:p-0 flex select-none flex-col justify-center items-center relative cursor-crosshair text-[var(--text-color)] overflow-hidden bg-[var(--bg-color)]"
     >
+
+       <motion.span 
+         initial={{ opacity: 0, top: "-100px" }}
+          animate={{ opacity: 1, top: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1}}
+       className="fixed pointer-events-none border border-[#ffffff9a] -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[#ffffff] blur-[200px]"></motion.span>
+          <motion.span 
+          initial={{ opacity: 0, top: "-100px" }}
+          animate={{ opacity: 1, top: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1}}
+          className="fixed pointer-events-none border border-[#fff] -z-1 top-0 right-0 w-[40%] h-[6rem] bg-[#ffad55] blur-[130px]"></motion.span>
       {/* Ripples */}
       {ripples.map((ripple) => (
         <span
@@ -175,7 +189,7 @@ const DinoGame = ({ className }) => {
       </div>
 
       {isGameOver && (
-        <div className="flex flex-col justify-center md:w-fit w-full relative md:absolute bg-[var(--glass-bg-color)] backdrop-blur-[2px] items-center gap-3 p-4 border-2 border-[var(--border-color)]">
+        <div className="flex flex-col justify-center md:w-fit w-full relative md:absolute bg-[#ffffff0e] backdrop-blur-[2px] items-center gap-3 p-4 border-2 border-[var(--border-color)]">
           <p className="text-2xl text-[var(--text-color)]">
             Orange is killed :(
           </p>
