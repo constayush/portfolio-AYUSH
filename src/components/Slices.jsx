@@ -201,7 +201,7 @@ window.scrollTo(0, 0);
         className="flex-1 relative rounded-lg shadow-lg flex flex-col items-center mb-12">
           <span className="fixed pointer-events-none border border-[#ffffff9a] -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[#ffffff] blur-[200px]"></span>
           <motion.span 
-          initial={{ opacity: 0, right: "1000px" }}
+          initial={{ opacity: 0, right: "600px" }}
           animate={{ opacity: 1, right: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1}}
