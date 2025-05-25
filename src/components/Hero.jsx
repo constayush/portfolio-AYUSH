@@ -162,7 +162,7 @@ function Hero() {
 
       <div
         data-theme={theme}
-        className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-48 md:pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]"
+        className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-[9rem] md:pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]"
       >
         <div ref={cursorRef} className="custom-cursor"></div>
         <Navbar />

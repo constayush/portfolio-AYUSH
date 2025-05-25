@@ -23,11 +23,11 @@ function ProjectCard(props) {
         </div>
       </div>
 
-      <p className="text-[var(--text-color)] opacity-[.85] ">
+      <p className="text-[var(--text-color)] opacity-[.85] text-center md:text-left">
         {props.projectDescriptionShort}
       </p>
 
-      <p className="text-[var(--text-color)] opacity-[.85]  showmore-project-card ">
+      <p className="text-[var(--text-color)] opacity-[.85]  showmore-project-card text-center md:text-left">
         {props.projectDescriptionLong}
       </p>
 
