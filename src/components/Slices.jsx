@@ -200,7 +200,12 @@ window.scrollTo(0, 0);
 
         className="flex-1 relative rounded-lg shadow-lg flex flex-col items-center mb-12">
           <span className="fixed pointer-events-none border border-[#ffffff9a] -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[#ffffff] blur-[200px]"></span>
-          <span className="fixed pointer-events-none border border-[#fff] -z-1 top-0 right-0 w-[40%]     h-[6rem] bg-[#fe9b32] blur-[100px]"></span>
+          <motion.span 
+          initial={{ opacity: 0, right: "1000px" }}
+          animate={{ opacity: 1, right: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1}}
+          className="fixed pointer-events-none border border-[#fff] -z-1 top-0 right-0 w-[40%] h-[6rem] bg-[#ffad55] blur-[100px]"></motion.span>
           {selectedGist ? (
             <motion.div
               initial={{ opacity: 0 , filter:"blur(5px)"}}
