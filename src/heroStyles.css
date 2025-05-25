@@ -47,6 +47,22 @@ nav {
   border-radius: 8px;
   transform: scale(.9);
 }
+
+@media (max-width: 300px) {
+  .nav-active {
+    box-shadow: var(--box-shadow);
+    text-decoration: none;
+    backdrop-filter: blur(15px);
+    padding: .95rem;
+    margin: .65rem;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--nav-bg-color);
+    border-radius: 8px;
+    transform: scale(.8);
+  }
+}
+
 .custom-cursor {
   width: 30px;
   height: 30px;
@@ -102,6 +118,13 @@ nav {
   flex-direction: column;
   gap: 1.5rem;
   justify-content: center;
+}
+@media screen and (max-width: 300px) {
+  .card {
+    padding: .65rem;
+    gap: 1rem;
+  }
+  
 }
 
 .card:hover {
