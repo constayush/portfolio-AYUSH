@@ -172,7 +172,7 @@ function Hero() {
           animate={{ opacity: 1, top: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1}}
-       className="fixed pointer-events-none border border-[#ffffff9a] -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[#ffffffdb] blur-[200px]"></motion.span>
+       className="fixed pointer-events-none -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[var(--blob-color)] blur-[200px]"></motion.span>
         
         <motion.div
           initial={{ opacity: 0, y: 100 }}

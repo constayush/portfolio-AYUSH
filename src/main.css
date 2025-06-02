@@ -16,6 +16,7 @@
   --resume-btn-color: #ffffff0c;
   --hover-color: rgba(255, 255, 255, 0.05);
   --icon-color: 1;
+  --blob-color: #ffffffdb;
 
   /* ========== Dark Theme Defaults ========== */
   --bg-color: #080808;
@@ -31,7 +32,7 @@
   --netbox-bg-color: #080808;
   --shine-color: rgba(255, 255, 255, 0.08);
 
-  --box-shadow: 
+  --box-shadow:
     rgba(255, 255, 255, 0.025) 0px 12px 28px 0px,
     rgba(255, 255, 255, 0) 0px 2px 4px 0px,
     rgba(60, 60, 60, 0.527) 0px 0px 0px 1px inset;
@@ -44,7 +45,7 @@
   --text-color: #111111;
   --secondary-text: #333333;
   --border-color: #1e1d1d;
-    --border-2-color: #0000007c;
+  --border-2-color: #0000007c;
   --glass: #ffffff4a;
   --glass-bg-color: #ffffff88;
   --grid-bg-color: #000000;
@@ -56,7 +57,7 @@
   --hover-color: rgba(0, 0, 0, 0.05);
   --icon-color: 0;
   --shine-color: rgba(0, 0, 0, 0.653);
-
+  --blob-color: #00000000;
   --box-shadow:
     rgba(0, 0, 0, 0.234) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.025) 0px 2px 4px 0px,
@@ -69,6 +70,7 @@ html {
     color: var(--text-color);
     background: rgba(255, 186, 130, 0.453);
   }
+
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -143,7 +145,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -157,7 +159,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 body {
-  scrollbar-color: var(--hover-color) transparent; 
+  scrollbar-color: var(--hover-color) transparent;
   scrollbar-width: thin;
 }
-
