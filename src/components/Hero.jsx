@@ -162,18 +162,19 @@ function Hero() {
 
       <div
         data-theme={theme}
-        className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-[9rem] md:pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]"
+        className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-[10rem] md:pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]"
       >
         <div ref={cursorRef} className="custom-cursor"></div>
         <Navbar />
 
-   <motion.span 
-         initial={{ opacity: 0, top: "-100px" }}
+        <motion.span
+          initial={{ opacity: 0, top: "-100px" }}
           animate={{ opacity: 1, top: 0 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1}}
-       className="fixed pointer-events-none -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[var(--blob-color)] blur-[200px]"></motion.span>
-        
+          transition={{ duration: 1 }}
+          className="fixed pointer-events-none -z-1 top-0 left-0 w-[60%] h-[6rem] bg-[var(--blob-color)] blur-[200px]"
+        ></motion.span>
+
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
