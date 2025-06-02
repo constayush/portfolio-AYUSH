@@ -31,7 +31,7 @@
   --nav-text-color: #c0c0c0;
   --netbox-bg-color: #080808;
   --shine-color: rgba(255, 255, 255, 0.08);
-
+--border-3-color: #ffffff30;
   --box-shadow:
     rgba(255, 255, 255, 0.025) 0px 12px 28px 0px,
     rgba(255, 255, 255, 0) 0px 2px 4px 0px,
@@ -55,6 +55,7 @@
   --resume-btn-color: #ffffff35;
   --card-bg-darker: #f0f2f5;
   --hover-color: rgba(0, 0, 0, 0.05);
+  --border-3-color: #0000009c;
   --icon-color: 0;
   --shine-color: rgba(0, 0, 0, 0.653);
   --blob-color: #00000000;
@@ -161,4 +162,7 @@ body::-webkit-scrollbar-thumb:hover {
 body {
   scrollbar-color: var(--hover-color) transparent;
   scrollbar-width: thin;
+}.card:hover {
+  border: 1px solid var(--border-3-color);
+ 
 }

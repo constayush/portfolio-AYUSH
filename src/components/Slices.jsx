@@ -24,11 +24,13 @@ function Slices() {
   }, []);
 
   return (
+
     <div
       ref={main_con}
       data-theme={theme}
       className="bg-[var(--bg-color)] min-h-screen flex flex-col px-3 pt-[10rem] md:pt-[12rem]"
     >
+
       <Navbar />
 
       <Helmet>
@@ -57,6 +59,8 @@ function Slices() {
       </Helmet>
 
       <div className="flex flex-col md:flex-row flex-1 gap-4 relative">
+
+
         {/* Sidebar for md> devices */}
         <aside
           className="w-full hidden md:block md:w-80 md:sticky md:top-6 md:h-[calc(100vh-15rem)] overflow-y-auto 
@@ -112,7 +116,7 @@ function Slices() {
         </aside>
 
         {/* mobile nav */}
-        <nav className="md:hidden  flex justify-center items-center flex-col relative">
+        <nav className="md:hidden flex justify-center items-center flex-col relative">
           <div className="flex w-full justify-between items-center px-[.65rem]">
             <div className="flex justify-center items-center gap-1">
               <img src={slicesIcon} className="w-[3rem]" />
@@ -264,6 +268,8 @@ function Slices() {
             </div>
           )}
         </main>
+
+
       </div>
     </div>
   );
