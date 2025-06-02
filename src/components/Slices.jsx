@@ -10,6 +10,7 @@ import { CodeBlock } from "./ui/CodeBlock";
 import slicesIcon from "../../public/slices.svg";
 import { useLocation } from "react-router-dom";
 import {ArrowDownCircle} from "lucide-react"; 
+import useSwipe from "../../utils/useSwipe";
 function Slices() {
   const { theme } = useTheme();
   const main_con = useRef();
@@ -22,6 +23,15 @@ function Slices() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+
+  
+    useSwipe(
+      () => setIsExpanded(true), 
+      () => setIsExpanded(false),
+      200 
+    );
+    
 
   return (
 
