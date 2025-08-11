@@ -8,7 +8,7 @@ function ProjectCard(props) {
     <motion.div
       layout
       key={props.projectName}
-      className="card project-card min-h-full relative overflow-hidden group max-w-[30rem] min-w-full transition-all bg-[var(--glass-bg-color)] border-2 border-[#ffffff10] rounded-lg p-4"
+      className="card project-card min-h-full relative shadow-2xl overflow-hidden group max-w-[30rem] min-w-full transition-all bg-[var(--glass-bg-color)] border-2 border-[#ffffff10] rounded-lg p-4"
     >
       <div className="shine"></div>
 
@@ -35,9 +35,9 @@ function ProjectCard(props) {
           {isExpanded && (
             <motion.p
               key="expand"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 0, height: 0, filter: "blur(5px)", color: "black" }}
+              animate={{ opacity: 1, height: "auto", filter: "blur(0px)", color: "" }}
+              exit={{ opacity: 0, height: 0, filter: "blur(5px)", color: "black" }}
               transition={{ duration: 0.4 }}
               className="text-[var(--text-color)] opacity-85 text-center md:text-left"
             >

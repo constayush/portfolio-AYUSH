@@ -10,6 +10,7 @@ import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../ThemeContext";
 import GistsCard from "./ui/GistsCard";
+import TextShine from "./ui/text-shine.jsx";
 import {
   GISTS_DATA,
   SOCIAL_LINKS,
@@ -24,7 +25,6 @@ function Hero() {
   const headingWords = " Creating UIs that pop with clean design and code";
   const org = useRef();
   const projectCon = useRef();
-  const textName = useRef();
 
   const navigate = useNavigate();
 
@@ -179,7 +179,7 @@ function Hero() {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="w-full max-w-5xl flex flex-col justify-center items-center  gap-24 md:gap-48 px-4"
+          className="w-full max-w-[64rem] flex flex-col justify-center items-center  gap-24 md:gap-48 px-4"
         >
           <main className="main-hero-section-container text-center items-center justify-center flex flex-col gap-4 md:gap-8">
             <h1 className="hero-heading text-[1.8rem] md:text-[2.8rem] inline text-center">
@@ -229,13 +229,8 @@ function Hero() {
 
             <p className="hero-para text-lg md:text-2xl text-[var(--secondary-text)] text-shadow font-medium">
               — Hi, I'm{" "}
-              <a
-                onClick={scrollToAbout}
-                className="relative inline-block font-semibold cursor-pointer hover:mx-3 transition-all duration-700 text-glow"
-                ref={textName}
-              >
-                Ayush
-              </a>
+     
+              <TextShine onClick={scrollToAbout}  text="Ayush" className={" font-semibold cursor-pointer hover:mx-3 transition-all duration-700"} />
               , a UI Engineer from{" "}
               <span className="font-semibold text-[var(--accent-color)]">
                 India

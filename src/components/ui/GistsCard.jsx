@@ -2,11 +2,7 @@ import React from "react";
 import right_arrow from "../../../public/right-arrow.svg";
 import { Link } from "react-router-dom";
 function GistsCard(props) {
-function handleClick() {
-  
 
-  
-}
 
 
   return (
