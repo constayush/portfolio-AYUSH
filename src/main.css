@@ -65,6 +65,13 @@
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
+body,
+html {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
 
 html {
   ::selection {
@@ -107,32 +114,6 @@ html {
   animation: ripple 0.6s ease-out forwards;
 }
 
-/* Add this to your CSS file or create a new one */
-.code-block-wrapper {
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-color) var(--card-bg-darker);
-}
-
-.code-block-wrapper::-webkit-scrollbar {
-  width: 2px;
-  height: 8px;
-}
-
-.code-block-wrapper::-webkit-scrollbar-track {
-  background: var(--card-bg-darker);
-  border-radius: 4px;
-}
-
-.code-block-wrapper::-webkit-scrollbar-thumb {
-  background-color: var(--accent-fade);
-  border-radius: 4px;
-  border: 2px solid var(--card-bg-darker);
-}
-
-.code-block-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: var(--accent-color);
-}
-
 .text-shadow-lg {
   text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
@@ -141,28 +122,8 @@ html {
   box-shadow: var(--box-shadow);
 }
 
-body::-webkit-scrollbar {
-  width: 8px;
-}
-
-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: var(--hover-color);
-  border-radius: 10px;
-  border: none;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background-color: var(--accent-color);
-}
-
-body {
-  scrollbar-color: var(--hover-color) transparent;
-  scrollbar-width: thin;
-}.card:hover {
+.card:hover {
   border: 1px solid var(--border-3-color);
  
 }
+

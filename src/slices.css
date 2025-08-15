@@ -1,0 +1,37 @@
+:root {
+  /* ========== Shared ========== */
+  --bg-slice-color: hsl(249, 13%, 10%);
+  --slices-primary-text: hsl(0, 0%, 91%);
+  --slices-secondary-text: hsl(259, 16%, 69%);
+  --slices-sb-track-color: #383838;
+  --slices-sb-thumb-color: hsl(259, 16%, 69%);
+  --slices-sb-size: 5px;
+}
+
+[data-theme="light"] {
+  --bg-slice-color: hsl(0, 0%, 93%);
+  --slices-primary-text: hsl(0, 0%, 10%);
+  --slices-secondary-text: hsl(258, 6%, 31%);
+  --slices-sb-track-color: #ffffff;
+  --slices-sb-thumb-color: hsl(0, 0%, 60%);
+  --slices-sb-size: 5px;
+}
+
+.SLICES {
+
+
+  ::-webkit-scrollbar {
+    width: var(--slices-sb-size)
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--slices-sb-track-color);
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--slices-sb-thumb-color);
+    border-radius: 8px;
+
+  }
+}

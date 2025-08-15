@@ -13,13 +13,9 @@ import ExpressjsIcon from "../public/express.svg";
 import NodejsIcon from "../public/nodejs.svg";
 import MongoDBIcon from "../public/mongodb.svg";
 
-export const GISTS_DATA = [{
-  gistName: "Navbar Dock",
-    gistShortDescription: "Dock styled navbar which shrinks on scroll",
-  gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page, toggle between css classes to shrink and expand",
-  gistId: 1,
-  gistTags: ["React", "Tailwind"],
-  gistCode: `
+export const slices_code = {
+
+  1: `
     import React, { useRef } from "react";
     import { useTheme } from "../ThemeContext"; //using custom theme context hook
     
@@ -70,31 +66,8 @@ export const GISTS_DATA = [{
     
     export default Navbar;
     
-    `
-  ,
-  gistCss: `.nav-active {
-  box-shadow: var(--box-shadow);
-  text-decoration: none;
-  backdrop-filter: blur(15px);
-  padding: 1.25rem;
-  margin: 1.25rem;
-  width: fit-content;
-  height: fit-content;
-  background-color: var(--nav-bg-color);
-  border-radius: 8px;
-  transform: scale(.9);
-}`,
-  gistDeps: "",
-  gistLanguage: "javascript",
-},
-{
-  gistName: "useSwipe hook",
-  gistShortDescription: "hook for detecting swipe gestures",
-  gistDescription: `hook for detecting swipe gestures, hook accepts onSwipeLeft, onSwipeRight callbacks and threshold as arguments.
-   Threshold defaults to 50, onSwipeLeft and onSwipeRight you can pass a callback function to handle what happen when swipe is detected`, 
-  gistId: 2,
-  gistTags: ["React", "Javascript"],
-  gistCode: `import { useEffect } from 'react';
+    `,
+  2: `import { useEffect } from 'react';
     
     const useSwipe = (onSwipeLeft, onSwipeRight, threshold = 50) => {
       useEffect(() => {
@@ -126,25 +99,7 @@ export const GISTS_DATA = [{
       }, [onSwipeLeft, onSwipeRight, threshold]);
     };
     export default useSwipe;`,
-  gistLanguage: "javascript",
-  gistUsage: `
-    useSwipe(
-      () => setIsSidebarVisible(false), // swipe left to close
-      () => setIsSidebarVisible(true), // swipe right to open
-      100 // threshold for swipe detection
-    );
-    `
-},
-
-{
-  gistName: "TextShine Component",
-  gistShortDescription: "Shiny gradient text animation with Tailwind, no Tailwind config changes required",
-  gistDescription: `A reusable React component that renders text with a gradient "shine" animation using Tailwind CSS.
-This version injects the required keyframes and animation styles directly in the component via a <style> tag,
-so no tailwind.config.js modifications are needed. Accepts a 'text' prop and optional 'className' prop.`,
-  gistId:3,
-  gistTags: ["React", "Tailwind", "UI Component", "No Config"],
-  gistCode: `import clsx from "clsx";
+  3: `import clsx from "clsx";
   
   export default function TextShine({text="ayush" , className}) {
     return (
@@ -173,14 +128,69 @@ so no tailwind.config.js modifications are needed. Accepts a 'text' prop and opt
       </>
     );
   }
-  `,
-  gistLanguage: "javascript",
-  gistUsage: `
+  `
+
+}
+
+export const GISTS_DATA = [
+
+  {
+
+    gistName: "Navbar Dock",
+    gistShortDescription: "Dock styled navbar which shrinks on scroll",
+    gistDescription: "Dock styled navbar which shrinks on scroll, stays at the top of the page, toggle between css classes to shrink and expand",
+    gistId: 1,
+    gistTags: ["React", "Tailwind"],
+    gistCode: slices_code[1],
+    gistCss: `.nav-active {
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+  backdrop-filter: blur(15px);
+  padding: 1.25rem;
+  margin: 1.25rem;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--nav-bg-color);
+  border-radius: 8px;
+  transform: scale(.9);
+}`,
+    gistDeps: "",
+    gistUsage: ` `,
+    gistLanguage: "javascript",
+  },
+  {
+    gistName: "useSwipe hook",
+    gistShortDescription: "hook for detecting swipe gestures",
+    gistDescription: `hook for detecting swipe gestures, hook accepts onSwipeLeft, onSwipeRight callbacks and threshold as arguments.
+   Threshold defaults to 50, onSwipeLeft and onSwipeRight you can pass a callback function to handle what happen when swipe is detected`,
+    gistId: 2,
+    gistTags: ["React", "Javascript"],
+    gistCode: slices_code[2],
+    gistLanguage: "javascript",
+    gistUsage: `
+    useSwipe(
+      () => setIsSidebarVisible(false), // swipe left to close
+      () => setIsSidebarVisible(true), // swipe right to open
+      100 // threshold for swipe detection
+    );
+    `
+  },
+  {
+    gistName: "TextShine Component",
+    gistShortDescription: "Shiny gradient text animation with Tailwind, no Tailwind config changes required",
+    gistDescription: `A reusable React component that renders text with a gradient "shine" animation using Tailwind CSS.
+This version injects the required keyframes and animation styles directly in the component via a <style> tag,
+so no tailwind.config.js modifications are needed. Accepts a 'text' prop and optional 'className' prop.`,
+    gistId: 3,
+    gistTags: ["React", "Tailwind", "UI Component", "No Config"],
+    gistCode: slices_code[3],
+    gistLanguage: "javascript",
+    gistUsage: `
 // Example usage
 <TextShine text="Shiny Sclices Text ✨" className="text-4xl font-bold" />
 // Works instantly without editing tailwind.config.js
 `
-}
+  }
 
 
 ]
@@ -224,3 +234,4 @@ export const TECH_STACK = [
   { icon: ExpressjsIcon, name: "Express.js" },
   { icon: MongoDBIcon, name: "MongoDB" },
 ];
+

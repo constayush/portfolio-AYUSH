@@ -1,7 +1,7 @@
 import { Highlight, themes } from "prism-react-renderer";
 import { ThemeProvider, useTheme } from "../../ThemeContext";
 import { useRef } from "react";
-
+import React from "react";
 export function CodeBlock({ code, language }) {
   const { theme } = useTheme();
   let code_theme;

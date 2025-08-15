@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../ThemeContext";
+import { useTheme } from "../../ThemeContext";
 import { motion, transform, useScroll, useTransform } from "framer-motion";
 function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -26,7 +26,7 @@ function Navbar() {
     <div className="w-full flex justify-center items-center  ">
       <nav
         ref={nav}
-        className="flex px-6 md:px-6 w-full  lg:w-[64rem] sm:gap-9 gap-3 pt-[5rem]   navbar-short z-[90000000009] fixed top-0  items-center justify-between  "
+        className="flex px-6 md:px-6 w-full lg:w-[64rem] sm:gap-9 gap-3 pt-[5rem] navbar-short z-[90000000009] fixed top-0  items-center justify-between "
       >
         <motion.div
           style={{ width: borderTopBottom }}

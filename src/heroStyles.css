@@ -1,12 +1,6 @@
 
 
-body,
-html {
-  margin: 0;
-  box-sizing: border-box;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-}
+
 nav {
   transform-origin: center;
   transition: all .6s ease;
@@ -39,11 +33,11 @@ nav {
   box-shadow: var(--box-shadow);
   text-decoration: none;
   backdrop-filter: blur(15px);
-  padding: 1.25rem;
-  margin: 1.25rem;
-  width: fit-content;
-  height: fit-content;
-  background-color: var(--nav-bg-color);
+  padding: 1.25rem !important;
+  margin: 1.25rem !important;
+   width:  fit-content !important;
+  height: fit-content !important;
+  background-color: var(--nav-bg-color) !important;
   border-radius: 8px;
   transform: scale(.9);
 }
@@ -75,14 +69,15 @@ nav {
   transition: transform 0.1s ease-out;
   mix-blend-mode: difference;
 }
+
 .resumeLogo {
   transition: all ease .3s;
 }
+
 .resumeLogo:hover {
   filter: brightness(2);
   transform: scale(1.1);
 }
-
 
 .netbox {
   position: relative;
@@ -127,8 +122,6 @@ nav {
   
 }
 
-
-
 .shine {
 
   position: absolute;
@@ -170,8 +163,6 @@ nav {
   }
 }
 
-
-
 .orgLogo {
   cursor: cell;
 }
@@ -195,7 +186,6 @@ nav {
 .custom-cursor.show {
   opacity: 1;
 }
-
 
 .ulLinkNav {
   transition: .4s ease-in-out all;
@@ -236,50 +226,6 @@ main {
 .showmore-project-card {
   display: none;
 }
-
-#SHOWMORE1~.showless {
-  display: none;
-}
-
-#SHOWMORE1:checked~.showmore-project-card{
-  display: inline;
-}
-#SHOWMORE1:checked~.showless{
-  display: inline;
-}
-#SHOWMORE1:checked~.showmore {
-  display: none;
-}
-
-#SHOWMORE2~.showless {
-  display: none;
-}
-
-#SHOWMORE2:checked~.showmore-project-card{
-  display: inline;
-}
-#SHOWMORE2:checked~.showless{
-  display: inline;
-}
-#SHOWMORE2:checked~.showmore {
-  display: none;
-}
-/* f77300 */
-
-/* .text-glow {
-  background: linear-gradient(
-    125deg,
-    #FE8808 20%,
-    #ffffff 40%,
-    #FE8808 60%
-  );
-  background-size: 300% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: textShine 3s linear infinite;
-} */
 
 @keyframes textShine {
   0% {

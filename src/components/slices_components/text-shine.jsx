@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-export default function TextShine({text="ayush" , className}) {
+export default function TextShine({ text = "ayush", className }) {
   return (
     <>
       <style>
@@ -16,7 +16,7 @@ export default function TextShine({text="ayush" , className}) {
       </style>
       <span
         className={clsx(
-          `bg-[linear-gradient(125deg,#FE8808_20%,#ffffff_40%,#FE8808_60%)] bg-[length:300%_100%] bg-clip-text text-transparent text-shine`,
+          "bg-[linear-gradient(125deg,#FE8808_20%,#ffffff_40%,#FE8808_60%)] bg-[length:300%_100%] bg-clip-text text-transparent text-shine",
           className
         )}
       >

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import orng from "../../public/orange.svg";
-import obs from "../../public/obs.svg";
+import orng from "../../../public/orange.svg";
+import obs from "../../../public/obs.svg";
 import { Link } from "react-router-dom";
-import "../main.css";
-import { useTheme } from "../ThemeContext";
+import "../../main.css";
+import { useTheme } from "../../ThemeContext";
 import { motion } from "framer-motion";
 const DinoGame = ({ className }) => {
   const { theme, toggleTheme } = useTheme();
