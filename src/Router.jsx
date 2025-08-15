@@ -1,15 +1,15 @@
-import React from 'react'
-import ErrorPage from "./components/errorPage";
+
+import ErrorPage from "./components/pages/errorPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Terminal from "./components/Terminal";
-import Hero from "./components/Hero";
-import DinoGame from "./components/Dino";
+import Terminal from "./components/pages/Terminal";
+import Hero from "./components/pages/Hero";
+import DinoGame from "./components/pages/Dino";
 import ScrollToTop from "../utils/ScrollToTop";
-import Slices from './components/Slices';
+import Slices from './components/pages/Slices';
 function Router() {
   return (
     <BrowserRouter>
-  <ScrollToTop />
+    <ScrollToTop />
     <Routes>
        <Route path="/" element={<><Hero /></>} />
        <Route path="/slices" element={<><Slices /></>} />

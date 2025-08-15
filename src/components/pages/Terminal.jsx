@@ -1,15 +1,15 @@
 import React from 'react'
-import styles from '../terminalStyles.css'
-import { useEffect, useState, useRef } from 'react'
+// import styles from '../terminalStyles.css'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
-import orangeBg from '../../public/orangeBg.jpg'
-import blackBg from '../../public/blackBg.jpg'
-import whiteBg from '../../public/whiteBg.jpg'
-import orangeDrak from '../../public/orangeDark.jpg'
-import multiBg from '../../public/multiBg.jpg'
-import themeIco from '../../public/themeIco.svg'
-import closeIco from '../../public/closeIco.svg'
+import orangeBg from '../../../public/orangeBg.jpg'
+import blackBg from '../../../public/blackBg.jpg'
+import whiteBg from '../../../public/whiteBg.jpg'
+import orangeDrak from '../../../public/orangeDark.jpg'
+import multiBg from '../../../public/multiBg.jpg'
+import themeIco from '../../../public/themeIco.svg'
+import closeIco from '../../../public/closeIco.svg'
 function Terminal() {
 
 
