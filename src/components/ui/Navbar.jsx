@@ -41,7 +41,7 @@ function Navbar() {
         </Link>
         <ul className="flex gap-3 text-center items-center font-semibold justify-center">
           <li className="text-[var(--text-color)] text-[.95rem] md:text-[1.1rem]  navLinks">
-            <Link to="/">Home</Link>
+            <Link to="#about">About</Link>
           </li>
           <li className="text-[var(--text-color)] text-[.95rem] md:text-[1.1rem]  navLinks">
             <Link to="/slices">Slices</Link>

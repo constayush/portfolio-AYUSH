@@ -1,8 +1,8 @@
 :root {
   /* ========== Shared ========== */
-  --bg-slice-color: hsl(249, 13%, 10%);
+  --bg-slice-color: hsl(0, 0%, 8%);
   --slices-primary-text: hsl(0, 0%, 91%);
-  --slices-secondary-text: hsl(259, 16%, 69%);
+  --slices-secondary-text: hsl(0, 0%, 64%);
   --slices-sb-track-color: #383838;
   --slices-sb-thumb-color: hsl(259, 16%, 69%);
   --slices-sb-size: 5px;
