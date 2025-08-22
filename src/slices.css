@@ -2,7 +2,7 @@
   /* ========== Shared ========== */
   --bg-slice-color: hsl(0, 0%, 8%);
   --slices-primary-text: hsl(0, 0%, 91%);
-  --slices-secondary-text: hsl(0, 0%, 64%);
+  --slices-secondary-text: hsl(0, 0%, 75%);
   --slices-sb-track-color: #383838;
   --slices-sb-thumb-color: hsl(259, 16%, 69%);
   --slices-sb-size: 5px;
@@ -11,7 +11,7 @@
 [data-theme="light"] {
   --bg-slice-color: hsl(0, 0%, 93%);
   --slices-primary-text: hsl(0, 0%, 10%);
-  --slices-secondary-text: hsl(258, 6%, 31%);
+  --slices-secondary-text: hsl(0, 0%, 15%);
   --slices-sb-track-color: #ffffff;
   --slices-sb-thumb-color: hsl(0, 0%, 60%);
   --slices-sb-size: 5px;
