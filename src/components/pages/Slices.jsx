@@ -1,21 +1,13 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import Navbar from "../ui/Navbar.jsx";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { GISTS_DATA } from "../../constants.js";
 import { useTheme } from "../../ThemeContext.jsx";
-import { CodeBlock } from "../ui/CodeBlock.jsx";
 import slicesIcon from "../../../public/slices.svg";
-import { Link, useLocation } from "react-router-dom";
-import { ArrowDownCircle } from "lucide-react";
-import useSwipe from "../../../utils/useSwipe.js";
-import { LiveProvider, LiveEditor, LivePreview, LiveError } from "react-live";
-import * as UI from "../slices_components/index.js";
-import clsx from "clsx";
-import React from "react";
-import { title } from "process";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { ArrowDown, LucideSquareArrowDown, Menu , X} from "lucide-react";
 
 function Slices() {
   const { theme, toggleTheme } = useTheme();
@@ -23,8 +15,8 @@ function Slices() {
   const location = useLocation();
   const initial_gist = location.state ? location.state : GISTS_DATA[0];
   const [selectedGist, setSelectedGist] = useState(initial_gist);
-  const [isExpanded, setIsExpanded] = useState(false);
-
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const sidebar_data = [
     {
       title: "Getting Started",
@@ -32,7 +24,7 @@ function Slices() {
     },
     {
       title: "Layouts",
-      components: ["Header", "Footer", "Sidebar", "Grid", "Stack", "Container"],
+      components: ["Header", "Footer", "Sidebar"],
     },
     {
       title: "Utilities",
@@ -46,25 +38,11 @@ function Slices() {
     },
     {
       title: "Buttons",
-      components: [
-        "PrimaryButton",
-        "SecondaryButton",
-        "OutlineButton",
-        "IconButton",
-        "FloatingActionButton",
-      ],
+      components: ["PrimaryButton", "SecondaryButton", ,],
     },
     {
       title: "Inputs & Forms",
-      components: [
-        "TextInput",
-        "PasswordInput",
-        "Textarea",
-        "Select",
-        "Checkbox",
-        "Radio",
-        "FormValidation",
-      ],
+      components: ["LogInForm", "SignUpForm"],
     },
     {
       title: "Navigation & Menus",
@@ -84,25 +62,10 @@ function Slices() {
         "InfoCard",
         "ProfileCard",
         "ImageCard",
-        "Table",
-        "List",
         "Badge",
         "Tooltip",
         "Popover",
         "Modal",
-      ],
-    },
-    {
-      title: "Feedback & Status",
-      components: [
-        "Alert",
-        "Toast",
-        "Notification",
-        "ProgressBar",
-        "Loader",
-        "Skeleton",
-        "Accordion",
-        "Collapsible",
       ],
     },
     {
@@ -113,18 +76,6 @@ function Slices() {
         "Carousel",
         "Swiper",
         "AnimatedComponent",
-      ],
-    },
-    {
-      title: "Charts & Advanced",
-      components: [
-        "LineChart",
-        "BarChart",
-        "PieChart",
-        "DragAndDrop",
-        "ResizablePanel",
-        "CodeSnippet",
-        "InteractivePlayground",
       ],
     },
   ];
@@ -153,26 +104,38 @@ function Slices() {
       <div className="relative flex flex-1 w-full min-h-screen mt-[7rem]">
         {/* Navbar */}
 
-        <nav className="fixed bg-[var(--bg-slice-color)] w-full top-0 left-0 p-8 z-[99] justify-between flex  border-b border-1 border-[#323232]">
-          {" "}
+        <nav className="fixed bg-[var(--bg-slice-color)] w-full top-0 left-0 px-4 sm:px-8 py-4 sm:py-8 z-[99] justify-between flex border-b border-1 border-[#323232]">
           <motion.div
             initial={{ opacity: 0, scale: 3, letterSpacing: 10 }}
             animate={{ opacity: 1, scale: 1, letterSpacing: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="flex items-center gap-1 transition-all duration-700"
           >
-            <img src={slicesIcon} className="w-[3rem]" />
-            <h1 className="text-2xl md:text-4xl font-bold mb-2 text-[var(--text-color)]">
+            <img
+              src={
+                slicesIcon ||
+                "/placeholder.svg?height=48&width=48&query=slices logo"
+              }
+              className="w-8 sm:w-12"
+              alt="Slices logo"
+            />
+            <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-2 text-[var(--text-color)]">
               Slices<span className="text-[var(--accent-color)]">.</span>
             </h1>
           </motion.div>
-          {/* <p className="mb-6 text-[var(--secondary-text)]">
-              — components & utils I cut, styled, and served
-            </p> */}
-          <div className="flex items-center gap-4">
+
+          <div className="flex items-center gap-2 sm:gap-4">
+            <button
+              onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
+              className="md:hidden text-[var(--slices-primary-text)] p-2"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+
             <Link
               to={"/"}
-              className="text-[var(--slices-primary-text)] font-semibold text-sm navLinks"
+              className="text-[var(--slices-primary-text)] font-semibold text-xs sm:text-sm navLinks"
             >
               Portfolio
             </Link>
@@ -183,7 +146,7 @@ function Slices() {
               whileHover={{ scale: 1.5, rotate: 90 }}
               whileTap={{ scale: 1.5, rotate: 90 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="theme-toggle text-[1rem] md:text-[1.5rem] rounded-full text-shadow-lg"
+              className="theme-toggle text-sm sm:text-base md:text-xl rounded-full text-shadow-lg"
             >
               {theme === "dark" ? "☀️" : "🌙"}
             </motion.button>
@@ -191,36 +154,74 @@ function Slices() {
         </nav>
 
         {/* Sidebar / Aside */}
-
+   {isMobileSidebarOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
+      )}
         <aside className="sticky top-36 max-h-[calc(100vh-10rem)] w-full md:w-64 text-white rounded-lg overflow-y-auto ">
           <ul className="space-y-6">
-            {sidebar_data.map((section, index) => (
-              <li key={index} className="">
-                <button className="text-md font-semibold text-[var(--slices-primary-text)]">
-                  {section.title}
-                </button>
-                <ul className="space-y-2 mt-2">
-                  {section.components?.map((component, index) => (
-                    <li
-                      key={index}
-                      className="text-[var(--slices-secondary-text)]"
+            {sidebar_data.map((section, index) => {
+              const isOpen = isExpanded === index; // check if this section is open
+              return (
+                <li className="overflow-x-hidden" key={index}>
+                  {/* Section title button */}
+                  <button
+                    onClick={
+                      () => setIsExpanded(isOpen ? null : index) // toggle open/close
+                    }
+                    className="flex items-center justify-between w-full text-md font-semibold text-[var(--slices-primary-text)]"
+                  >
+                    {section.title}
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <button>{component}</button>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
+                      <ArrowDown className="mx-4 text-[var(--slices-secondary-text)]" size={18} />
+                    </motion.span>
+                  </button>
+
+                  {/* Components list */}
+                  <motion.ul
+                    initial={false}
+                    animate={{
+                      height: isOpen ? "auto" : 0,
+                      opacity: isOpen ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden space-y-2 pl-4 mt-2"
+                  >
+                    {section.components?.map((component, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ x: -10, opacity: 0 }}
+                        animate={{
+                          x: isOpen ? 0 : -10,
+                          opacity: isOpen ? 1 : 0,
+                        }}
+                        transition={{ delay: i * 0.05 }}
+                        className="text-[var(--slices-secondary-text)]"
+                      >
+                        <Link to={`/slices/${component.toLowerCase()}`}>
+                          {component}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                </li>
+              );
+            })}
           </ul>
         </aside>
 
         {/* Main content */}
 
-        <motion.main className="flex-1 dark:bg-gray-900 px-8 h-[300vh] rounded-lg ">
-          <h1 className="text-2xl font-bold mb-4">Main Content</h1>
-          <p className="animate-pulse text-[var(--text-color) text-3xl ">
-            coming soon! 
-          </p>
+        <motion.main className="flex-1 dark:bg-gray-900 px-8  rounded-lg ">
+          <Outlet />
         </motion.main>
       </div>
     </motion.div>
