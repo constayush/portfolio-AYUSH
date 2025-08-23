@@ -7,7 +7,8 @@ import ScrollToTop from "../utils/ScrollToTop";
 import Slices from "./components/pages/Slices";
 import Introduction from "./components/slices/slices_pages/Introduction";
 import Gallery from "./components/slices/slices_pages/Gallery";
-import ComingSoon from "./components/slices/slices_pages/ComingSoon";
+import BlogPage from "./components/slices/slices_pages/BlogPage";
+
 function Router() {
   return (
     <BrowserRouter>
@@ -15,13 +16,10 @@ function Router() {
       <Routes>
         <Route path="/" element={<Hero />} />
 
-        {/* parent route */}
         <Route path="/slices" element={<Slices />}>
-          {/* nested routes */}
           <Route path="introduction" element={<Introduction />} />
           <Route path="gallery" element={<Gallery />} />
-<Route path="*" element={<ComingSoon />} />
-
+          <Route path=":slug" element={<BlogPage />} />
         </Route>
 
         <Route path="/terminal" element={<Terminal />} />

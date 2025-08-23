@@ -28,7 +28,7 @@ function Gallery() {
     <div>
    <h1 className="text-3xl text-[var(--slices-primary-text)] font-semibold  leading-relaxed">All Slices</h1>
 
-<div className='mt-10  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+<div className='mt-10  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8'>
   {all_slices.map((slice) => ( <SlicesDisplayCard gif={gif} key={slice.id}/>))} 
 </div>
 
