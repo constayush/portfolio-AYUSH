@@ -44,7 +44,7 @@ function Navbar() {
             <Link to="#about">About</Link>
           </li>
           <li className="text-[var(--text-color)] text-[.95rem] md:text-[1.1rem]  navLinks">
-            <Link to="/slices">Slices</Link>
+            <Link to="/slices/introduction">Slices</Link>
           </li>
           <motion.button
             aria-label="theme-button"

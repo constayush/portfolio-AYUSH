@@ -5,21 +5,23 @@ import Hero from "./components/pages/Hero";
 import DinoGame from "./components/pages/Dino";
 import ScrollToTop from "../utils/ScrollToTop";
 import Slices from "./components/pages/Slices";
-import Introduction from "./components/slices_components/slices_pages/Introduction";
-import Gallery from "./components/slices_components/slices_pages/Gallery";
-
+import Introduction from "./components/slices/slices_pages/Introduction";
+import Gallery from "./components/slices/slices_pages/Gallery";
+import ComingSoon from "./components/slices/slices_pages/ComingSoon";
 function Router() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Hero />} />
-        
+
         {/* parent route */}
         <Route path="/slices" element={<Slices />}>
           {/* nested routes */}
           <Route path="introduction" element={<Introduction />} />
           <Route path="gallery" element={<Gallery />} />
+<Route path="*" element={<ComingSoon />} />
+
         </Route>
 
         <Route path="/terminal" element={<Terminal />} />

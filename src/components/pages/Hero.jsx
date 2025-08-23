@@ -8,7 +8,7 @@ import Lenis from "lenis";
 import Navbar from "../ui/Navbar.jsx";
 import { useTheme } from "../../ThemeContext.jsx";
 import GistsCard from "../ui/GistsCard.jsx";
-import TextShine from "../slices_components/text-shine.jsx";
+import TextShine from "../slices/slices_components/text-shine.jsx";
 import {
   GISTS_DATA,
   SOCIAL_LINKS,
