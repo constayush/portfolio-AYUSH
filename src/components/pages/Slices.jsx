@@ -7,7 +7,8 @@ import { GISTS_DATA } from "../../constants.js";
 import { useTheme } from "../../ThemeContext.jsx";
 import slicesIcon from "../../../public/slices.svg";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { ArrowDown, LucideSquareArrowDown, Menu , X} from "lucide-react";
+import { ArrowDown, Menu , X} from "lucide-react";
+import { slices_data } from "../slices/constant.js";
 
 function Slices() {
   const { theme, toggleTheme } = useTheme();
@@ -17,69 +18,8 @@ function Slices() {
   const [selectedGist, setSelectedGist] = useState(initial_gist);
   const [isExpanded, setIsExpanded] = useState(true);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-  const sidebar_data = [
-    {
-      title: "Getting Started",
-      components: ["Introduction", "Gallery"],
-    },
-    {
-      title: "Layouts",
-      components: ["Header", "Footer", "Sidebar"],
-    },
-    {
-      title: "Utilities",
-      components: [
-        "useSwipe.ts",
-        "useDebounce.ts",
-        "useClickOutside.ts",
-        "useDarkMode.ts",
-        "ScrollToTop.jsx",
-      ],
-    },
-    {
-      title: "Buttons",
-      components: ["PrimaryButton", "SecondaryButton", ,],
-    },
-    {
-      title: "Inputs & Forms",
-      components: ["LogInForm", "SignUpForm"],
-    },
-    {
-      title: "Navigation & Menus",
-      components: [
-        "Navbar",
-        "SidebarMenu",
-        "Tabs",
-        "Dropdown",
-        "Breadcrumb",
-        "Pagination",
-        "Stepper",
-      ],
-    },
-    {
-      title: "Cards & Data Display",
-      components: [
-        "InfoCard",
-        "ProfileCard",
-        "ImageCard",
-        "Badge",
-        "Tooltip",
-        "Popover",
-        "Modal",
-      ],
-    },
-    {
-      title: "Media & Interactive",
-      components: [
-        "ImageGallery",
-        "VideoPlayer",
-        "Carousel",
-        "Swiper",
-        "AnimatedComponent",
-      ],
-    },
-  ];
-
+  const sidebar_data = slices_data;
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -123,7 +63,7 @@ function Slices() {
               Slices<span className="text-[var(--accent-color)]">.</span>
             </h1>
           </motion.div>
-
+<p className="animate-pulse text-[red]">**Under Maintenance**</p>
           <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
@@ -154,15 +94,7 @@ function Slices() {
         </nav>
 
         {/* Sidebar / Aside */}
-   {isMobileSidebarOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
-          onClick={() => setIsMobileSidebarOpen(false)}
-        />
-      )}
+ 
         <aside className="sticky top-36 max-h-[calc(100vh-10rem)] w-full md:w-64 text-white rounded-lg overflow-y-auto ">
           <ul className="space-y-6">
             {sidebar_data.map((section, index) => {
