@@ -127,3 +127,102 @@ html {
  
 }
 
+/* 💚 FAT blinking block cursor */
+@keyframes fatBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-fatBlink {
+  animation: fatBlink 0.8s infinite;
+}
+
+/* 🟩 Base input fix */
+.fatCursor {
+  font-family: monospace;
+  position: relative;
+}
+
+/* ⚡️ Glitch effect (VISIBLE version) */
+.glitch {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* RGB ghost layers */
+.glitch::before,
+.glitch::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 2px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.15;
+  animation: glitchSkew 2s infinite linear alternate-reverse;
+}
+
+.glitch::before {
+  background: rgba(255, 0, 0, 0.04);
+  transform: translate(-1px, 0);
+  animation: glitchMove 1.8s infinite ease-in-out alternate;
+}
+
+.glitch::after {
+  background: rgba(0, 255, 255, 0.04);
+  transform: translate(1px, 0);
+  animation: glitchMove 1.5s infinite ease-in-out alternate-reverse;
+}
+
+/* subtle flicker + random shifts */
+@keyframes glitchMove {
+  0% { transform: translate(0, 0); opacity: 0.1; }
+  25% { transform: translate(-1px, -1px); opacity: 0.3; }
+  50% { transform: translate(1px, 1px); opacity: 0.2; }
+  75% { transform: translate(-2px, 1px); opacity: 0.35; }
+  100% { transform: translate(0, 0); opacity: 0.15; }
+}
+
+@keyframes glitchSkew {
+  0% { transform: skew(0deg); }
+  25% { transform: skew(1deg); }
+  50% { transform: skew(-1deg); }
+  75% { transform: skew(0.5deg); }
+  100% { transform: skew(0deg); }
+}
+
+/* 🌈 Neon hover for command links */
+.TconLinks {
+  color: #ffaa00;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.TconLinks:hover {
+  color: #fff;
+  text-shadow: 0 0 6px #eaeaea, 0 0 10px #ffe100;
+}
+@keyframes fatBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fatBlink {
+  animation: fatBlink 1s infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease forwards;
+}

@@ -1,162 +1,263 @@
-import React from 'react'
-// import styles from '../terminalStyles.css'
-import { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import orangeBg from "../../../public/orangeBg.jpg";
+import blackBg from "../../../public/blackBg.jpg";
+import whiteBg from "../../../public/whiteBg.jpg";
+import orangeDark from "../../../public/orangeDark.jpg";
+import multiBg from "../../../public/multiBg.jpg";
+import themeIco from "../../../public/themeIco.svg";
+import closeIco from "../../../public/closeIco.svg";
 
-import orangeBg from '../../../public/orangeBg.jpg'
-import blackBg from '../../../public/blackBg.jpg'
-import whiteBg from '../../../public/whiteBg.jpg'
-import orangeDrak from '../../../public/orangeDark.jpg'
-import multiBg from '../../../public/multiBg.jpg'
-import themeIco from '../../../public/themeIco.svg'
-import closeIco from '../../../public/closeIco.svg'
 function Terminal() {
-
-
-
   const terminalContainer = useRef(null);
-  const terminal = useRef(null);
-  const input = useRef(null); //input div
+  const inputRef = useRef(null);
+
+  const [prvInputsData, setPrvInputsData] = useState([]);
+  const [inputData, setInputData] = useState("");
+  const [bootText, setBootText] = useState([]);
+  const [bootDone, setBootDone] = useState(false);
+
+  const commandsArr = ["whoami", "projects", "contact", "help"];
+  const bgImgArr = [orangeBg, whiteBg, blackBg, orangeDark, multiBg];
+  let bgCounter = 0;
+
+  // --- Boot animation text lines ---
+const bootLines = [
+  "> Initializing system boot sequence...",
+  "> Locating mainframe node...",
+  "> Establishing encrypted uplink [AES-256]...",
+  "> Handshake complete. Access token verified.",
+  "> Firewall breach check... secure ",
+  "> Launching terminal interface...",
+  "> Connection stable.",
+  "> Welcome back, Ayush.",
+];
 
 
+  // Boot typing effect
+useEffect(() => {
+  let i = 0;
+  let j = 0;
+  let interval;
 
-  let [prvInputsData, setPrvInputsData] = useState([]); // array to store all input data.
-  let [inputData, setInputData] = useState(); // to store current input data.
+  const typeLine = () => {
+    if (i < bootLines.length) {
+      const line = bootLines[i];
+      interval = setInterval(() => {
+        setBootText((prev) => {
+          const newLines = [...prev];
+          // Initialize the current line if undefined
+          if (!newLines[i]) newLines[i] = "";
+          newLines[i] += line[j];
+          return newLines;
+        });
 
+        j++;
+        if (j >= line.length) {
+          clearInterval(interval);
+          i++;
+          j = 0;
+          setTimeout(typeLine, 10); // short pause before next line
+        }
+      }, 25);
+    } else {
+      // typing done
+      setTimeout(() => setBootDone(true), 50);
+    }
+  };
 
-  const commandsArr = ['whoami', 'projects', 'contact', 'help']; // array of commands
+  typeLine();
 
+  // cleanup in case component unmounts early
+  return () => clearInterval(interval);
+}, []);
 
-
-  //bgImgs 
-  let bgCounter = 1;
-  const bgImgArr = [orangeBg, whiteBg, blackBg, orangeDrak, multiBg];
-
-
-  /* .. ...........................................ANIMATIONS..................................................*/
-
-
-  /* .. ...........................................ANIMATIONS End..................................................*/
-
-
-  function handleInputChange(e) { setInputData(e.target.value); } //setting value of input
-
+  function handleInputChange(e) {
+    setInputData(e.target.value);
+  }
 
   function handleKeyPress(e) {
+    if (e.key === "Enter" && inputRef.current.value.trim()) {
+      const cmd = inputRef.current.value.trim().toLowerCase();
+      inputRef.current.value = "";
 
-    if ((e.code === 'Enter' || e.key === 'Enter' || e.key === 'Done') && input.current.value) {  // checking both condition if key is  = enter and input command is not empty  
+      switch (cmd) {
+        case "whoami":
+          setPrvInputsData((prev) => [
+            ...prev,
+            {
+              cmd,
+              output:
+                "Hey, I'm Ayush — 18, web dev, obsessed with clean UIs & creative chaos.",
+            },
+          ]);
+          break;
 
-      if (commandsArr.includes(input.current.value)) {
+        case "help":
+          setPrvInputsData((prev) => [
+            ...prev,
+            {
+              cmd,
+              output: (
+                <p>
+                  <span className="TconLinks">whoami</span> - intro
+                  <br />
+                  <span className="TconLinks">contact</span> - socials
+                  <br />
+                  <span className="TconLinks">projects</span> - my builds
+                  <br />
+                  use <span className="font-bold">cd</span> to explore deeper.
+                </p>
+              ),
+            },
+          ]);
+          break;
 
-        if (input.current.value == 'whoami') {
+        case "contact":
+          setPrvInputsData((prev) => [
+            ...prev,
+            {
+              cmd,
+              output: (
+                <>
+                  <p>Reach me at:</p>
+                  <ul className="space-y-1">
+                    <li>
+                      <a href="mailto:aayush@mail.com" className="TconLinks">
+                        📧 aayush@mail.com
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.linkedin.com/in/constayush/"
+                        target="_blank"
+                        className="TconLinks"
+                      >
+                        🔗 LinkedIn
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://github.com/constayush"
+                        target="_blank"
+                        className="TconLinks"
+                      >
+                        💻 GitHub
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.instagram.com/maihoonayush/"
+                        target="_blank"
+                        className="TconLinks"
+                      >
+                        📷 Instagram
+                      </a>
+                    </li>
+                  </ul>
+                </>
+              ),
+            },
+          ]);
+          break;
 
-          input.current.value = null
-          setPrvInputsData((prvInputsData) => [...prvInputsData, "whoami"])
-          setPrvInputsData((prvInputsData) => [...prvInputsData, " Hey, I'm Ayush, an 18-year-old web developer fueled by curiosity and passionate about building ui interfaces. I'm all about turning ideas into digital reality and constantly seeking new challenges to tackle."])
-
-        }
-        else if (input.current.value == 'help') {
-
-          input.current.value = null
-          setPrvInputsData((prvInputsData) => [...prvInputsData, "help"])
-          setPrvInputsData((prvInputsData) => [...prvInputsData, <p><span className='TconLinks'>whoami</span> - introduction of me, <span className='TconLinks'>contact</span> - list all my social links, <span className='TconLinks'>projects</span> - list my projects and you also can <span className=' font-extrabold'>cd</span> into each one of them </p>])
-
-        }
-        else if (input.current.value == 'contact') {
-
-          input.current.value = null
-          setPrvInputsData((prvInputsData) => [...prvInputsData, "contact"])
-          setPrvInputsData((prvInputsData) => [...prvInputsData,
-
-          <>
-            <p>Feel free to reach out through any platforms :</p>
-            <a href='mailto:aayush@mail.com' className='TconLinks '>aayush@mail.com </a>
-            <a target='blank' href='https://www.linkedin.com/in/constayush/' className='TconLinks'>linkedin </a>
-            <a target='blank' href='https://github.com/constayush' className='TconLinks'>github </a>
-            <a class='aniText' target='blank' href='https://www.instagram.com/maihoonayush/' className='TconLinks'>instagram </a>
-
-          </>])
-
-        }
-
+        default:
+          setPrvInputsData((prev) => [
+            ...prev,
+            { cmd, output: `Command not found: ${cmd}. Try 'help'` },
+          ]);
       }
-
-      else {
-        setPrvInputsData([...prvInputsData, inputData]); // updating array of input data
-        input.current.value = null // setting input value to null
-      }
-
     }
-
-    else if (e.code == 'Enter') {
-
-      setPrvInputsData([...prvInputsData, ""]); // updating array of input data with empty value to show blank output
-      input.current.value = null // setting input value to null
-
-    }
-
   }
 
-
-  function changeBg(e) {
+  function changeBg() {
+    bgCounter = (bgCounter + 1) % bgImgArr.length;
     terminalContainer.current.style.backgroundImage = `url(${bgImgArr[bgCounter]})`;
-    bgCounter > bgImgArr.length - 1 ? bgCounter = 0 : bgCounter++
   }
-
 
   return (
+    <div
+      ref={terminalContainer}
+      className="terminal relative w-full lg:h-[98vh] h-[95vh] flex flex-col p-4 rounded-lg bg-cover bg-center transition-all duration-500 overflow-hidden"
+    >
+      {/* Glitch overlay */}
+      <div className="absolute inset-0 pointer-events-none glitch z-[1]" />
 
-    <div ref={terminalContainer} className='terminal w-full lg:h-[98vh] h-[95vh] center flex-col p-[1rem] rounded'>
-
-
-      <div ref={terminal} className='w-full h-full z-[99]  bg-[#070707e6]  rounded-md will-change-scroll'>
-
-
-        <nav className='w-full  h-[8%] text-white bg-[#000000] flex items-center justify-between p-[2rem] rounded-md'>
-
-          <div className=" text-xl ">
-            <img src={themeIco} className='changeBgBtn  cursor-pointer w-8 h-8 rounded-full' onClick={changeBg} />
-          </div>
-          <div className='text-xl '>terminal</div>
-          <Link to='/'><img src={closeIco} className='cursor-pointer w-8 h-8 rounded-full ' /></Link>
-
+      <div className="relative w-full h-full bg-[#000000d8] rounded-lg backdrop-blur-sm border border-[#1e1e1e] flex flex-col overflow-hidden shadow-[0_0_30px_#00000070] z-[2]">
+        {/* Top bar */}
+        <nav className="flex items-center justify-between bg-[#101010] text-gray-300 px-4 py-2 border-b border-[#222]">
+          <img
+            src={themeIco}
+            onClick={changeBg}
+            className="w-6 h-6 cursor-pointer hover:scale-110 transition"
+          />
+          <p className="font-mono text-sm">ayush@portfolio:~</p>
+          <Link to="/">
+            <img
+              src={closeIco}
+              className="w-6 h-6 cursor-pointer hover:scale-110 transition"
+            />
+          </Link>
         </nav>
 
-        <div className='inner-t w-full p-[1rem] h-[90%] overflow-auto text-[#d5d5d5] vt text-[1.3rem] blur-[.45px]'>
+        {/* Terminal content */}
+        <div className="flex-1 overflow-auto text-[#ff9900] font-mono text-[1rem] p-4 space-y-2">
+          {!bootDone && (
+            <div className="text-[#ffbf00] space-y-1 animate-fadeIn">
+              {bootText.map((line, idx) => (
+                <p key={idx}>{line}</p>
+              ))}
+              <span className="animate-pulse">█</span>
+            </div>
+          )}
 
+          {bootDone && (
+            <>
+              <p>Welcome to my terminal portfolio!</p>
+              <pre>
+                {String.raw`
+        __     ___    _  _____ _    _
+      /\ \   / / |  | |/ ____| |  | |
+     /  \ \_/ /| |  | | (___ | |__| |
+    / /\ \   / | |  | |\___ \|  __  |
+   / ____ \| |  | |__| |____) | |  | |
+  /_/    \_\_|   \____/|_____/|_|  |_|
+  
+  `}
+              </pre>
+              <p className="text-gray-400">
+                Type <span className="text-[#ffffff]">help</span> for a list of
+                commands.
+              </p>
 
-          <p> Welcome to my termianl portfolio!</p>
-          <pre className='.neon'>
-            <br />       __     ___    _  _____ _    _
-            <br />     /\\ \   / / |  | |/ ____| |  | |
-            <br />    /  \\ \_/ /| |  | | (___ | |__| |
-            <br />   / /\ \\   / | |  | |\___ \|  __  |
-            <br />  / ____ \| |  | |__| |____) | |  | |
-            <br /> /_/    \_\_|   \____/|_____/|_|  |_|
+              {prvInputsData.map((item, idx) => (
+                <div key={idx} className="space-y-1">
+                  <div className="flex items-start space-x-2">
+                    <span className="text-[#ffffff]">user@ayush:~$</span>
+                    <span>{item.cmd}</span>
+                  </div>
+                  <div className="pl-6 text-gray-300">{item.output}</div>
+                </div>
+              ))}
 
-            <br />
-            <p className='pt-[1rem]'>------------------------------------</p>
-            <p className=''> for list of commands type <span className='greeting'>`help`</span>.</p>
-            <p className='pb-[1rem]'>------------------------------------</p></pre>
-
-
-          {prvInputsData.map((data) => <div className='oldCommand .neon flex'><p>user@ayush:~#</p><p>{data}</p></div>)}
-
-
-          <div className='newCommand flex '>
-
-            <p className='neon'>user@ayush:~#</p>
-
-            <input ref={input} type='text' onKeyDown={handleKeyPress} onChange={handleInputChange} className='tinput w-full bg-transparent caret-amber caret-2 caret-width-2' />
-
-          </div>
-
+              {/* New command */}
+              <div className="flex items-center space-x-2 mt-4 relative">
+                <span className="text-[#ffffff]">user@ayush:~$</span>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  className="bg-transparent outline-none w-full text-gray-400 caret-[#ffbf00]"
+                  onChange={handleInputChange}
+                  onKeyDown={handleKeyPress}
+                  autoFocus
+                />
+              </div>
+            </>
+          )}
         </div>
-
       </div>
-
     </div>
-  )
+  );
 }
 
-export default Terminal
+export default Terminal;

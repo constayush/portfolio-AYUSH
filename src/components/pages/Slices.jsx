@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { GISTS_DATA } from "../../constants.js";
 import { useTheme } from "../../ThemeContext.jsx";
 import slicesIcon from "../../../public/slices.svg";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { ArrowDown, Menu , X} from "lucide-react";
+import { ArrowDown, Menu, X } from "lucide-react";
 import { slices_data } from "../slices/constant.js";
 
 function Slices() {
@@ -19,14 +19,14 @@ function Slices() {
   const [isExpanded, setIsExpanded] = useState(true);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const sidebar_data = slices_data;
-  
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease: "easeInOut" }}
       data-theme={theme}
-      className="SLICES relative bg-[var(--bg-slice-color)] w-full min-h-screen flex flex-col md:flex-row px-8 pt-10 md:pt-8"
+      className="SLICES relative bg-[var(--bg-slice-color)] w-full min-h-screen flex flex-col md:flex-row px-2 md:px-8 pt-10 md:pt-8"
     >
       <Helmet></Helmet>
       <motion.span
@@ -63,7 +63,9 @@ function Slices() {
               Slices<span className="text-[var(--accent-color)]">.</span>
             </h1>
           </motion.div>
-<p className="animate-pulse text-[red]">**Under Maintenance**</p>
+          <p className="animate-pulse font-bold text-[red]">
+            **Under Maintenance**
+          </p>
           <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
@@ -94,8 +96,8 @@ function Slices() {
         </nav>
 
         {/* Sidebar / Aside */}
- 
-        <aside className="sticky top-36 max-h-[calc(100vh-10rem)] w-full md:w-64 text-white rounded-lg overflow-y-auto ">
+
+        <aside className="hidden md:block sticky top-36 max-h-[calc(100vh-10rem)] w-full md:w-64 text-white rounded-lg overflow-y-auto ">
           <ul className="space-y-6">
             {sidebar_data.map((section, index) => {
               const isOpen = isExpanded === index; // check if this section is open
@@ -113,7 +115,10 @@ function Slices() {
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <ArrowDown className="mx-4 text-[var(--slices-secondary-text)]" size={18} />
+                      <ArrowDown
+                        className="mx-4 text-[var(--slices-secondary-text)]"
+                        size={18}
+                      />
                     </motion.span>
                   </button>
 
@@ -149,6 +154,73 @@ function Slices() {
             })}
           </ul>
         </aside>
+        {/* Mobile Sidebar Overlay */}
+        <motion.aside
+          initial={{ x: "-100%" }}
+          animate={{ x: isMobileSidebarOpen ? 0 : "-100%" }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="fixed top-0 left-0 w-64 h-full bg-[var(--bg-slice-color)] shadow-xl z-[100] p-6 md:hidden"
+        >
+          <button
+            onClick={() => setIsMobileSidebarOpen(false)}
+            className="absolute top-4 right-4 text-[var(--slices-primary-text)]"
+          >
+            <X size={24} />
+          </button>
+          <ul className="space-y-6 mt-12">
+            {sidebar_data.map((section, index) => {
+              const isOpen = isExpanded === index;
+              return (
+                <li key={index}>
+                  <button
+                    onClick={() => setIsExpanded(isOpen ? null : index)}
+                    className="flex items-center justify-between w-full text-md font-semibold text-[var(--slices-primary-text)]"
+                  >
+                    {section.title}
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <ArrowDown
+                        className="mx-4 text-[var(--slices-secondary-text)]"
+                        size={18}
+                      />
+                    </motion.span>
+                  </button>
+                  <motion.ul
+                    initial={false}
+                    animate={{
+                      height: isOpen ? "auto" : 0,
+                      opacity: isOpen ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden space-y-2 pl-4 mt-2"
+                  >
+                    {section.components?.map((component, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ x: -10, opacity: 0 }}
+                        animate={{
+                          x: isOpen ? 0 : -10,
+                          opacity: isOpen ? 1 : 0,
+                        }}
+                        transition={{ delay: i * 0.05 }}
+                        className="text-[var(--slices-secondary-text)]"
+                      >
+                        <Link
+                          onClick={() => setIsMobileSidebarOpen(false)}
+                          to={`/slices/${component.toLowerCase()}`}
+                        >
+                          {component}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                </li>
+              );
+            })}
+          </ul>
+        </motion.aside>
 
         {/* Main content */}
 

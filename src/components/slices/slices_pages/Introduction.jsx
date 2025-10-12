@@ -34,7 +34,7 @@ function Introduction() {
       <h2 className="text-2xl text-[var(--text-color)] font-semibold mt-10">
         Recent Uploads
       </h2>
-      <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+      <div className="grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
         {recent_slices.map((slice) => {
           return <SlicesDisplayCard />;
         })}

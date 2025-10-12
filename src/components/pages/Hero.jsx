@@ -34,12 +34,12 @@ function Hero() {
     });
   }, []);
 
-  const scrollToAbout = useCallback(() => {
+  const scrollToAbout = () => {
     document.querySelector("#about")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-  }, []);
+  };
 
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -84,12 +84,18 @@ function Hero() {
   );
 
   const renderProjects = useMemo(
-    () => PROJECTS.map((project) => <ProjectCard key={project.title} {...project} />),
+    () =>
+      PROJECTS.map((project) => (
+        <ProjectCard key={project.title} {...project} />
+      )),
     []
   );
 
   const renderGists = useMemo(
-    () => GISTS_DATA.map((gist) => <GistsCard key={gist.id} gist={gist} {...gist} />),
+    () =>
+      GISTS_DATA.map((gist) => (
+        <GistsCard key={gist.id} gist={gist} {...gist} />
+      )),
     []
   );
 
@@ -131,9 +137,10 @@ function Hero() {
 
       <div
         data-theme={theme}
-        className="w-full min-h-screen flex bg-grid-[#000]/[.030] flex-col items-center pt-[10rem] md:pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]"
+        className="w-full min-h-screen relative flex bg-grid-[#000]/[.030] flex-col items-center pt-[10rem] md:pt-64 pb-16 text-[var(--text-color)] bg-[var(--bg-color)]"
       >
         <div ref={cursorRef} className="custom-cursor"></div>
+
         <Navbar />
 
         <motion.span
@@ -198,13 +205,17 @@ function Hero() {
 
             <p className="hero-para text-lg md:text-2xl text-[var(--secondary-text)] text-shadow font-medium">
               — Hi, I'm{" "}
-              <TextShine
-                onClick={scrollToAbout}
-                text="Ayush"
-                className="font-semibold cursor-pointer hover:mx-3 transition-all duration-700"
-              />
+              <span onClick={scrollToAbout}>
+                <TextShine
+                  text="Ayush"
+                  className="font-semibold cursor-pointer hover:mx-3 transition-all duration-700"
+                />
+              </span>
               , a UI Engineer from{" "}
-              <span className="font-semibold text-[var(--accent-color)]">India</span>.
+              <span className="font-semibold text-[var(--accent-color)]">
+                India
+              </span>
+              .
             </p>
 
             {/* Socials & Resume */}
@@ -215,7 +226,7 @@ function Hero() {
                 </div>
                 <a
                   download
-                  className="p-4 h-full flex items-center border-[var(--border-color)] bg-[var(--resume-btn-color)] w-full lg:w-auto text-center justify-center hover:bg-[#fff] text-[var(--text-color)] hover:text-[var(--button-hover-text)] rounded transition duration-300 border"
+                  className="p-4 h-full cursor-not-allowed flex items-center border-[var(--border-color)] bg-[var(--resume-btn-color)] w-full lg:w-auto text-center justify-center hover:bg-[#fff] text-[var(--text-color)] hover:text-[var(--button-hover-text)] rounded transition duration-300 border"
                 >
                   <svg
                     stroke="currentColor"
@@ -252,9 +263,15 @@ function Hero() {
           </main>
 
           {/* Projects */}
-          <section ref={projectCon} className="flex flex-col justify-center w-full gap-8 md:gap-16">
+          <section
+            ref={projectCon}
+            className="flex flex-col justify-center w-full gap-8 md:gap-16"
+          >
             <h1 className="text-3xl md:text-[2.7rem] font-semibold text-[var(--text-color)]">
-              Projects<span className="font-semibold text-[var(--accent-color)]">.</span>
+              Projects
+              <span className="font-semibold text-[var(--accent-color)]">
+                .
+              </span>
             </h1>
             <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
               {renderProjects}
@@ -265,9 +282,15 @@ function Hero() {
           <section className="flex flex-col justify-center w-full gap-8 md:gap-16">
             <span className="flex items-end w-full justify-between">
               <h1 className="text-3xl md:text-[2.7rem] font-semibold text-[var(--text-color)]">
-                Slices<span className="font-semibold text-[var(--accent-color)]">.</span>
+                Slices
+                <span className="font-semibold text-[var(--accent-color)]">
+                  .
+                </span>
               </h1>
-              <Link className="mr-2 underline underline-offset-4 hover:text-[var(--accent-color)]" to="/slices">
+              <Link
+                className="mr-2 underline underline-offset-4 hover:text-[var(--accent-color)]"
+                to="/slices"
+              >
                 view all
               </Link>
             </span>
@@ -277,52 +300,118 @@ function Hero() {
           </section>
 
           {/* About Me */}
-          <section id="about" className="flex flex-col justify-center w-full gap-8 md:gap-10">
+          <section
+            id="about"
+            className="flex flex-col justify-center w-full gap-8 md:gap-10"
+          >
             <h1 className="text-3xl md:text-[2.7rem] font-semibold text-[var(--text-color)]">
-              About me<span className="font-semibold text-[var(--accent-color)]">.</span>
+              About me
+              <span className="font-semibold text-[var(--accent-color)]">
+                .
+              </span>
             </h1>
             <p className="hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
-              Hi! I'm <b>Ayush Srivastava</b>, a 19-year-old web developer from India. Currently a second-year Computer Science student, I work with TypeScript, React, and Next.js, building clean and efficient web applications. Beyond the IDE, I enjoy chess and Valorant.
+              Hi! I'm <b>Ayush Srivastava</b>, a 19-year-old Full-stack engineer
+              from India. Currently a second-year Computer Science student, I
+              work with TypeScript, React, and Next.js, building clean and
+              efficient web applications. Beyond the IDE, I enjoy chess and
+              Valorant.
             </p>
 
             <div>
-              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">Education</h1>
+              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Education
+              </h1>
               <p className="flex flex-col gap-2 hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
                 <span className="flex flex-wrap w-full justify-between">
-                  <p>Bachelor of Technology in Computer Science</p>( Expected: 2025 – 2028 )
+                  <p>Bachelor of Technology in Computer Science</p>( Expected:
+                  2025 – 2028 )
                 </span>
                 <span className="flex flex-wrap w-full justify-between">
-                  <p>Diploma in Computer Science and Engineering</p>( 2022 – 2025 | CGPA: 8.5/10 )
+                  <p>Diploma in Computer Science and Engineering</p>( 2022 –
+                  2025 | CGPA: 8.5/10 )
                 </span>
               </p>
             </div>
 
             <div className="tech-stack-container">
-              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">Tech Stack</h1>
+              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Tech Stack
+              </h1>
               <span className="flex gap-4 flex-wrap">{renderTechStack}</span>
             </div>
 
             <hr className="border-[var(--nav-text-color)]" />
 
             {/* Footer */}
-            <footer>
-              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">Contact</h1>
+            <footer className="relative">
+              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Contact
+              </h1>
               <div className="flex flex-wrap gap-4 text-center items-center justify-center md:justify-between">
                 <div className="w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[var(--secondary-text)]">
-                  <a className="footerLinks hover:text-[var(--accent-color)]" target="_blank" rel="noopener noreferrer" href="https://github.com/constayush">GitHub</a>
-                  <a className="footerLinks hover:text-[var(--accent-color)]" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ayush0x1/">LinkedIn</a>
-                  <a className="footerLinks hover:text-[var(--accent-color)]" target="_blank" rel="noopener noreferrer" href="https://www.x.com/constayush/">X / twitter</a>
-                  <a className="footerLinks hover:text-[var(--accent-color)]" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/maihoonayush/">Instagram</a>
-                  <a className="hover:cursor-pointer hover:text-[var(--accent-color)]" target="_blank" rel="noopener noreferrer" href="mailto:ayushcodes@outlook.com">ayushcodes@outlook.com</a>
-                  <a className="hover:cursor-pointer hover:text-[var(--accent-color)]" target="_blank" rel="noopener noreferrer" href="mailto:ayushcodes@outlook.com">Resume</a>
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/constayush"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/ayush0x1/"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.x.com/constayush/"
+                  >
+                    X / twitter
+                  </a>
+                  <a
+                    className="footerLinks hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/maihoonayush/"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    className="hover:cursor-pointer hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:ayushcodes@outlook.com"
+                  >
+                    ayushcodes@outlook.com
+                  </a>
+                  <a
+                    className="hover:cursor-pointer hover:text-[var(--accent-color)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:ayushcodes@outlook.com"
+                  >
+                    Resume
+                  </a>
                 </div>
-                <p className="text-[var(--secondary-text)]">© 2025 Ayush Srivastava</p>
-                <Link className="text-[var(--text-color)] text-[2rem] hover:tracking-[1rem] logoNav" to="/terminal">
+                <p className="text-[var(--secondary-text)]">
+                  © 2025 Ayush Srivastava
+                </p>
+                <Link
+                  className="text-[var(--text-color)] text-[2rem] [text-shadow:_0_0_10px_orange,_0_0_20px_orange] relative hover:tracking-[1rem] logoNav"
+                  to="/terminal"
+                >
                   आ<span className="accent">1.</span>
                 </Link>
               </div>
             </footer>
           </section>
+         
         </motion.div>
       </div>
     </>
