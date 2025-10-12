@@ -8,7 +8,7 @@ function ProjectCard(props) {
     <motion.div
       layout
       key={props.projectName}
-      className="card project-card min-h-full relative shadow-2xl overflow-hidden group max-w-[30rem] min-w-full transition-all bg-[var(--glass-bg-color)] border-2 border-[#ffffff10] rounded-lg p-4"
+      className="card project-card min-h-full  relative shadow-2xl overflow-hidden group max-w-[30rem] min-w-full transition-all bg-[var(--glass-bg-color)] border-2 border-[#ffffff10] rounded-lg p-4"
     >
       <div className="shine"></div>
 
@@ -20,9 +20,9 @@ function ProjectCard(props) {
           {props.projectName}
         </motion.h1>
 
-        <div className="aspect-[16/9] w-full overflow-hidden">
+        <div className="aspect-[16/9] w-full overflow-hidden ">
           <img
-            className="projects-img aspect-[16/9] object-contain border-2 shadow-2xl bg-black border-[#ffffff1d] rounded-lg"
+            className="projects-img aspect-[16/9] object-contain border-t-2 border-[#ffffff54] rounded-lg"
             src={props.projectImg}
           />
         </div>
