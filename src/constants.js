@@ -215,9 +215,9 @@ export const PROJECTS = [
   }
   ,
   {
-    projectName: "Boxit",
-    projectDescriptionShort: "Box'It — boxing app that helps users learn, practice, and improve, offering valuable resources for all skill levels.",
-    projectDescriptionLong: "Box'It is a comprehensive boxing app designed for everyone—from beginners to experienced fighters. It features interactive tutorials, guided training sessions, and personalized workout plans to help users sharpen their skills and track their progress.",
+    projectName: "Boxlit",
+    projectDescriptionShort: "Boxlit — boxing app that helps to learn, practice, & improve, offering valuable resources for all skill levels.",
+    projectDescriptionLong: "Boxlit is a comprehensive boxing app designed for everyone—from beginners to experienced fighters. It features interactive tutorials, guided training sessions, and personalized workout plans to help users sharpen their skills and track their progress.",
     projectImg: projectImg2,
     projectCode: "https://github.com/constayush/Boxit",
     projectLive: "https://boxlit.vercel.app/",

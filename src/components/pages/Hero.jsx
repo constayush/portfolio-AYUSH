@@ -403,7 +403,7 @@ function Hero() {
                   © 2025 Ayush Srivastava
                 </p>
                 <Link
-                  className="text-[var(--text-color)] text-[2rem] [text-shadow:_0_0_10px_orange,_0_0_20px_orange] relative hover:tracking-[1rem] logoNav"
+                  className="text-[var(--text-color)] text-[2rem] [text-shadow:_0_0_2px_orange,_0_0_5px_orange] relative hover:tracking-[1rem] logoNav"
                   to="/terminal"
                 >
                   आ<span className="accent">1.</span>
