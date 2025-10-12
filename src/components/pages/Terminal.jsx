@@ -6,8 +6,10 @@ import whiteBg from "../../../public/whiteBg.jpg";
 import orangeDark from "../../../public/orangeDark.jpg";
 import multiBg from "../../../public/multiBg.jpg";
 import themeIco from "../../../public/themeIco.svg";
+import { PROJECTS } from "../../constants";
 import closeIco from "../../../public/closeIco.svg";
 import { motion } from "framer-motion";
+
 function Terminal() {
   const terminalContainer = useRef(null);
   const inputRef = useRef(null);
@@ -17,59 +19,58 @@ function Terminal() {
   const [bootText, setBootText] = useState([]);
   const [bootDone, setBootDone] = useState(false);
 
-  const commandsArr = ["whoami", "projects", "contact", "help"];
+  const commandsArr = ["whoami", "ls projects", "contact", "help"];
   const bgImgArr = [orangeBg, whiteBg, blackBg, orangeDark, multiBg];
   let bgCounter = 1;
 
   // --- Boot animation text lines ---
-const bootLines = [
-  "> Initializing system boot sequence...",
-  "> Locating mainframe node...",
-  "> Establishing encrypted uplink [AES-256]...",
-  "> Handshake complete. Access token verified.",
-  "> Launching terminal interface...",
-  "> Connection stable.",
-  "> Welcome back, Ayush.",
-];
-
+  const bootLines = [
+    "> Initializing system boot sequence...",
+    "> Locating mainframe node...",
+    "> Establishing encrypted uplink [AES-256]...",
+    "> Handshake complete. Access token verified.",
+    "> Launching terminal interface...",
+    "> Connection stable.",
+    "> Welcome back, Ayush.",
+  ];
 
   // Boot typing effect
-useEffect(() => {
-  let i = 0;
-  let j = 0;
-  let interval;
+  useEffect(() => {
+    let i = 0;
+    let j = 0;
+    let interval;
 
-  const typeLine = () => {
-    if (i < bootLines.length) {
-      const line = bootLines[i];
-      interval = setInterval(() => {
-        setBootText((prev) => {
-          const newLines = [...prev];
-          // Initialize the current line if undefined
-          if (!newLines[i]) newLines[i] = "";
-          newLines[i] += line[j];
-          return newLines;
-        });
+    const typeLine = () => {
+      if (i < bootLines.length) {
+        const line = bootLines[i];
+        interval = setInterval(() => {
+          setBootText((prev) => {
+            const newLines = [...prev];
+            // Initialize the current line if undefined
+            if (!newLines[i]) newLines[i] = "";
+            newLines[i] += line[j];
+            return newLines;
+          });
 
-        j++;
-        if (j >= line.length) {
-          clearInterval(interval);
-          i++;
-          j = 0;
-          setTimeout(typeLine, 15); // short pause before next line
-        }
-      }, 15);
-    } else {
-      // typing done
-      setTimeout(() => setBootDone(true), 1000);
-    }
-  };
+          j++;
+          if (j >= line.length) {
+            clearInterval(interval);
+            i++;
+            j = 0;
+            setTimeout(typeLine, 15); // short pause before next line
+          }
+        }, 15);
+      } else {
+        // typing done
+        setTimeout(() => setBootDone(true), 1000);
+      }
+    };
 
-  typeLine();
+    typeLine();
 
-  // cleanup in case component unmounts early
-  return () => clearInterval(interval);
-}, []);
+    // cleanup in case component unmounts early
+    return () => clearInterval(interval);
+  }, []);
 
   function handleInputChange(e) {
     setInputData(e.target.value);
@@ -81,13 +82,28 @@ useEffect(() => {
       inputRef.current.value = "";
 
       switch (cmd) {
+        case "clr":
+        case "clear":
+        case "cls":
+          setPrvInputsData([]);
+          return;
+        case "exit":
+          window.location.href = "/";
+          return;
         case "whoami":
           setPrvInputsData((prev) => [
             ...prev,
             {
               cmd,
               output:
-                "Hey, I'm Ayush — 18, web dev, obsessed with clean UIs & creative chaos.",
+                `Hey, I'm Ayush — obsessed with clean UIs & creative chaos, 
+                a 19-year-old Full-stack engineer
+              from India. Currently a second-year Computer Science student, I
+              work with TypeScript, React, and Next.js, building clean and
+              efficient web applications. Beyond the IDE, I enjoy chess and
+              Valorant.
+                
+                `,
             },
           ]);
           break;
@@ -103,9 +119,12 @@ useEffect(() => {
                   <br />
                   <span className="TconLinks">contact</span> - socials
                   <br />
-                  <span className="TconLinks">projects</span> - my builds
+                  <span className="TconLinks">ls projects</span> - my builds
                   <br />
-                  use <span className="font-bold">cd</span> to explore deeper.
+                  use <span className="font-bold">cd [project name]</span> to
+                  explore deeper. <br /> <span className="TconLinks">clr</span>{" "}
+                  - *clears the Terminal* <br />
+                  <span className="TconLinks">exit</span> - closes terminal
                 </p>
               ),
             },
@@ -160,6 +179,92 @@ useEffect(() => {
           ]);
           break;
 
+        case "ls projects":
+          setPrvInputsData((prev) => [
+            ...prev,
+            {
+              cmd,
+              output: (
+                <p>
+                  {PROJECTS.map((proj, index) => (
+                    <div key={index}>
+                      <span className="TconLinks">{proj.projectName}</span> -{" "}
+                      {proj.projectDescriptionShort}
+                      <br />
+                    </div>
+                  ))}
+                  <br />
+                  use <span className="font-bold">cd</span> to explore deeper.
+                </p>
+              ),
+            },
+          ]);
+          break;
+
+        case "cd slices-ui":
+          setPrvInputsData((prev) => [
+            ...prev,
+            {
+              cmd,
+              output: (
+                <>
+                  {PROJECTS[0].projectName} -{" "}
+                  {PROJECTS[0].projectDescriptionLong} <br />
+                  View code:{" "}
+                  <a
+                    href={PROJECTS[0].projectCode}
+                    target="_blank"
+                    className="TconLinks"
+                  >
+                    {PROJECTS[0].projectCode}
+                  </a>{" "}
+                  <br />
+                  Live demo:{" "}
+                  <a
+                    href={PROJECTS[0].projectLive}
+                    target="_blank"
+                    className="TconLinks"
+                  >
+                    {PROJECTS[0].projectLive}
+                  </a>
+                </>
+              ),
+            },
+          ]);
+          break;
+
+        case "cd boxlit":
+          setPrvInputsData((prev) => [
+            ...prev,
+            {
+              cmd,
+              output: (
+                <>
+                  {PROJECTS[1].projectName} -{" "}
+                  {PROJECTS[1].projectDescriptionLong} <br />
+                  View code:{" "}
+                  <a
+                    href={PROJECTS[1].projectCode}
+                    target="_blank"
+                    className="TconLinks"
+                  >
+                    {PROJECTS[1].projectCode}
+                  </a>{" "}
+                  <br />
+                  Live demo:{" "}
+                  <a
+                    href={PROJECTS[1].projectLive}
+                    target="_blank"
+                    className="TconLinks"
+                  >
+                    {PROJECTS[1].projectLive}
+                  </a>
+                </>
+              ),
+            },
+          ]);
+          break;
+
         default:
           setPrvInputsData((prev) => [
             ...prev,
@@ -176,18 +281,13 @@ useEffect(() => {
 
   return (
     <motion.div
-  
-  initial={{ opacity: 0, width: 0,  }}
-  animate={{ opacity: 1, width: "100%",  }}
-  exit={{ opacity: 0 }}
-  transition={{ duration: .25}}
-
-  
-    ref={terminalContainer}
+      initial={{ opacity: 0, width: 0 }}
+      animate={{ opacity: 1, width: "100%" }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      ref={terminalContainer}
       className="terminal  will-change-transform  relative w-full lg:h-[98vh] h-[95vh] flex flex-col p-4 rounded-lg bg-cover bg-center transition-all duration-500 overflow-hidden"
     >
-   
-
       <div className="relative w-full h-full bg-[#000000d8] rounded-lg backdrop-blur-sm border border-[#1e1e1e] flex flex-col overflow-hidden shadow-[0_0_30px_#00000070] z-[2]">
         {/* Top bar */}
         <nav className="flex items-center justify-between bg-[#101010] text-gray-300 px-4 py-2 border-b border-[#222]">
