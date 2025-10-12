@@ -8,7 +8,7 @@ function SlicesDisplayCard({
   gif = gifTemp 
 }) {
   return (
-    <div className="relative w-[18rem] rounded-lg cursor-pointer">
+    <div className="relative w-full md:w-[18rem] rounded-lg cursor-pointer">
       {/* Image wrapper */}
       <div className="relative w-full h-[18rem] rounded-md overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-3 hover:shadow-xl">
         {/* Thumbnail (default) */}

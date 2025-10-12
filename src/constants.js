@@ -175,22 +175,22 @@ export const GISTS_DATA = [
     );
     `
   },
-  {
-    gistName: "TextShine Component",
-    gistShortDescription: "Shiny gradient text animation with Tailwind, no Tailwind config changes required",
-    gistDescription: `A reusable React component that renders text with a gradient "shine" animation using Tailwind CSS.
-This version injects the required keyframes and animation styles directly in the component via a <style> tag,
-so no tailwind.config.js modifications are needed. Accepts a 'text' prop and optional 'className' prop.`,
-    gistId: 3,
-    gistTags: ["React", "Tailwind", "UI Component", "No Config"],
-    gistCode: slices_code[3],
-    gistLanguage: "javascript",
-    gistUsage: `
-// Example usage
-<TextShine text="Shiny Sclices Text ✨" className="text-4xl font-bold" />
-// Works instantly without editing tailwind.config.js
-`
-  }
+//   {
+//     gistName: "TextShine Component",
+//     gistShortDescription: "Shiny gradient text animation with Tailwind, no Tailwind config changes required",
+//     gistDescription: `A reusable React component that renders text with a gradient "shine" animation using Tailwind CSS.
+// This version injects the required keyframes and animation styles directly in the component via a <style> tag,
+// so no tailwind.config.js modifications are needed. Accepts a 'text' prop and optional 'className' prop.`,
+//     gistId: 3,
+//     gistTags: ["React", "Tailwind", "UI Component", "No Config"],
+//     gistCode: slices_code[3],
+//     gistLanguage: "javascript",
+//     gistUsage: `
+// // Example usage
+// <TextShine text="Shiny Sclices Text ✨" className="text-4xl font-bold" />
+// // Works instantly without editing tailwind.config.js
+// `
+//   }
 
 
 ]

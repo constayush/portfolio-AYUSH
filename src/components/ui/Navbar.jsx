@@ -35,7 +35,7 @@ function Navbar() {
 
         <Link
           className="text-[var(--text-color)] text-[1.35rem]  md:text-[2rem] hover:tracking-[1rem] logoNav"
-          to="/"
+          to="/terminal"
         >
           आ<span className="accent">1.</span>
         </Link>
