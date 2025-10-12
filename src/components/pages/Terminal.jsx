@@ -7,7 +7,7 @@ import orangeDark from "../../../public/orangeDark.jpg";
 import multiBg from "../../../public/multiBg.jpg";
 import themeIco from "../../../public/themeIco.svg";
 import closeIco from "../../../public/closeIco.svg";
-
+import { motion } from "framer-motion";
 function Terminal() {
   const terminalContainer = useRef(null);
   const inputRef = useRef(null);
@@ -19,7 +19,7 @@ function Terminal() {
 
   const commandsArr = ["whoami", "projects", "contact", "help"];
   const bgImgArr = [orangeBg, whiteBg, blackBg, orangeDark, multiBg];
-  let bgCounter = 0;
+  let bgCounter = 1;
 
   // --- Boot animation text lines ---
 const bootLines = [
@@ -27,7 +27,6 @@ const bootLines = [
   "> Locating mainframe node...",
   "> Establishing encrypted uplink [AES-256]...",
   "> Handshake complete. Access token verified.",
-  "> Firewall breach check... secure ",
   "> Launching terminal interface...",
   "> Connection stable.",
   "> Welcome back, Ayush.",
@@ -57,12 +56,12 @@ useEffect(() => {
           clearInterval(interval);
           i++;
           j = 0;
-          setTimeout(typeLine, 10); // short pause before next line
+          setTimeout(typeLine, 15); // short pause before next line
         }
-      }, 25);
+      }, 15);
     } else {
       // typing done
-      setTimeout(() => setBootDone(true), 50);
+      setTimeout(() => setBootDone(true), 1000);
     }
   };
 
@@ -176,12 +175,18 @@ useEffect(() => {
   }
 
   return (
-    <div
-      ref={terminalContainer}
-      className="terminal relative w-full lg:h-[98vh] h-[95vh] flex flex-col p-4 rounded-lg bg-cover bg-center transition-all duration-500 overflow-hidden"
+    <motion.div
+  
+  initial={{ opacity: 0, width: 0,  }}
+  animate={{ opacity: 1, width: "100%",  }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: .25}}
+
+  
+    ref={terminalContainer}
+      className="terminal  will-change-transform  relative w-full lg:h-[98vh] h-[95vh] flex flex-col p-4 rounded-lg bg-cover bg-center transition-all duration-500 overflow-hidden"
     >
-      {/* Glitch overlay */}
-      <div className="absolute inset-0 pointer-events-none glitch z-[1]" />
+   
 
       <div className="relative w-full h-full bg-[#000000d8] rounded-lg backdrop-blur-sm border border-[#1e1e1e] flex flex-col overflow-hidden shadow-[0_0_30px_#00000070] z-[2]">
         {/* Top bar */}
@@ -256,7 +261,7 @@ useEffect(() => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
