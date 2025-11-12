@@ -76,7 +76,7 @@ html {
 html {
   ::selection {
     color: var(--text-color);
-    background: rgba(255, 186, 130, 0.453);
+    background: rgba(255, 136, 0, 0.801);
   }
 
   background-color: var(--bg-color);
