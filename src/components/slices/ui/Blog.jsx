@@ -3,14 +3,15 @@ import { useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.css"; // or another theme
 import "prismjs/components/prism-jsx"; // add JSX highlighting
+import { u } from "framer-motion/client";
 
 export default function Blog({
   title = "Gallery Component",
   description = "The Gallery component displays a set of images in a responsive grid.",
   steps = [],
-  component = "Gallery",
   codeSnippet,
-  language = "jsx", // allow dynamic language selection
+  usage = "",
+  language = "jsx", 
 }) {
   useEffect(() => {
     Prism.highlightAll();
@@ -52,8 +53,8 @@ export default function Blog({
       </section>
 
       {/* Code Snippet */}
-      <section>
-        <h2 className="text-2xl font-semibold text-[var(--slices-primary-text)] mb-4">
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold text-[var(--slices-primary-text)]">
           Code Example
         </h2>
         <pre className="rounded-lg overflow-x-auto text-sm">
@@ -62,6 +63,19 @@ export default function Blog({
           </code>
         </pre>
       </section>
+
+       <section>
+        <h2 className="text-2xl font-semibold text-[var(--slices-primary-text)] mb-4">
+          How to use?
+        </h2>
+        <pre className="rounded-lg overflow-x-auto text-sm">
+          <code className={`language-${language}`}>
+            {usage}
+          </code>
+        </pre>
+      </section>
+
+
     </article>
   );
 }

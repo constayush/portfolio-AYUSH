@@ -6,7 +6,7 @@ export default function BlogPage() {
   const { slug } = useParams(); // grabs from route, e.g. /blog/image-grid-zoom
   const blogData = componentBlogs[slug];
 
-  console.log(slug);
+
 
   if (!blogData) {
     return (
