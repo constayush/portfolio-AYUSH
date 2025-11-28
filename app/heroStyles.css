@@ -164,7 +164,7 @@ nav {
   cursor: cell;
 }
 
-.custom-cursor {
+/* .custom-cursor {
   position: fixed;
   width: 100px;
   height: 100px;
@@ -178,11 +178,11 @@ nav {
   transition: opacity 0.2s ease, transform 0.2s ease;
   mix-blend-mode: normal;
   cursor: none;
-}
+} */
 
-.custom-cursor.show {
+/* .custom-cursor.show {
   opacity: 1;
-}
+} */
 
 .ulLinkNav {
   transition: .4s ease-in-out all;
@@ -231,4 +231,28 @@ main {
   100% {
     background-position: 150% 0%;
   }
+}
+.custom-cursor {
+  position: fixed;
+  /* Start at top-left, transform will handle positioning */
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: url('../public/sliced_org.jpg') no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  /* Only transition opacity, let JS handle transform for smooth following */
+  transition: opacity 0.2s ease;
+  mix-blend-mode: normal;
+  cursor: none;
+  /* Hint browser about transform changes for optimization */
+  will-change: transform;
+}
+
+.custom-cursor.show {
+  opacity: 1;
 }
