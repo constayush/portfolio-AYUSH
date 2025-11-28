@@ -3,16 +3,14 @@
 import { motion } from "motion/react";
 import "./heroStyles.css";
 import Link from "next/link";
-
 import Image from "next/image";
 import orange from "../public/orange.svg";
 import ProjectCard from "./ui/ProjectCard";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import Lenis from "lenis";
 import Navbar from "./ui/Navbar";
-// import { useTheme } from "./ThemeContext";
 import GistsCard from "./ui/GistsCard";
-// import TextShine from "./ui/text-shine";
+import {useCustomCursor} from "./utils/useCursor";
 
 import {
   GISTS_DATA,
@@ -24,15 +22,14 @@ import { useRef, useCallback, useEffect, useMemo } from "react";
 import HighlightedLink from "./ui/HighlightedLink";
 
 function PageClient() {
-  // const { theme } = useTheme();
   const theme = "dark"; 
   
-  const cursorRef = useRef<HTMLDivElement>(null);
+  // Use the optimized cursor hook
+  const cursorRef = useCustomCursor(".orgLogo");
+  
   const headingWords = " Hi I'm Ayush — A Full Stack Engineer from India";
   const org = useRef<HTMLImageElement>(null);
   const projectCon = useRef<HTMLElement>(null);
-
-
 
   const handleScrollArrow = useCallback(() => {
     window.scrollTo({
@@ -41,45 +38,21 @@ function PageClient() {
     });
   }, []);
 
-  // const scrollToAbout = () => {
-  //   document.querySelector("#about")?.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "start",
-  //   });
-  // };
-
-  useEffect(() => {
-    const cursor = cursorRef.current;
-    const orgLogo = document.querySelector(".orgLogo");
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (cursor) {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      }
-    };
-    const handleMouseEnter = () => cursor?.classList.add("show");
-    const handleMouseLeave = () => cursor?.classList.remove("show");
-
-    document.addEventListener("mousemove", handleMouseMove);
-    orgLogo?.addEventListener("mouseenter", handleMouseEnter);
-    orgLogo?.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      orgLogo?.removeEventListener("mouseenter", handleMouseEnter);
-      orgLogo?.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
   useEffect(() => {
     const lenis = new Lenis();
+    let rafId: number;
+    
     const raf = (time: number) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
+    
+    rafId = requestAnimationFrame(raf);
+    
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
   }, []);
 
   const renderSocialIcons = useMemo(
@@ -192,17 +165,6 @@ function PageClient() {
           </h1>
 
           <p className="hero-para text-lg md:text-2xl md:max-w-[80%] text-(--secondary-text) text-shadow font-medium">
-           {/* Hi, I&apos;m{" "}
-            <span onClick={scrollToAbout}>
-              <TextShine
-                text="Ayush "
-                className="font-semibold cursor-pointer hover:border-[#ff8400] transition-all duration-300"
-              />
-            </span>
-            — a UI Engineer from{" "}
-            <span className="font-semibold text-(--accent-color)">
-              India
-            </span> */}
             Creating UIs that pop with clean design and code with <HighlightedLink name="TypeScript" img="/typescript.svg" /> , <HighlightedLink name="React" img="/react-2.svg" /
             > , <HighlightedLink name="Next.js" img="/nextjs.svg" /> , <HighlightedLink name="Bun.js" img="/bun.svg" /> , and <HighlightedLink name="PostgreSQL" img="/postgresql.svg" /> .
           </p>
@@ -254,7 +216,6 @@ function PageClient() {
         {/* Projects */}
         <section  className="flex flex-col justify-center w-full gap-8 md:gap-8"
           ref={projectCon}
-        
         >
           <h1 className="text-3xl md:text-[2.7rem] font-semibold text-(--text-color)">
             Projects
@@ -300,7 +261,6 @@ function PageClient() {
             </span>
           </h1>
 
-
           <div className="flex md:flex-row flex-col items-start gap-8 md:gap-0">
             <Image 
               src="/avatar.png"
@@ -311,9 +271,7 @@ function PageClient() {
             />
 
           <p className="hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
-            I’m that kid who never grew out of breaking gadgets just to see how they worked — except now I actually know how to put them back together (most of the time). I ship pixel-perfect UIs to fiddling with Raspberry Pis and Arduinos at 3AM, A nerd who building things that feel alive — software, hardware, or that weird place where both shake hands.
-          
-          
+            I&apos;m Ayush, a software developer from India. I&apos;m that kid who never grew out of breaking gadgets just to see how they worked — except now I actually know how to put them back together (most of the time). I ship pixel-perfect UIs to fiddling with Raspberry Pis and Arduinos at 3AM, A nerd who building things that feel alive — software, hardware, or that weird place where both shake hands.
           </p></div>
 
           <div>

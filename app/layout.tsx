@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   keywords: [
     "Ayush Srivastava",
     "ayush srivastava portfolio",
+    "constayush",
     "React",
     "javascript",
     "AYUSH",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     title: "Ayush Srivastava Portfolio",
-    description: "Ayush Srivastava, A Full-Stack Engineer",
+    description: "Ayush Srivastava (constayush), A Full-Stack Engineer",
     url: "https://constayush.vercel.app",
     images: "https://constayush.vercel.app/thumbnail.png",
     type: "article",
@@ -63,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="shortcut icon" href="/orange.svg" type="image/x-icon" />
+        <link   rel="shortcut icon" href="/orange.svg" type="image/x-icon" />
       </head>
       <body
         className={` ${montserrat.variable} ${orbitron.variable} ${code.variable} ${zen.variable} antialiased`}
