@@ -170,7 +170,7 @@ function PageClient() {
           </p>
 
           {/* Socials & Resume */}
-          <div className="social-container flex">
+          <div className="social-container flex mt-6">
             <div className="networks flex flex-col lg:flex-row-reverse justify-center items-center gap-4">
               <div className="netbox relative bg-[var(--netbox-bg-color)] border-[var(--border-color)] rounded-lg flex gap-4 p-3">
                 {renderSocialIcons}
