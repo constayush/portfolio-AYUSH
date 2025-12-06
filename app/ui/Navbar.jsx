@@ -36,7 +36,8 @@ function Navbar() {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <motion.nav
+      <nav
+      
         ref={nav}
         className="flex px-6 md:px-6 w-full lg:w-[64rem] sm:gap-9 gap-3 pt-[5rem] navbar-short z-[90000000009] fixed top-0 items-center justify-between"
       >
@@ -70,7 +71,7 @@ function Navbar() {
             {theme === "dark" ? "☀️" : "🌙"}
           </motion.button>
         </ul>
-      </motion.nav>
+      </nav>
     </div>
   );
 }

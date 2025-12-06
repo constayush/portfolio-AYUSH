@@ -86,7 +86,7 @@ function PageClient() {
       TECH_STACK.map(({ icon, name }) => (
         <div
           key={name}
-          className="w-auto border flex justify-center items-center gap-1 hover:bg-[#1b1b1b] hover:text-white p-2 text-[var(--secondary-text)] border-[var(--border-color)]"
+          className="w-auto border flex justify-center items-center gap-1 hover:bg-orange-200/20 hover:text-white p-2 text-[var(--secondary-text)] border-[var(--border-color)]"
         >
           <Image className="w-8 h-8" src={icon} alt={name} width={32} height={32} />
           {name}
@@ -170,7 +170,7 @@ function PageClient() {
           </p>
 
           {/* Socials & Resume */}
-          <div className="social-container flex mt-6">
+          <div className="social-container flex mt-6 md:mt-6">
             <div className="networks flex flex-col lg:flex-row-reverse justify-center items-center gap-4">
               <div className="netbox relative bg-[var(--netbox-bg-color)] border-[var(--border-color)] rounded-lg flex gap-4 p-3">
                 {renderSocialIcons}
@@ -271,7 +271,7 @@ function PageClient() {
             />
 
           <p className="hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
-            I&apos;m Ayush, a software developer from India. I&apos;m that kid who never grew out of breaking gadgets just to see how they worked — except now I actually know how to put them back together (most of the time). I ship pixel-perfect UIs to fiddling with Raspberry Pis and Arduinos at 3AM, A nerd who building things that feel alive — software, hardware, or that weird place where both shake hands.
+            I&apos;m Ayush, an engineer from India. I&apos;m that kid who never grew out of breaking gadgets just to see how they worked — except now I actually know how to put them back together (most of the time). I ship pixel-perfect UIs to fiddling with Raspberry Pis and Arduinos at 3AM, A nerd who building things that feel alive software, hardware, or that weird place where both shake hands and yeah <Link href="/orange_rolling" className="hover:text-orange-400 hover:font-bold">orange</Link> is my favorite color/fruit.
           </p></div>
 
           <div>
