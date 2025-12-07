@@ -88,7 +88,7 @@ function PageClient() {
           key={name}
           className="w-auto border flex justify-center items-center gap-1 hover:bg-orange-200/20 hover:text-white p-2 text-[var(--secondary-text)] border-[var(--border-color)]"
         >
-          <Image className="w-8 h-8" src={icon} alt={name} width={32} height={32} />
+          <Image id="name" unoptimized className="w-8 h-8" src={icon} alt={name} width={32} height={32} />
           {name}
         </div>
       )),
