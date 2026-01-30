@@ -14,7 +14,7 @@ export const TextGenerateEffect = ({
   useEffect(() => {
     animate("span", {
       opacity: 1,
-      color: "#fffFFF",
+      color: "var(--text-color)",
       filter: filter ? "blur(0px)" : "none",
       
     }, {
