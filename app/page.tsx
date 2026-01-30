@@ -65,28 +65,24 @@ function PageClient() {
     []
   );
 
-  const renderProjects = useMemo(
-    () =>
-      PROJECTS.map((project) => (
+  const renderProjects = PROJECTS.slice(0, 2).map((project) => (
         <ProjectCard key={project.projectId} {...project} />
-      )),
-    []
-  );
-
-  const renderGists = useMemo(
-    () =>
-      GISTS_DATA.map((gist) => (
+      ));
+      
+  
+  const renderGists = GISTS_DATA.slice(0, 2).map((gist) => (
         <GistsCard key={gist.gistId}  {...gist} />
-      )),
-    []
-  );
+      ));
+  
+      
+ 
 
   const renderTechStack = useMemo(
     () =>
       TECH_STACK.map(({ icon, name }) => (
         <div
           key={name}
-          className="w-auto border flex justify-center items-center gap-1 hover:bg-orange-200/20 hover:text-white p-2 text-[var(--secondary-text)] border-[var(--border-color)]"
+          className="w-auto border flex justify-center items-center gap-1 hover:bg-orange-200/50 p-2 text-[var(--secondary-text)] border-[var(--border-color)]"
         >
           <Image id="name" unoptimized className="w-8 h-8" src={icon} alt={name} width={32} height={32} />
           {name}
@@ -98,7 +94,7 @@ function PageClient() {
   return (
     <div
       data-theme={theme}
-      className="w-full min-h-screen relative flex bg-grid-[#000]/[.030] flex-col items-center pt-40 md:pt-54 pb-16 text-(--text-color) bg-(--bg-color)"
+      className="w-full min-h-screen relative flex bg-grid-[#000]/[.030] flex-col items-center pt-40 md:pt-44 pb-16 text-(--text-color) bg-(--bg-color)"
     >
       <div ref={cursorRef} className="custom-cursor"></div>
 
@@ -119,7 +115,7 @@ function PageClient() {
       >
         {/* Main Hero Section */}
         <main className="main-hero-section-container text-center items-center justify-center flex flex-col gap-4 md:gap-8">
-          <h1 className="hero-heading text-[1.8rem] md:text-[2.8rem] inline text-center">
+          <h1 className="hero-heading text-[var(--text-color)] text-[1.8rem] md:text-[2.8rem] inline text-center">
             <TextGenerateEffect className="inline" words={headingWords} />
             <Link href="/orange_rolling">
               <motion.img

@@ -7,6 +7,7 @@ import ReactIcon from "../public/react-2.svg";
 import TypescriptIcon from "../public/typescript.svg";
 import JavascriptIcon from "../public/javascript.svg";
 import NextjsIcon from "../public/nextjs.svg";
+import projectImg3 from "../public/project-img3.png";
 import projectImg1 from "../public/project-img1.png";
 import projectImg2 from "../public/project-img2.png";
 import ExpressjsIcon from "../public/express.svg";
@@ -199,10 +200,10 @@ export const GISTS_DATA = [
 
 export const SOCIAL_LINKS = [
   { href: "https://github.com/constayush", icon: github, alt: "GitHub" },
-  { href: "https://www.linkedin.com/in/ayush0x1/", icon: linkedin, alt: "LinkedIn" },
+  { href: "https://www.linkedin.com/in/constayush/", icon: linkedin, alt: "LinkedIn" },
   { href: "https://www.instagram.com/maihoonayush/", icon: insta, alt: "Instagram" },
   { href: "https://www.x.com/constayush/", icon: xIcon, alt: "X" },
-  { href: "mailto:ayushcodes@outlook.com", icon: mail, alt: "Mail" }
+  { href: "mailto:constayush@gmail.com", icon: mail, alt: "Mail" }
 ];
 
 export const PROJECTS = [
@@ -224,6 +225,15 @@ export const PROJECTS = [
     projectCode: "https://github.com/constayush/Boxit",
     projectLive: "https://boxlit.vercel.app/",
     projectId: 2,
+  },
+    {
+    projectName: "Kodak",
+    projectDescriptionShort: "Kodak — is your always-listening local AI assistant built in Python.",
+    projectDescriptionLong: "Kodak is an AI assistant that runs locally on your machine, ensuring your data stays private. Built with Python, it leverages advanced natural language processing to help you manage tasks, answer questions, and streamline your workflow without relying on cloud services.",
+    projectImg: projectImg3,
+    projectCode: "https://github.com/constayush/Kodak",
+    // projectLive: "https://kodak.vercel.app/",
+    projectId: 3,
   },
 ];
 

@@ -24,7 +24,7 @@ function ProjectCard(props) {
 
         <div className="w-full aspect-video">
   <Image
-    src={props.projectImg.src}
+    src={props.projectImg.src ? props.projectImg.src : null}
     alt="project-img"
     width={1280}
     height={720}
