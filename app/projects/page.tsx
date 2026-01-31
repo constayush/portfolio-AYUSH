@@ -5,7 +5,7 @@ import ProjectCard from '../ui/ProjectCard'
 function Page() {
   return (
 
-    <div className='min-h-[130vh] pt-30 pb-16 flex flex-col  items-center'>
+    <div className='min-h-[130vh] pt-30 pb-16 px-2 flex flex-col  items-center'>
 <Navbar />
 <main className='  w-full max-w-4xl flex flex-col gap-8'>
       
@@ -16,7 +16,7 @@ function Page() {
 
 <hr className='text-gray-600' />
 
-<div className='grid grid-cols-2 gap-6'>
+<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 {PROJECTS.map((project)=> {
   return (
     <ProjectCard key={project.projectName} {...project} />
