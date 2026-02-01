@@ -10,7 +10,7 @@ import { TextGenerateEffect } from "./ui/text-generate-effect";
 import Lenis from "lenis";
 import Navbar from "./ui/Navbar";
 import GistsCard from "./ui/GistsCard";
-import {useCustomCursor} from "./utils/useCursor";
+import {useCustomCursor} from "./ui/utils/useCursor";
 
 import {
   GISTS_DATA,

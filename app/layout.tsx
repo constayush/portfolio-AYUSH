@@ -3,7 +3,7 @@ import "./globals.css";
 
 
 import { Montserrat, Orbitron, Source_Code_Pro, Zen_Dots } from "next/font/google";
-import ScrollToTop from "./utils/ScrollToTop";
+import ScrollToTop from "./ui/utils/ScrollToTop";
 
 
 const montserrat = Montserrat({

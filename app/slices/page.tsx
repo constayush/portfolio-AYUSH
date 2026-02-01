@@ -1,8 +1,11 @@
 "use client";
 
+import "../slices.css"
 import Link from "next/link";
 import { useState } from "react";
-
+import Image from "next/image";
+import { motion } from "motion/react";
+import { useEffect } from "react";
 const demoItems = [
   { id: 1, title: "Getting Started", icon: "-" },
   { id: 2, title: "Components", icon: "-" },
@@ -16,11 +19,30 @@ const demoItems = [
 
 function Page() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [theme, setTheme] = useState("dark");
+  const toggleTheme = () => {
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  };
 
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+    useEffect(() => {
+      const saved = localStorage.getItem("theme");
+      if (saved) setTheme(saved);
+    }, []);
+  
   return (
-    <div className="min-h-screen">
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: .75 }}
+    className="min-h-screen">
       {/* Navigation Bar */}
-      <nav className="fixed flex w-full top-0 left-0 border-b border-white/20 justify-between items-center px-4 py-2 bg-[var(--bg-color)] z-50">
+      <nav className="fixed flex w-full top-0 left-0 border-b border-[var(--border-2-color)] justify-between items-center px-4 py-2 bg-[var(--bg-color)] z-50">
         <div className="flex items-center gap-4">
           {/* Toggle Button */}
           <button
@@ -44,25 +66,50 @@ function Page() {
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
           </button>
+          <motion.span 
+          initial={{ opacity: 0, letterSpacing: "0.6em" }}
+          animate={{ opacity: 1, letterSpacing: "0em" }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center items-center text-center"> 
           <h1 className="text-[1.8rem] md:text-[1.8rem] text-[var(--text-color)] font-bold">
             Slices
           </h1>
+          <Image 
+            src="/slices.svg" 
+            width={32}
+            height={32}
+            alt="Logo" 
+            className="w-8 h-fit rounded-full object-cover"
+          /></motion.span>
         </div>
-        <Link 
+       
+       <span className="gap-1 flex justify-center items-center"> <Link 
           href="/" 
           className="hover:text-[var(--text-color)] transition-colors"
         >
           portfolio
         </Link>
+            
+           <motion.button
+                      aria-label="theme-button"
+                      onClick={toggleTheme}
+                      whileHover={{ scale: 1.2, rotate: 90 }}
+                      whileTap={{ scale: 1.5, rotate: 90 }}
+                      transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                      className="theme-toggle grayscale-10 hover:grayscale-0  text-[1rem] md:text-[1.15rem] "
+                    >
+                      {theme === "dark" ? "☀️" : "🌙"}
+                    </motion.button>  </span>        
+        
       </nav>
 
       <div className="flex pt-[60px]">
         {/* Sidebar */}
         <aside
-          className={`fixed md:sticky top-[60px] left-0 h-[calc(100vh-60px)] bg-[var(--bg-color)] border-r border-white/20 z-40 transition-all duration-300 ease-in-out ${
+          className={`fixed md:sticky top-[60px] left-0 h-[calc(100vh-60px)] bg-[var(--bg-color)] border-r border-[var(--border-2-color)] z-40 transition-all duration-300 ease-in-out ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
           } ${
-            sidebarOpen ? "w-64" : "md:w-0 md:border-0"
+            sidebarOpen ? "w-64" : "md:w-0 hidden md:border-0"
           }`}
         >
           <div className="px-6 py-8 overflow-y-auto h-full">
@@ -128,7 +175,7 @@ function Page() {
           </div>
         </main>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
