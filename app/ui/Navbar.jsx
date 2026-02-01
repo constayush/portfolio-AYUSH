@@ -4,18 +4,18 @@ import { useRef, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion, useScroll, useTransform } from "motion/react";
+import { easeIn, motion, useScroll, useTransform } from "motion/react";
 
 function Navbar() {
   const nav = useRef(null);
   const { scrollYProgress } = useScroll();
   const pathname = usePathname();
   const router = useRouter();
-const spring = {
-  type: "spring",
-  stiffness: 400,
-  damping: 30,
-};
+  const spring = {
+    type: "spring",
+    stiffness: 400,
+    damping: 30,
+  };
   // REAL theme state
   const [theme, setTheme] = useState("dark");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -74,7 +74,7 @@ const spring = {
     <div className="w-full flex justify-center items-center">
       <nav
         ref={nav}
-        className="flex px-6 md:px-6 w-full lg:w-[64rem] sm:gap-9 gap-3 pt-[2rem] navbar-short z-[90000000009] fixed top-0 items-center justify-between"
+        className="flex px-6 md:px-6 w-full lg:w-[64rem] sm:gap-9 gap-3 pt-[2rem] navbar-short z-[90000000009] fixed top-0 items-center justify-between "
       >
         <motion.div
           style={{ width: borderTopBottom }}
@@ -88,22 +88,18 @@ const spring = {
           आ<span className="accent">1.</span>
         </Link>
 
-        <ul className="hidden md:flex gap-2 text-center items-center font-semibold justify-center">
-          <li className="text-[var(--text-color)] text-[.95rem] md:text-[1.1rem] navLinks">
+        <ul className="hidden md:flex ml-5 gap-2 text-center items-center  font-semibold justify-center">
+          <li className="text-[var(--secondary-text)] text-[.95rem] md:text-[1.1rem] navLinks">
             <a href="#about" onClick={(e) => handleHashNavigation(e, "#about")}>
               About
             </a>
           </li>
-          <li className="text-[var(--text-color)] text-[.95rem] md:text-[1.1rem] navLinks">
+          <li className="text-[var(--secondary-text)] text-[.95rem] md:text-[1.1rem] navLinks">
             <Link href="/projects">Projects</Link>{" "}
           </li>
-          <li className="text-[var(--text-color)] text-[.95rem] md:text-[1.1rem] navLinks">
-            <a
-              href="#slices"
-              onClick={(e) => handleHashNavigation(e, "#slices")}
-            >
-              Slices
-            </a>
+          <li className="text-[var(--secondary-text)] text-[.95rem] md:text-[1.1rem] navLinks">
+               <Link href="/slices">Slices</Link>{" "}
+            
           </li>
           <li>
             <motion.button
@@ -112,80 +108,87 @@ const spring = {
               whileHover={{ scale: 1.2, rotate: 90 }}
               whileTap={{ scale: 1.5, rotate: 90 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="theme-toggle text-[1rem] md:text-[1.5rem]"
+              className="theme-toggle text-[1rem] md:text-[1.15rem] "
             >
               {theme === "dark" ? "☀️" : "🌙"}
             </motion.button>
           </li>
         </ul>
 
-<button
-  onClick={handleMenuToggle}
-  className="relative md:hidden w-8 h-8 flex items-center justify-center z-[1000000]"
->
-  <motion.span
-    className="absolute h-[2px] w-6 bg-[var(--text-color)]"
-    animate={menuOpen ? { rotate: 45 } : { rotate: 0, y: -6 }}
-    transition={spring}
-  />
+        <button
+          onClick={handleMenuToggle}
+          className="relative md:hidden ml-50 w-8 h-8 flex items-center justify-center z-[1000000]"
+        >
+          <motion.span
+            className="absolute h-[2px] w-6 bg-[var(--text-color)]"
+            animate={menuOpen ? { rotate: 45 } : { rotate: 0, y: -6 }}
+            transition={spring}
+          />
 
-  <motion.span
-    className="absolute h-[2px] w-6 bg-[var(--text-color)]"
-    animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-    transition={spring}
-  />
+          <motion.span
+            className="absolute h-[2px] w-6 bg-[var(--text-color)]"
+            animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+            transition={spring}
+          />
 
-  <motion.span
-    className="absolute h-[2px] w-6 bg-[var(--text-color)]"
-    animate={menuOpen ? { rotate: -45 } : { rotate: 0, y: 6 }}
-    transition={spring}
-  />
-</button>
+          <motion.span
+            className="absolute h-[2px] w-6 bg-[var(--text-color)]"
+            animate={menuOpen ? { rotate: -45 } : { rotate: 0, y: 6 }}
+            transition={spring}
+          />
+        </button>
 
-{menuOpen && createPortal(
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    className="fixed inset-0 backdrop-blur-3xl bg-[#ffffff14] z-[999999]"
-    onClick={handleMenuToggle}
-  >
-
-
-        <ul className="flex flex-col w-full h-full gap-2 text-center items-center font-semibold justify-center">
-          <li className="text-[var(--text-color)] text-[1.5rem] underline underline-offset-2 md:text-[1.1rem] navLinks">
-            <a href="#about" onClick={(e) => handleHashNavigation(e, "#about")}>
-              About
-            </a>
-          </li>
-          <li className="text-[var(--text-color)] text-[1.5rem] underline underline-offset-2 md:text-[1.1rem] navLinks">
-            <Link href="/projects">Projects</Link>{" "}
-          </li>
-          <li className="text-[var(--text-color)] text-[1.5rem] underline underline-offset-2 md:text-[1.1rem] navLinks">
-            <a
-              href="#slices"
-              onClick={(e) => handleHashNavigation(e, "#slices")}
+        {menuOpen &&
+          createPortal(
+            <motion.div
+              initial={{ opacity: 0, y: 1000 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ease: "easeInOut", duration: 0.3 }}
+              className="fixed inset-0 backdrop-blur-3xl bg-[#ffffff14] z-[999999]"
+              onClick={handleMenuToggle}
             >
-              Slices
-            </a>
-          </li>
-          <li>
-            <motion.button
-              aria-label="theme-button"
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.2}}
-              whileTap={{ scale: 1.5}}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="theme-toggle border p-2 rounded-xl scale-[.8] text-[1rem] md:text-[1.5rem]"
-            >
-              {theme === "dark" ? "light ☀️" : "dark 🌙"}
-            </motion.button>
-          </li>
-        </ul>
+              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{duration: .75}} className="absolute bg-amber-500 w-[30%] h-[10%] top-0 right-0 blur-[200px]">
 
-  </motion.div>,
-  document.body
-)}
+              </motion.span>
+              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{duration: .75}} className="absolute bg-white w-[30%] h-[10%] bottom-0 left-0 blur-[100px]">
 
+              </motion.span>
+              <ul className="flex flex-col w-full h-full gap-2 text-center items-center font-semibold justify-center">
+                <li className="text-[var(--text-color)] text-[2.5rem] underline underline-offset-2 navLinks">
+                  <a
+                    href="#about"
+                    onClick={(e) => handleHashNavigation(e, "#about")}
+                  >
+                    About
+                  </a>
+                </li>
+                <li className="text-[var(--text-color)] text-[2.5rem] underline underline-offset-2  navLinks">
+                  <Link href="/projects">Projects</Link>{" "}
+                </li>
+                <li className="text-[var(--text-color)] text-[2.5rem] underline underline-offset-2  navLinks">
+                  <a
+                    href="#slices"
+                    onClick={(e) => handleHashNavigation(e, "#slices")}
+                  >
+                    Slices
+                  </a>
+                </li>
+                <li>
+                  <motion.button
+                    aria-label="theme-button"
+                    onClick={toggleTheme}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 1.5 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                    className="theme-toggle border p-2 rounded-xl scale-[.8] text-[1rem] md:text-[1.5rem]"
+                  >
+                    {theme === "dark" ? "light ☀️" : "dark 🌙"}
+                  </motion.button>
+                </li>
+              </ul>
+            </motion.div>,
+            document.body,
+          )}
       </nav>
     </div>
   );

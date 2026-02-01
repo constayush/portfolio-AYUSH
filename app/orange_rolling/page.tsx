@@ -12,15 +12,17 @@ interface Ripple {
 
 const Page = () => {
   // Game constants
-  const GAME_WIDTH = typeof window !== 'undefined' && window.innerWidth < 700 ? 450 : 800;
+  const GAME_WIDTH =
+    typeof window !== "undefined" && window.innerWidth < 700 ? 450 : 800;
   const ORG_WIDTH = 50;
   const OBSTACLE_WIDTH = 25;
   const JUMP_HEIGHT = 80;
   const JUMP_DURATION = 500;
   const INITIAL_SPEED = 8;
   const MAX_SPEED = 5;
-  const SPEED_INCREMENT = .5;
-  const DINO_START_X = typeof window !== 'undefined' && window.innerWidth < 700 ? 50 : 300;
+  const SPEED_INCREMENT = 0.5;
+  const DINO_START_X =
+    typeof window !== "undefined" && window.innerWidth < 700 ? 50 : 300;
 
   // Game state
   const [isJumping, setIsJumping] = useState(false);
@@ -42,74 +44,80 @@ const Page = () => {
 
   // Calculate game speed based on obstacles passed
   const calculateSpeed = useCallback((obstacles: number) => {
-    const newSpeed = INITIAL_SPEED + (obstacles * SPEED_INCREMENT);
+    const newSpeed = INITIAL_SPEED + obstacles * SPEED_INCREMENT;
     return Math.max(MAX_SPEED, newSpeed);
   }, []);
 
   // Jump handler
-  const handleJump = useCallback((e?: React.MouseEvent | KeyboardEvent) => {
-    if (isGameOver || isJumping || isPaused) return;
+  const handleJump = useCallback(
+    (e?: React.MouseEvent | KeyboardEvent) => {
+      if (isGameOver || isJumping || isPaused) return;
 
-    // Create ripple effect if mouse event
-    if (e && 'clientX' in e) {
-      const newRipple: Ripple = { 
-        id: Date.now(), 
-        x: e.clientX, 
-        y: e.clientY 
-      };
-      setRipples(prev => [...prev, newRipple]);
-      setTimeout(() => {
-        setRipples(prev => prev.filter(r => r.id !== newRipple.id));
-      }, 600);
-    }
+      // Create ripple effect if mouse event
+      if (e && "clientX" in e) {
+        const newRipple: Ripple = {
+          id: Date.now(),
+          x: e.clientX,
+          y: e.clientY,
+        };
+        setRipples((prev) => [...prev, newRipple]);
+        setTimeout(() => {
+          setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
+        }, 600);
+      }
 
-    setIsJumping(true);
-    setDinoY(JUMP_HEIGHT);
+      setIsJumping(true);
+      setDinoY(JUMP_HEIGHT);
 
-    if (jumpTimeoutRef.current) {
-      clearTimeout(jumpTimeoutRef.current);
-    }
+      if (jumpTimeoutRef.current) {
+        clearTimeout(jumpTimeoutRef.current);
+      }
 
-    jumpTimeoutRef.current = setTimeout(() => {
-      setDinoY(0);
-      setIsJumping(false);
-    }, JUMP_DURATION);
-  }, [isGameOver, isJumping, isPaused]);
+      jumpTimeoutRef.current = setTimeout(() => {
+        setDinoY(0);
+        setIsJumping(false);
+      }, JUMP_DURATION);
+    },
+    [isGameOver, isJumping, isPaused],
+  );
 
   // Toggle pause
   const togglePause = useCallback((e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
-    setIsPaused(prev => !prev);
+    setIsPaused((prev) => !prev);
   }, []);
 
   // Restart game
-  const restartGame = useCallback((e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    setIsGameOver(false);
-    setIsPaused(false);
-    setIsJumping(false);
-    setDinoY(0);
-    setObstacleX(GAME_WIDTH);
-    setScore(0);
-    setObstaclesPassed(0);
-    gameSpeedRef.current = INITIAL_SPEED;
-    obstaclePassedRef.current = false;
-    lastTimeRef.current = 0;
-  }, [GAME_WIDTH]);
+  const restartGame = useCallback(
+    (e?: React.MouseEvent) => {
+      if (e) e.stopPropagation();
+      setIsGameOver(false);
+      setIsPaused(false);
+      setIsJumping(false);
+      setDinoY(0);
+      setObstacleX(GAME_WIDTH);
+      setScore(0);
+      setObstaclesPassed(0);
+      gameSpeedRef.current = INITIAL_SPEED;
+      obstaclePassedRef.current = false;
+      lastTimeRef.current = 0;
+    },
+    [GAME_WIDTH],
+  );
 
   // Collision detection
   const checkCollision = useCallback((obstX: number, dinoYPos: number) => {
     const dinoLeft = DINO_START_X;
     const dinoRight = DINO_START_X + ORG_WIDTH;
     const dinoBottom = dinoYPos;
-    
+
     const obstLeft = obstX;
     const obstRight = obstX + OBSTACLE_WIDTH;
 
     if (dinoBottom === 0 && dinoRight > obstLeft && dinoLeft < obstRight) {
       return true;
     }
-    
+
     return false;
   }, []);
 
@@ -129,24 +137,24 @@ const Page = () => {
       }
 
       const deltaTime = currentTime - lastTimeRef.current;
-      
+
       if (deltaTime > 16) {
         lastTimeRef.current = currentTime;
 
-        setObstacleX(prevX => {
+        setObstacleX((prevX) => {
           const newX = prevX - gameSpeedRef.current;
 
           if (newX < -OBSTACLE_WIDTH) {
             obstaclePassedRef.current = false;
-            
-            setObstaclesPassed(prev => {
+
+            setObstaclesPassed((prev) => {
               const newPassed = prev + 1;
               gameSpeedRef.current = calculateSpeed(newPassed);
               return newPassed;
             });
-            
-            setScore(prev => prev + 10);
-            
+
+            setScore((prev) => prev + 10);
+
             return GAME_WIDTH + Math.random() * 200;
           }
 
@@ -154,7 +162,7 @@ const Page = () => {
             obstaclePassedRef.current = true;
           }
 
-          setDinoY(currentDinoY => {
+          setDinoY((currentDinoY) => {
             if (checkCollision(newX, currentDinoY)) {
               setIsGameOver(true);
               if (score > highscore) {
@@ -167,7 +175,7 @@ const Page = () => {
           return newX;
         });
 
-        setScore(prev => prev + 0.1);
+        setScore((prev) => prev + 0.1);
       }
 
       gameLoopRef.current = requestAnimationFrame(gameLoop);
@@ -180,25 +188,34 @@ const Page = () => {
         cancelAnimationFrame(gameLoopRef.current);
       }
     };
-  }, [isGameOver, isPaused, score, highscore, checkCollision, calculateSpeed, GAME_WIDTH, DINO_START_X]);
+  }, [
+    isGameOver,
+    isPaused,
+    score,
+    highscore,
+    checkCollision,
+    calculateSpeed,
+    GAME_WIDTH,
+    DINO_START_X,
+  ]);
 
   // Keyboard controls
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === 'Space' || e.key === ' ') {
+      if (e.code === "Space" || e.key === " ") {
         e.preventDefault();
         handleJump(e);
-      } else if (e.key === 'p' || e.key === 'P' || e.key === 'Escape') {
+      } else if (e.key === "p" || e.key === "P" || e.key === "Escape") {
         e.preventDefault();
         togglePause();
-      } else if ((e.key === 'r' || e.key === 'R') && isGameOver) {
+      } else if ((e.key === "r" || e.key === "R") && isGameOver) {
         e.preventDefault();
         restartGame();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleJump, togglePause, isGameOver, restartGame]);
 
   useEffect(() => {
@@ -246,7 +263,10 @@ const Page = () => {
       {/* Header */}
       <div className="flex w-[70%] flex-wrap m-5 gap-5 justify-between items-center">
         <div className="flex gap-6">
-          <Link className="text-[var(--text-color)] text-[2rem] logoNav" href="/orange_rolling">
+          <Link
+            className="text-[var(--text-color)] text-[2rem] logoNav"
+            href="/orange_rolling"
+          >
             आ<span className="text-[var(--accent-color)]">1.</span>
           </Link>
           <Link className="w-full md:w-fit" href="/">
@@ -266,7 +286,9 @@ const Page = () => {
               CLEARED {obstaclesPassed}
             </motion.div>
           )}
-          <p className={`text-center highscore ${displayScore > highscore && highscore > 0 ? 'text-[#ffbf47]' : 'text-[var(--secondary-text)]'}`}>
+          <p
+            className={`text-center highscore ${displayScore > highscore && highscore > 0 ? "text-[#ffbf47]" : "text-[var(--secondary-text)]"}`}
+          >
             High Score: {displayHighscore}
           </p>
           <p className="text-center text-[var(--secondary-text)]">
@@ -281,7 +303,7 @@ const Page = () => {
           onClick={togglePause}
           className="px-4 py-2 border-2 border-[var(--border-color)] rounded-sm hover:bg-[var(--border-color)] transition-all"
         >
-          {isPaused ? 'Resume' : 'Pause'}
+          {isPaused ? "Resume" : "Pause"}
         </button>
         <button
           onClick={restartGame}
@@ -295,35 +317,37 @@ const Page = () => {
       <div className="w-full h-[40%] md:w-[70%] transition-all duration-200 ease-in-out md:h-[30%] relative overflow-hidden p-1 border border-[var(--border-color)] game">
         {/* Ground */}
         <div className="absolute bottom-0 left-0 w-full h-2 bg-[var(--border-color)]" />
-        
+
         {/* Player */}
         <motion.img
-  src="/orange.svg"
-  alt="Orange"
-  className="transition-all duration-200 ease-in-out dino object-contain"
-  animate={{
-    y: -dinoY,
-    rotate: 360,
-  }}
-  transition={{
-    rotate: {
-      repeat: Infinity,
-      duration: 1, // seconds per full spin
-      ease: "linear", // IMPORTANT for smooth infinite rotation
-    },
-    y: {
-      duration: 0.2,
-      ease: "easeInOut",
-    },
-  }}
-  style={{
-    width: `${ORG_WIDTH}px`,
-    height: "40px",
-    position: "absolute",
-    bottom: "0",
-    left: `${DINO_START_X}px`,
-  }}
-/>
+          src="/orange.svg"
+          alt="Orange"
+          className="transition-all duration-200 ease-in-out dino object-contain"
+          animate={{
+            y: -dinoY,
+            rotate: 360,
+          }}
+          transition={{
+            rotate: {
+              repeat: Infinity,
+              duration: 1, // seconds per full spin
+              ease: "linear", // IMPORTANT for smooth infinite rotation
+            },
+            y: {
+              duration: 0.2,
+              ease: "easeInOut",
+            },
+          }}
+          style={{
+            width: `${ORG_WIDTH}px`,
+            height: "40px",
+            position: "absolute",
+            bottom: "0",
+            left: `${DINO_START_X}px`,
+          }}
+        />
+
+
 
 
         {/* Obstacle */}
@@ -354,7 +378,7 @@ const Page = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex flex-col justify-center md:w-fit w-full relative md:absolute bg-[#ffffff0e] backdrop-blur-[2px] items-center gap-3 p-6 border-2 border-[var(--border-color)]"
+          className="flex flex-col justify-center md:w-fit w-full relative md:absolute bg-[#ffffff0e] backdrop-blur-[40px] items-center gap-3 p-6 border-2 border-[var(--border-color)]"
         >
           <h2 className="text-3xl text-[var(--text-color)] font-bold mb-2">
             Game Over!
@@ -364,7 +388,8 @@ const Page = () => {
           </p>
           <div className="flex gap-6 mt-2">
             <p className="text-[var(--secondary-text)]">
-              Score: <span className="text-[var(--text-color)]">{displayScore}</span>
+              Score:{" "}
+              <span className="text-[var(--text-color)]">{displayScore}</span>
             </p>
             <p className="text-[var(--secondary-text)]">
               Best: <span className="text-[#ffbf47]">{displayHighscore}</span>
