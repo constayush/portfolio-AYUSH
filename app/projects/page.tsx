@@ -2,7 +2,7 @@
 import {PROJECTS} from '../constants'
 import Navbar from '../ui/Navbar'
 import ProjectCard from '../ui/ProjectCard'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 function Page() {
   return (
 
@@ -15,7 +15,7 @@ function Page() {
 <p className='text-md text-[var(--secondary-text)]'>A showcase of projects built across diverse tech stacks.</p>
 </div>
 
-<hr className='text-gray-600' />
+<hr className='text-[var(--border-color)]/30' />
 
 <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{duration:.3}} className='grid grid-cols-1 md:grid-cols-2 gap-6'>
 {PROJECTS.map((project)=> {
