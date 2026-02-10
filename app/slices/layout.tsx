@@ -14,7 +14,7 @@ const demoItems = [
   { id: 8, title: "Resources", icon: "-", slug: "resources" },
 ];
 
-export default function SlicesLayout({ children }) {
+export default function SlicesLayout({ children}: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -36,7 +36,7 @@ export default function SlicesLayout({ children }) {
     if (saved) setTheme(saved);
   }, []);
 
-  const handleNavigation = (slug) => {
+  const handleNavigation = (slug: string) => {
     router.push(`/slices/${slug}`);
     if (window.innerWidth < 768) {
       setSidebarOpen(false);
