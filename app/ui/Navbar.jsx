@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { easeIn, motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 function Navbar() {
   const nav = useRef(null);
@@ -166,12 +166,12 @@ function Navbar() {
                   <Link href="/projects">Projects</Link>{" "}
                 </li>
                 <li className="text-[var(--text-color)] text-[2.5rem] underline underline-offset-2  navLinks">
-                  <a
-                    href="#slices"
-                    onClick={(e) => handleHashNavigation(e, "#slices")}
+                  <Link
+                    href="/slices"
+             
                   >
                     Slices
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <motion.button
