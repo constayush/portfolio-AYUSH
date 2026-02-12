@@ -7,10 +7,10 @@ function page() {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center text-center">
               <h1 className="text-[2rem] md:text-[2.8rem] text-[var(--text-color)] font-bold">
-               Live Examples 
+               Animations
               </h1>
               <p className="text-md text-[var(--secondary-text)] mt-2">
-                A collection of well-crafted reusable components.
+                A collection of well-crafted liquidy smooth components.
               </p>
             </div>
             <hr className="w-full border-white/20" />
