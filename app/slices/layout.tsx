@@ -8,19 +8,35 @@ import { usePathname, useRouter } from "next/navigation";
 
 const demoItems = [
   { id: 1, title: "Getting Started", icon: "-", slug: "getting-started" },
-  { id: 2, title: "Components", icon: "-", slug: "components" },
+  {
+    id: 2,
+    title: "Components",
+    icon: "-",
+    sub_list: ["cards", "buttons", "inputs"],
+    slug: "components",
+  },
   { id: 3, title: "Utilities", icon: "-", slug: "utilities" },
-  { id: 4, title: "Examples", icon: "-", slug: "examples" },
-  { id: 8, title: "Resources", icon: "-", slug: "resources" },
+  {
+    id: 4,
+    title: "Animations",
+    icon: "-",
+    sub_list: ["scroll", "hover", "click", "landing"],
+    slug: "animations",
+  },
+  { id: 5, title: "Resources", icon: "-", slug: "resources" },
 ];
 
-export default function SlicesLayout({ children}: { children: React.ReactNode }) {
+export default function SlicesLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [theme, setTheme] = useState("dark");
 
-  const currentSection = pathname.split('/').pop();
+  const currentSection = pathname.split("/").pop();
 
   const toggleTheme = () => {
     setTheme((t) => (t === "dark" ? "light" : "dark"));
@@ -41,6 +57,25 @@ export default function SlicesLayout({ children}: { children: React.ReactNode })
     if (window.innerWidth < 768) {
       setSidebarOpen(false);
     }
+  };
+
+  const renderSublist = (sub_list: string[]) => {
+    return (
+      <ul className="flex flex-col gap-1">
+        {sub_list.map((item) => (
+          <li
+            key={item}
+            className={`${
+              currentSection === item
+                ? "text-orange-500"
+                : "text-[var(--text-color)]"
+            } hover:text-orange-500 cursor-pointer`}
+          >
+            <Link href={`/slices/${item}`}>{item}</Link>
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
@@ -128,19 +163,38 @@ export default function SlicesLayout({ children}: { children: React.ReactNode })
               {demoItems.map((item) => (
                 <li key={item.id}>
                   <button
-                    onClick={() => handleNavigation(item.slug)}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors flex items-center gap-3 group ${
+                    onClick={() => {
+                      handleNavigation(item.slug);
+                      renderSublist(item.sub_list || []);
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors flex flex-col items-center gap-3 group ${
                       currentSection === item.slug
                         ? "bg-white/20"
                         : "hover:bg-white/10"
                     }`}
                   >
+                    <div className="flex gap-3">
                     <span className="text-xl group-hover:scale-110 transition-transform">
                       {item.icon}
                     </span>
                     <span className="text-[var(--text-color)]">
                       {item.title}
-                    </span>
+                    </span></div>
+
+                    <ul className="flex flex-col gap-1">
+                      {item.sub_list && item.sub_list.map((item) => (
+                        <li
+                          key={item}
+                          className={`${
+                            currentSection === item
+                              ? "text-orange-500"
+                              : "text-[var(--text-color)]"
+                          } hover:text-orange-500 cursor-pointer`}
+                        >
+                          <Link href={`/slices/${item}`}>{item}</Link>
+                        </li>
+                      ))}
+                    </ul>
                   </button>
                 </li>
               ))}
