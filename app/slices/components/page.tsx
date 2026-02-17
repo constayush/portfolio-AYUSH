@@ -1,5 +1,4 @@
-import React from 'react'
-
+import { Card1 } from "./indexer"
 function page() {
   return (
     <main className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
@@ -22,18 +21,8 @@ function page() {
             <h1 className="text-3xl font-bold">cards</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
               {/* Add your content here */}
-              <div className="p-6 bg-[var(--bg-color)] shadow border border-[var(--border-color)] rounded-lg  transition-colors">
-                <h3 className="text-md font-bold mb-2">Slice Card 1</h3>
-                <p className="text-[var(--secondary-text)]">
-                   content goes here
-                </p>
-              </div>
-              <div className="p-6 bg-[var(--bg-color)] shadow border border-[var(--border-color)] rounded-lg  transition-colors">
-                <h3 className="text-md font-bold mb-2">Slice Card 2</h3>
-                <p className="text-[var(--secondary-text)]">
-                   content goes here
-                </p>
-              </div>
+            
+              <Card1 />
             </div>
           </div>
         </main>
