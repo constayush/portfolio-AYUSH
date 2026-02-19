@@ -201,7 +201,7 @@ export default function SlicesLayout({
             </ul>
           </div>
         </aside>
-
+    <div className="bg-grid absolute inset-0 pointer-events-none"/>
         {/* Overlay for mobile */}
         {sidebarOpen && (
           <div

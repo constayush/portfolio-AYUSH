@@ -3,20 +3,16 @@ import Image from "next/image";
 function page() {
   return (
     <main className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
+
+      <span className="absolute bg-orange-300 w-60 h-60 blur-[200px] top-0 right-0"></span>
       <div className="bg-grid absolute inset-0 pointer-events-none" />
       <div className="flex flex-col gap-8">
         <div className="flex flex-col items-center text-center">
+              
+      
           <h1 className="text-[2rem] md:text-[2.8rem] flex text-[var(--text-color)] font-bold">
             Slices UI{" "}
-            <span>
-              <Image
-                alt="o"
-                src="/slices.svg"
-                className="inline"
-                width={50}
-                height={50}
-              ></Image>
-            </span>
+    
           </h1>
           <p className="text-md text-[var(--secondary-text)] mt-2">
             components & utilities, engineered, styled, and shipped.
