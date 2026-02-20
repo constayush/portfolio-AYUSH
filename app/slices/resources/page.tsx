@@ -90,7 +90,6 @@ function page() {
                 key={channel.name}
                 title={channel.name}
                 href={channel.url}
-                for={channel.for}
                 description={channel.description}
               />
             ))}
