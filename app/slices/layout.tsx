@@ -15,7 +15,7 @@ const demoItems = [
     sub_list: ["cards", "buttons", "inputs"],
     slug: "components",
   },
-  { id: 3, title: "Utilities", icon: "-", slug: "utilities" },
+  // { id: 3, title: "Utilities", icon: "-", slug: "utilities" },
   {
     id: 4,
     title: "Animations",
@@ -173,7 +173,7 @@ export default function SlicesLayout({
                         : "hover:bg-white/10"
                     }`}
                   >
-                    <div className="flex gap-3">
+                    <div className="flex items-center justify-start w-full gap-3">
                     <span className="text-xl group-hover:scale-110 transition-transform">
                       {item.icon}
                     </span>
@@ -181,7 +181,7 @@ export default function SlicesLayout({
                       {item.title}
                     </span></div>
 
-                    <ul className="flex flex-col gap-1">
+                    {/* <ul className="flex flex-col gap-1">
                       {item.sub_list && item.sub_list.map((item) => (
                         <li
                           key={item}
@@ -194,7 +194,7 @@ export default function SlicesLayout({
                           <Link href={`/slices/${item}`}>{item}</Link>
                         </li>
                       ))}
-                    </ul>
+                    </ul> */}
                   </button>
                 </li>
               ))}
