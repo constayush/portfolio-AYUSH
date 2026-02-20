@@ -13,7 +13,7 @@ function page() {
                 A collection of well-crafted reusable components.
               </p>
             </div>
-            <hr className="w-full border-white/20" />
+               <hr className="w-full border-[var(--border-color)]/40" />
 
            
 

@@ -18,7 +18,7 @@ function page() {
             components & utilities, engineered, styled, and shipped.
           </p>
         </div>
-        <hr className="w-full border-white/20" />
+            <hr className="w-full border-[var(--border-color)]/40" />
 
         <div className="text-left text-md text-[var(--secondary-text)] flex flex-col gap-4">
           <p>
@@ -43,7 +43,7 @@ function page() {
           </p>
         </div>
 
-        <hr className="w-full border-white/20" />
+           <hr className="w-full border-[var(--border-color)]/40" />
 
         <h1 className="text-xl font-bold">Latest Slices</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
