@@ -69,12 +69,13 @@ function page() {
  <div className="flex flex-col justify-center  gap-8">
           <h1 className="text-3xl  font-bold">Textures I use</h1>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
             {textures.map((texture) => (
               <Card2
                 key={texture.title}
                 title={texture.title}
                 href={texture.href}
+                cta_text="download"
                 image_url={texture.href} 
                 description=""             />
             ))}
@@ -84,7 +85,7 @@ function page() {
         <div className="flex flex-col justify-center  gap-8">
           <h1 className="text-3xl  font-bold">Youtube channels I follow</h1>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {yt_channels.map((channel) => (
               <Card3
                 key={channel.name}
