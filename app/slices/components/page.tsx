@@ -1,4 +1,4 @@
-import { Button1, Card1, Card2 } from "./indexer";
+import { Button1, Button2 , Button3, Button4, Card1, Card2 } from "./indexer";
 function page() {
   return (
     <main className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
@@ -26,7 +26,10 @@ function page() {
           <h1 className="text-3xl font-bold">buttons</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {/* Add your content here */}
-            <Button1 cta_text="Learn More" href="https://example.com" />
+            <Button1 cta_text="hover me" href="https://example.com" />
+            <Button2>slice me</Button2>
+            <Button3>slice me</Button3>
+            <Button4>slice me</Button4>
             
           </div>
         </div>
