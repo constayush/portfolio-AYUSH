@@ -84,8 +84,9 @@ export default function SlicesLayout({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.75 }}
-      className="min-h-screen"
+      className="min-h-screen flex flex-col bg-[var(--bg-color)] text-[var(--text-color)] relative"
     >
+     
       {/* Navigation Bar */}
       <nav className="fixed flex w-full top-0 left-0 border-b border-[var(--border-2-color)] justify-between items-center px-4 py-2 bg-[var(--bg-color)] z-50">
         <div className="flex items-center gap-4">
@@ -125,7 +126,7 @@ export default function SlicesLayout({
               height={32}
               alt="Logo"
               className="w-8 h-fit rounded-full object-cover"
-            />
+            /> <span className=" px-4 py-2 text-[.75rem] rounded-full border z-999">under development</span>
           </motion.span>
         </div>
         <span className="gap-1 flex justify-center items-center">

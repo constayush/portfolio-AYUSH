@@ -1,5 +1,25 @@
-import { Button1, Button2 , Button3, Button4, Card1, Card2 } from "./indexer";
-function page() {
+"use client";
+import { useState } from "react";
+import { Button1, Button2, Button3, Button4, Card1, Card2 } from "./indexer";
+import { ChevronDown, ChevronUp } from "lucide-react"; 
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  const [isVisible, setIsVisible] = useState(true);
+  return (
+    <div className="flex flex-col gap-8">
+      <h2
+        className="text-3xl cursor-pointer font-bold select-none flex items-center gap-2"
+        onClick={() => setIsVisible(prev => !prev)}
+      >
+        {title}
+        {isVisible ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+      </h2>
+      {isVisible && children}
+    </div>
+  );
+}
+
+export default function Page() {
   return (
     <main className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
       <div className="flex flex-col gap-8">
@@ -11,31 +31,25 @@ function page() {
             A collection of well-crafted reusable components.
           </p>
         </div>
+
         <hr className="w-full border-[var(--border-color)]/40" />
 
-        <div className="gap-8 flex flex-col">
-          <h1 className="text-3xl font-bold">cards</h1>
+        <Section title="cards">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-            {/* Add your content here */}
             <Card2 />
             <Card1 />
           </div>
-        </div>
+        </Section>
 
-        <div className="gap-8 flex flex-col">
-          <h1 className="text-3xl font-bold">buttons</h1>
+        <Section title="buttons">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-            {/* Add your content here */}
             <Button1 cta_text="hover me" href="https://example.com" />
             <Button2>slice me</Button2>
             <Button3>slice me</Button3>
             <Button4>slice me</Button4>
-            
           </div>
-        </div>
+        </Section>
       </div>
     </main>
   );
 }
-
-export default page;
