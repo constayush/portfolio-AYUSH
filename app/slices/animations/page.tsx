@@ -1,3 +1,5 @@
+import ScrollTextParallelx from "./components/ScrollTextParallelx";
+
 function page() {
   return (
     <main className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
@@ -13,7 +15,7 @@ function page() {
         </div>
         <hr className="w-full border-[var(--border-color)]/40" />
 
-        <p>Coming soon!</p>
+     <ScrollTextParallelx />
       </div>
     </main>
   );
