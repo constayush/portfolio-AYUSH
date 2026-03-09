@@ -1,4 +1,5 @@
 import ScrollTextParallax from "./components/ScrollTextParallax";
+import ToastBar from "./components/ToastBar";
 
 function page() {
   return (
@@ -17,6 +18,8 @@ function page() {
 
 <h1 className="text-3xl font-bold text-[var(--text-color)]">Scroll Text Parallax</h1>
      <ScrollTextParallax />
+     <h1 className="text-3xl font-bold text-[var(--text-color)]">Toast Bar</h1>
+     <ToastBar />
       </div>
     </div>
   );
