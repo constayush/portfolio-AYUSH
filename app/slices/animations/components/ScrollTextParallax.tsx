@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useSpring } from "motion/react"
 import { useRef } from "react"
 
 const LINES = [
-  { label: "01", text: "We craft digital" },
+  { label: "01", text: "I craft digital" },
   { label: "02", text: "experiences that" },
   { label: "03", text: "move people." },
   { label: "04", text: "Deeply." },
@@ -73,17 +73,12 @@ export default function ScrollTextParallax() {
     <div
       ref={containerRef}
       style={{
-        minHeight: "400vh",
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
+        minHeight: "500vh",
         background: "#04040c",
         position: "relative",
       }}
     >
-      {/* Google Font */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-      `}</style>
+      
 
       {/* ── STICKY WRAPPER ── */}
       <div
@@ -125,7 +120,7 @@ export default function ScrollTextParallax() {
               position: "absolute",
               inset: 0,
               background:
-                "linear-gradient(135deg, rgba(4,4,12,0.72) 0%, rgba(4,4,12,0.58) 50%, rgba(4,4,12,0.72) 100%)",
+                "linear-gradient(135deg, rgba(4,4,12,0.52) 0%, rgba(4,4,12,0.58) 50%, rgba(4,4,12,0.52) 100%)",
               zIndex: 1,
             }}
           />
@@ -187,8 +182,7 @@ export default function ScrollTextParallax() {
                 {/* line number */}
                 <span
                   style={{
-                    fontFamily: "'DM Mono', monospace",
-                    fontSize: "11px",
+    
                     letterSpacing: "0.18em",
                     color: "rgba(255,255,255,0.35)",
                     minWidth: "28px",
@@ -200,7 +194,7 @@ export default function ScrollTextParallax() {
                 {/* main text */}
                 <span
                   style={{
-                    fontSize: "clamp(52px, 8vw, 96px)",
+                    fontSize: "clamp(52px, 7vw, 96px)",
                     fontWeight: 300,
                     lineHeight: 1,
                     color: "#f5f0e8",

@@ -1,8 +1,8 @@
-import ScrollTextParallelx from "./components/ScrollTextParallelx";
+import ScrollTextParallax from "./components/ScrollTextParallax";
 
 function page() {
   return (
-    <main className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
+    <div className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
       <div className="bg-grid absolute inset-0 pointer-events-none" />
       <div className="flex flex-col gap-8">
         <div className="flex flex-col items-center text-center">
@@ -15,9 +15,10 @@ function page() {
         </div>
         <hr className="w-full border-[var(--border-color)]/40" />
 
-     <ScrollTextParallelx />
+<h1 className="text-3xl font-bold text-[var(--text-color)]">Scroll Text Parallax</h1>
+     <ScrollTextParallax />
       </div>
-    </main>
+    </div>
   );
 }
 
