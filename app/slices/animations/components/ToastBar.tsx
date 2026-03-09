@@ -62,7 +62,7 @@ const StarIcon = ({ size = 10 }) => (
 );
 
 // Individual avatar with its own floating testimonial card
-function AvatarWithCard({ review, index, total }) {
+function AvatarWithCard({ review, index, total }: { review: typeof reviews[0], index: number, total: number }) {
   const [hovered, setHovered] = useState(false);
 
   return (
