@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { motion } from "motion/react";
+import { easeIn, motion } from "motion/react";
 import Link from "next/link";
 
 interface Ripple {
@@ -16,7 +16,7 @@ const Page = () => {
     typeof window !== "undefined" && window.innerWidth < 700 ? 450 : 800;
   const ORG_WIDTH = 50;
   const OBSTACLE_WIDTH = 25;
-  const JUMP_HEIGHT = 80;
+  const JUMP_HEIGHT = 100;
   const JUMP_DURATION = 500;
   const INITIAL_SPEED = 8;
   const MAX_SPEED = 5;
@@ -44,7 +44,7 @@ const Page = () => {
 
   // Calculate game speed based on obstacles passed
   const calculateSpeed = useCallback((obstacles: number) => {
-    const newSpeed = INITIAL_SPEED + obstacles * SPEED_INCREMENT;
+    const newSpeed = INITIAL_SPEED + (obstacles * SPEED_INCREMENT);
     return Math.max(MAX_SPEED, newSpeed);
   }, []);
 
@@ -322,7 +322,7 @@ const Page = () => {
         <motion.img
           src="/orange.svg"
           alt="Orange"
-          className="transition-all duration-200 ease-in-out dino object-contain"
+          className=" dino object-contain"
           animate={{
             y: -dinoY,
             rotate: 360,
@@ -351,10 +351,11 @@ const Page = () => {
 
 
         {/* Obstacle */}
-        <motion.img
-          className="obstacle object-scale-down relative transition-all animate-spin duration-200 ease-in-out"
+        <img
+          className="obstacle object-scale-down relative animate-spin"
           src={"/obs.svg"}
           alt="Obstacle"
+     
           style={{
             rotate: "180deg",
             width: `${OBSTACLE_WIDTH}px`,

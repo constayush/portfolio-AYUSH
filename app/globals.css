@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 ::-webkit-scrollbar {
   width: 6px;   /* vertical */
   height: 6px;  /* horizontal */
@@ -34,9 +33,6 @@
   scrollbar-color: rgba(255,255,255,0.3) transparent;
 }
 
-html {
-  /* transition: background-color 0.45s ease, color 0.45s ease; */
-}
 :root {
   /* ========== Shared ========== */
   --light-accent-color: #FE8808;
