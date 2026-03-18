@@ -59,24 +59,7 @@ export default function SlicesLayout({
     }
   };
 
-  const renderSublist = (sub_list: string[]) => {
-    return (
-      <ul className="flex flex-col gap-1">
-        {sub_list.map((item) => (
-          <li
-            key={item}
-            className={`${
-              currentSection === item
-                ? "text-orange-500"
-                : "text-[var(--text-color)]"
-            } hover:text-orange-500 cursor-pointer`}
-          >
-            <Link href={`/slices/${item}`}>{item}</Link>
-          </li>
-        ))}
-      </ul>
-    );
-  };
+
 
   return (
     <motion.div
@@ -165,10 +148,9 @@ export default function SlicesLayout({
                 <li key={item.id}>
                   <button
                     onClick={() => {
-                      handleNavigation(item.slug);
-                      renderSublist(item.sub_list || []);
+                      handleNavigation(item.slug);                     
                     }}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors flex flex-col items-center gap-3 group ${
+                    className={`w-full text-left px-4 py-3 rounded-lg cursor-pointer transition-colors flex flex-col items-center gap-3 group ${
                       currentSection === item.slug
                         ? "bg-white/20"
                         : "hover:bg-white/10"

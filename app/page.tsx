@@ -9,11 +9,12 @@ import ProjectCard from "./ui/ProjectCard";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import Lenis from "lenis";
 import Navbar from "./ui/Navbar";
-import GistsCard from "./ui/GistsCard";
 import {useCustomCursor} from "./ui/utils/useCursor";
+import {GitHubCalendar} from "react-github-calendar";
+
+
 
 import {
-  GISTS_DATA,
   SOCIAL_LINKS,
   PROJECTS,
   TECH_STACK,
@@ -68,14 +69,7 @@ function PageClient() {
   const renderProjects = PROJECTS.slice(0, 2).map((project) => (
         <ProjectCard key={project.projectId} {...project} />
       ));
-      
-  
-  const renderGists = GISTS_DATA.slice(0, 2).map((gist) => (
-        <GistsCard key={gist.gistId}  {...gist} />
-      ));
-  
-      
- 
+    
 
   const renderTechStack = useMemo(
     () =>
@@ -228,21 +222,16 @@ function PageClient() {
         <section className="flex flex-col justify-center w-full gap-8 md:gap-8">
           <span className="flex items-end w-full justify-between">
             <h1 className="text-3xl md:text-[2.7rem] font-semibold text-(--text-color)">
-              Slices
+              Activity
               <span className="font-semibold text-[var(--accent-color)]">
                 .
               </span>
             </h1>
-            <Link
-              className="mr-2 underline underline-offset-4 hover:text-(--accent-color)"
-              href="/slices"
-            >
-              view all
-            </Link>
+           
           </span>
-          <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
-            {renderGists}
-          </div>
+          
+       <GitHubCalendar className="" username="constayush" />
+          
         </section>
 
         {/* About Me */}
