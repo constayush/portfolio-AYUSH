@@ -4,19 +4,19 @@ import { useRef, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, Transition } from "motion/react";
 
 function Navbar() {
-  const nav = useRef(null);
+ const nav = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll();
   const pathname = usePathname();
   const router = useRouter();
-  const spring = {
+  const spring: Transition = {
     type: "spring",
     stiffness: 400,
     damping: 30,
   };
-  // REAL theme state
+
   const [theme, setTheme] = useState("dark");
   const [menuOpen, setMenuOpen] = useState(false);
   const handleMenuToggle = () => {
@@ -28,7 +28,7 @@ function Navbar() {
     if (saved) setTheme(saved);
   }, []);
 
-  // Apply theme to DOM + persist
+  
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("theme", theme);
@@ -38,9 +38,10 @@ function Navbar() {
     setTheme((t) => (t === "dark" ? "light" : "dark"));
   };
 
-  // Scroll logic (unchanged)
+  // Scroll logic for naVbar
   useEffect(() => {
     const handleScroll = () => {
+   
       if (window.scrollY > 80) {
         nav.current?.classList.add("nav-active");
       } else {
@@ -55,7 +56,7 @@ function Navbar() {
   const borderTopBottom = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   // Handle navigation with hash
-  const handleHashNavigation = (e, hash) => {
+  const handleHashNavigation = (e: React.MouseEvent<HTMLAnchorElement>, hash:string) => {
     e.preventDefault();
 
     // If we're on the home page, just scroll to the section
@@ -74,7 +75,7 @@ function Navbar() {
     <div className="w-full flex justify-center items-center">
       <nav
         ref={nav}
-        className="flex px-6 md:px-6 w-full lg:w-[64rem] sm:gap-9 gap-3 pt-[2rem] navbar-short z-[90000000009] fixed top-0 items-center justify-between "
+        className="flex px-6 md:px-6 w-full lg:w-4xl sm:gap-9 gap-3 pt-[2rem] navbar-short z-[90000000009] fixed top-0 items-center justify-between "
       >
         <motion.div
           style={{ width: borderTopBottom }}

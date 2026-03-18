@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from "motion/react";
 import "./heroStyles.css";
 import Link from "next/link";
@@ -11,9 +10,6 @@ import Lenis from "lenis";
 import Navbar from "./ui/Navbar";
 import {useCustomCursor} from "./ui/utils/useCursor";
 import {GitHubCalendar} from "react-github-calendar";
-
-
-
 import {
   SOCIAL_LINKS,
   PROJECTS,
@@ -24,10 +20,7 @@ import HighlightedLink from "./ui/HighlightedLink";
 
 function PageClient() {
   const theme = "dark"; 
-  
-  // Use the optimized cursor hook
-  const cursorRef = useCustomCursor(".orgLogo");
-  
+  const cursorRef = useCustomCursor(".orgLogo"); 
   const headingWords = " Hi I'm Ayush — A Full Stack Engineer from India";
   const org = useRef<HTMLImageElement>(null);
   const projectCon = useRef<HTMLElement>(null);
@@ -202,7 +195,7 @@ function PageClient() {
             </svg>
           </button>
         </main>
-
+<div className="max-w-4xl w-full flex flex-col justify-center items-center gap-24 md:gap-32 ">
         {/* Projects */}
         <section  className="flex flex-col justify-center w-full gap-8 md:gap-8"
           ref={projectCon}
@@ -247,13 +240,13 @@ function PageClient() {
           </h1>
 
           <div className="flex md:flex-row flex-col items-start gap-8 md:gap-0">
-            <Image 
+            <Link className="w-full h-full mr-6" href={"/terminal"}><Image 
               src="/avatar.png"
               alt="me"
               width={200}
               height={200}
               className=" hover: grayscale-100 hover:grayscale-50 rounded-lg border-[var(--border-color)] border object-cover mr-6"
-            />
+            /></Link>
 
           <p className="hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
             I&apos;m Ayush, an engineer from India. I&apos;m that kid who never grew out of breaking gadgets just to see how they worked — except now I actually know how to put them back together (most of the time). I ship pixel-perfect UIs to fiddling with Raspberry Pis and Arduinos at 3AM, A nerd who building things that feel alive software, hardware, or that weird place where both shake hands and yeah <Link href="/orange_rolling" className="hover:text-orange-400 hover:font-bold">orange</Link> is my favorite color/fruit.
@@ -340,18 +333,23 @@ function PageClient() {
                   Resume
                 </a>
               </div>
-              <p className="text-[var(--secondary-text)]">
-                © 2025 Ayush Srivastava
-              </p>
-              <Link
-                className="text-(--text-color) text-[2rem] [text-shadow:_0_0_2px_orange,_0_0_2px_orange] relative  logoNav"
-                href="/terminal"
-              >
-                आ<span className="accent">1.</span>
-              </Link>
+        <div className="group inline-block">
+  <Link
+    href="/terminal"
+    className="text-[var(--secondary-text)] hover:text-orange-400"
+  >
+    © 2025 Ayush Srivastava
+  </Link>
+
+  <span className="hidden group-hover:block absolute top-0 border p-2 animate-bounce">
+   huh, it&apos;s a secret
+  </span>
+</div>
+           
             </div>
           </footer>
         </section>
+        </div>
       </motion.div>
     </div>
   );
