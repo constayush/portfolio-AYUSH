@@ -11,6 +11,7 @@ import projectImg3 from "../public/project-img3.png";
 import projectImg1 from "../public/project-img1.png";
 import projectImg2 from "../public/project-img2.png";
 import projectImg4 from "../public/project-img4.png";
+import projectImg5 from "../public/project-img5.png";
 import ExpressjsIcon from "../public/express.svg";
 import NodejsIcon from "../public/nodejs.svg";
 import MongoDBIcon from "../public/mongodb.svg";
@@ -63,6 +64,15 @@ export const PROJECTS = [
   projectLive: "https://can-you-remember.vercel.app",
   projectId: 4,
 },
+{
+  projectName: "Bunk-Tendance",
+  projectDescriptionShort: "Bunk-Tendance — a web app that tracks student bunks",
+  projectDescriptionLong:" A simple yet powerful tool to help students track and plan their attendance strategically. This app lets you input your current academic stats and calculates exactly how many classes you can safely miss—or how many you must attend—to reach your desired attendance percentage.",
+  projectImg: projectImg5,
+  projectCode: "https://github.com/constayush/Bunk-Tendence",
+  projectLive: "https://bunk-tendance.vercel.app/",
+  projectId: 5,
+}
 ];
 
 export const TECH_STACK = [
