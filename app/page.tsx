@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { motion } from "motion/react";
 import "./heroStyles.css";
 import Link from "next/link";
@@ -8,19 +8,15 @@ import ProjectCard from "./ui/ProjectCard";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import Lenis from "lenis";
 import Navbar from "./ui/Navbar";
-import {useCustomCursor} from "./ui/utils/useCursor";
-import {GitHubCalendar} from "react-github-calendar";
-import {
-  SOCIAL_LINKS,
-  PROJECTS,
-  TECH_STACK,
-} from "./constants";
+import { useCustomCursor } from "./ui/utils/useCursor";
+import { GitHubCalendar } from "react-github-calendar";
+import { SOCIAL_LINKS, PROJECTS, TECH_STACK } from "./constants";
 import { useRef, useCallback, useEffect, useMemo } from "react";
 import HighlightedLink from "./ui/HighlightedLink";
 
 function PageClient() {
-  const theme = "dark"; 
-  const cursorRef = useCustomCursor(".orgLogo"); 
+  const theme = "dark";
+  const cursorRef = useCustomCursor(".orgLogo");
   const headingWords = " Hi I'm Ayush — A Full Stack Engineer from India";
   const org = useRef<HTMLImageElement>(null);
   const projectCon = useRef<HTMLElement>(null);
@@ -35,14 +31,14 @@ function PageClient() {
   useEffect(() => {
     const lenis = new Lenis();
     let rafId: number;
-    
+
     const raf = (time: number) => {
       lenis.raf(time);
       rafId = requestAnimationFrame(raf);
     };
-    
+
     rafId = requestAnimationFrame(raf);
-    
+
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
@@ -53,16 +49,21 @@ function PageClient() {
     () =>
       SOCIAL_LINKS.map(({ href, icon, alt }) => (
         <a key={href} target="_blank" rel="noopener noreferrer" href={href}>
-          <Image className="w-10 heroSocialLogos" src={icon} alt={alt} width={40} height={40} />
+          <Image
+            className="w-10 heroSocialLogos"
+            src={icon}
+            alt={alt}
+            width={40}
+            height={40}
+          />
         </a>
       )),
-    []
+    [],
   );
 
   const renderProjects = PROJECTS.slice(0, 2).map((project) => (
-        <ProjectCard key={project.projectId} {...project} />
-      ));
-    
+    <ProjectCard key={project.projectId} {...project} />
+  ));
 
   const renderTechStack = useMemo(
     () =>
@@ -71,11 +72,19 @@ function PageClient() {
           key={name}
           className="w-auto border flex justify-center items-center gap-1 hover:bg-orange-200/50 p-2 text-[var(--secondary-text)] border-[var(--border-color)]"
         >
-          <Image id="name" unoptimized className="w-8 h-8" src={icon} alt={name} width={32} height={32} />
+          <Image
+            id="name"
+            unoptimized
+            className="w-8 h-8"
+            src={icon}
+            alt={name}
+            width={32}
+            height={32}
+          />
           {name}
         </div>
       )),
-    []
+    [],
   );
 
   return (
@@ -95,8 +104,8 @@ function PageClient() {
       />
 
       <motion.div
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="w-full max-w-5xl flex flex-col justify-center items-center gap-24 md:gap-32 px-6"
       >
@@ -148,8 +157,12 @@ function PageClient() {
           </h1>
 
           <p className="hero-para text-lg md:text-2xl md:max-w-[80%] text-(--secondary-text) text-shadow font-medium">
-            Creating UIs that pop with clean design and code with <HighlightedLink name="TypeScript" img="/typescript.svg" /> , <HighlightedLink name="React" img="/react-2.svg" /
-            > , <HighlightedLink name="Next.js" img="/nextjs.svg" /> , <HighlightedLink name="Bun.js" img="/bun.svg" /> , and <HighlightedLink name="PostgreSQL" img="/postgresql.svg" /> .
+            Creating UIs that pop with clean design and code with{" "}
+            <HighlightedLink name="TypeScript" img="/typescript.svg" /> ,{" "}
+            <HighlightedLink name="React" img="/react-2.svg" /> ,{" "}
+            <HighlightedLink name="Next.js" img="/nextjs.svg" /> ,{" "}
+            <HighlightedLink name="Bun.js" img="/bun.svg" /> , and{" "}
+            <HighlightedLink name="PostgreSQL" img="/postgresql.svg" /> .
           </p>
 
           {/* Socials & Resume */}
@@ -195,160 +208,178 @@ function PageClient() {
             </svg>
           </button>
         </main>
-<div className="max-w-4xl w-full flex flex-col justify-center items-center gap-24 md:gap-32 ">
-        {/* Projects */}
-        <section  className="flex flex-col justify-center w-full gap-8 md:gap-8"
-          ref={projectCon}
-        >
-          <h1 className="text-3xl md:text-[2.7rem] font-semibold text-(--text-color)">
-            Projects
-            <span className="font-semibold text-[var(--accent-color)]">
-              .
-            </span>
-          </h1>
-          <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
-            {renderProjects}
-          </div>
-        </section>
+        <div className="max-w-4xl w-full flex flex-col justify-center items-center gap-24 md:gap-32 ">
+          {/* Projects */}
+          <section
+            className="flex flex-col justify-center w-full gap-8 md:gap-8"
+            ref={projectCon}
+          >
+            <div className="w-full flex justify-between items-center ">
+              <h1 className="text-3xl md:text-[2.7rem] font-semibold text-(--text-color)">
+                Projects
+                <span className="font-semibold text-[var(--accent-color)]">
+                  .
+                </span>
+              </h1>
+              <Link
+                href={"/projects"}
+                className="underline underline-offset-4 "
+              >
+                view all
+              </Link>
+            </div>
+            <div className="break-words grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
+              {renderProjects}
+            </div>
+          </section>
 
-        {/* Slices */}
-        <section className="flex flex-col justify-center w-full gap-8 md:gap-8">
-          <span className="flex items-end w-full justify-between">
+          {/* Slices */}
+          <section className="flex flex-col justify-center w-full gap-8 md:gap-8">
+            <span className="flex items-end w-full justify-between">
+              <h1 className="text-3xl md:text-[2.7rem] font-semibold text-(--text-color)">
+                Activity
+                <span className="font-semibold text-[var(--accent-color)]">
+                  .
+                </span>
+              </h1>
+            </span>
+
+            <GitHubCalendar className="" username="srivastava-ayush" />
+          </section>
+
+          {/* About Me */}
+          <section
+            id="about"
+            className="flex flex-col justify-center w-full gap-8 md:gap-8"
+          >
             <h1 className="text-3xl md:text-[2.7rem] font-semibold text-(--text-color)">
-              Activity
+              About me
               <span className="font-semibold text-[var(--accent-color)]">
                 .
               </span>
             </h1>
-           
-          </span>
-          
-       <GitHubCalendar className="" username="constayush" />
-          
-        </section>
 
-        {/* About Me */}
-        <section
-          id="about"
-          className="flex flex-col justify-center w-full gap-8 md:gap-8"
-        >
-          <h1 className="text-3xl md:text-[2.7rem] font-semibold text-(--text-color)">
-            About me
-            <span className="font-semibold text-[var(--accent-color)]">
-              .
-            </span>
-          </h1>
+            <div className="flex md:flex-row flex-col items-start gap-8 md:gap-0">
+              <Link className="w h-full mr-6" href={"/terminal"}>
+                <Image
+                  src="/avatar.png"
+                  alt="me"
+                  width={200}
+                  height={200}
+                  className=" hover: grayscale-100 hover:grayscale-50 rounded-lg border-[var(--border-color)] border object-cover mr-6"
+                />
+              </Link>
 
-          <div className="flex md:flex-row flex-col items-start gap-8 md:gap-0">
-            <Link className="w-full h-full mr-6" href={"/terminal"}><Image 
-              src="/avatar.png"
-              alt="me"
-              width={200}
-              height={200}
-              className=" hover: grayscale-100 hover:grayscale-50 rounded-lg border-[var(--border-color)] border object-cover mr-6"
-            /></Link>
-
-          <p className="hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
-            I&apos;m Ayush, an engineer from India. I&apos;m that kid who never grew out of breaking gadgets just to see how they worked — except now I actually know how to put them back together (most of the time). I ship pixel-perfect UIs to fiddling with Raspberry Pis and Arduinos at 3AM, A nerd who building things that feel alive software, hardware, or that weird place where both shake hands and yeah <Link href="/orange_rolling" className="hover:text-orange-400 hover:font-bold">orange</Link> is my favorite color/fruit.
-          </p></div>
-
-          <div>
-            <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
-              Education
-            </h1>
-            <div className="flex flex-col gap-2 hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
-              <span className="flex flex-wrap w-full justify-between">
-                <p>Bachelor of Technology in Computer Science</p>( Expected:
-                2025 – 2028 )
-              </span>
-              <span className="flex flex-wrap w-full justify-between">
-                <p>Diploma in Computer Science and Engineering</p>( 2022 –
-                2025 | CGPA: 8.5/10 )
-              </span>
-            </div>
-          </div>
-
-          <div className="tech-stack-container">
-            <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
-              Tech Stack
-            </h1>
-            <span className="flex gap-4 flex-wrap">{renderTechStack}</span>
-          </div>
-
-          <hr className="border-[var(--nav-text-color)]" />
-
-          {/* Footer */}
-          <footer className="relative">
-            <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
-              Contact
-            </h1>
-            <div className="flex flex-wrap gap-4 text-center items-center justify-center md:justify-between">
-              <div className="w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[var(--secondary-text)]">
-                <a
-                  className="footerLinks hover:text-(--accent-color)"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/constayush"
-                >
-                  GitHub
-                </a>
-                <a
-                  className="footerLinks hover:text-(--accent-color)"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.linkedin.com/in/ayush0x1/"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  className="footerLinks hover:text-(--accent-color)"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.x.com/constayush/"
-                >
-                  X / twitter
-                </a>
-                <a
-                  className="footerLinks hover:text-(--accent-color)"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.instagram.com/maihoonayush/"
-                >
-                  Instagram
-                </a>
-                <a
-                  className="hover:cursor-pointer hover:text-(--accent-color)"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="mailto:ayushcodes@outlook.com"
-                >
-                  ayushcodes@outlook.com
-                </a>
-                <a
-                  className="hover:cursor-pointer hover:text-(--accent-color)"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="mailto:ayushcodes@outlook.com"
-                >
-                  Resume
-                </a>
+              <div className="hero-para text-[1.15rem] w-full flex flex-col gap-2  text-[var(--secondary-text)] text-shadow font-medium">
+                <p>
+             I’m Ayush Srivastava / आयुष श्रीवास्तव, an engineer from India. I build clean, scalable apps using TypeScript, React/Next.js, Node (and Bun), and PostgreSQL, with tools like Tailwind, Zustand, and Framer Motion.
+                </p>
+                <p>
+                  I like breaking systems to understand them and rebuilding them
+                  better. Outside of dev, I tinker with Linux (arch btw),
+                  Raspberry Pi, and Arduino.{" "} 
+                 
+             
+                </p>
               </div>
-        <div className="group inline-block">
-  <Link
-    href="/terminal"
-    className="text-[var(--secondary-text)] hover:text-orange-400"
-  >
-    © 2025 Ayush Srivastava
-  </Link>
-
-  <span className="hidden group-hover:block absolute top-0 border p-2 animate-bounce">
-   huh, it&apos;s a secret
-  </span>
-</div>
-           
             </div>
-          </footer>
-        </section>
+
+            <div>
+              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Education
+              </h1>
+              <div className="flex flex-col gap-2 hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
+                <span className="flex flex-wrap w-full justify-between">
+                  <p>Bachelor of Technology in Computer Science</p>( Expected:
+                  2025 – 2028 )
+                </span>
+                <span className="flex flex-wrap w-full justify-between">
+                  <p>Diploma in Computer Science and Engineering</p>( 2022 –
+                  2025 | CGPA: 8.5/10 )
+                </span>
+              </div>
+            </div>
+
+            <div className="tech-stack-container">
+              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Tech Stack
+              </h1>
+              <span className="flex gap-4 flex-wrap">{renderTechStack}</span>
+            </div>
+
+            <hr className="border-[var(--nav-text-color)]" />
+
+            {/* Footer */}
+            <footer className="relative">
+              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+                Contact
+              </h1>
+              <div className="flex flex-wrap gap-4 text-center items-center justify-center md:justify-between">
+                <div className="w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[var(--secondary-text)]">
+                  <a
+                    className="footerLinks hover:text-(--accent-color)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/srivastava-ayush"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    className="footerLinks hover:text-(--accent-color)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/in/ayush0x1/"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    className="footerLinks hover:text-(--accent-color)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.x.com/srivastava-ayush/"
+                  >
+                    X / twitter
+                  </a>
+                  <a
+                    className="footerLinks hover:text-(--accent-color)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/maihoonayush/"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    className="hover:cursor-pointer hover:text-(--accent-color)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:srivastava-ayush@outlook.com"
+                  >
+                  srivastava-ayush@outlook.com
+                  </a>
+                  <a
+                    className="hover:cursor-pointer hover:text-(--accent-color)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="mailto:srivastava-ayush@outlook.com"
+                  >
+                    Resume
+                  </a>
+                </div>
+                <div className="group inline-block">
+                  <Link
+                    href="/terminal"
+                    className="text-[var(--secondary-text)] hover:text-orange-400"
+                  >
+                    © 2025 Ayush Srivastava
+                  </Link>
+
+                  <span className="hidden group-hover:block absolute top-0 border p-2 animate-bounce">
+                    huh, it&apos;s a secret
+                  </span>
+                </div>
+              </div>
+            </footer>
+          </section>
         </div>
       </motion.div>
     </div>

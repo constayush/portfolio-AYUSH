@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 function page() {
   return (
@@ -48,14 +48,14 @@ function page() {
         <h1 className="text-xl font-bold">Latest Slices</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {/* Add your content here */}
-          <div className="p-6 bg-[var(--bg-color)] shadow border border-[var(--border-color)] rounded-lg  transition-colors">
-            <h3 className="text-md font-bold mb-2">Slice Card 1</h3>
-            <p className="text-[var(--secondary-text)]">content goes here</p>
-          </div>
-          <div className="p-6 bg-[var(--bg-color)] shadow border border-[var(--border-color)] rounded-lg  transition-colors">
-            <h3 className="text-md font-bold mb-2">Slice Card 2</h3>
-            <p className="text-[var(--secondary-text)]">content goes here</p>
-          </div>
+          <Link href="/slices/components" className="p-6 bg-[var(--accent-color)]/5 shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">
+           <h3 className="text-md font-bold mb-2 underline underline-offset-2">Components ⭧</h3>
+            
+          </Link>
+          <Link href="/slices/animations" className="p-6 bg-[var(--accent-color)]/5 shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">
+            <h3 className="text-md font-bold mb-2 underline underline-offset-2">Animations ⭧</h3>
+
+          </Link>
         </div>
       </div>
     </main>

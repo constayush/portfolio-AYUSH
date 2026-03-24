@@ -19,11 +19,11 @@ import BunjsIcon from "../public/bun.svg";
 import PostgresqlIcon from "../public/postgresql.svg";
 
 export const SOCIAL_LINKS = [
-  { href: "https://github.com/constayush", icon: github, alt: "GitHub" },
+  { href: "https://github.com/srivastava-ayush", icon: github, alt: "GitHub" },
   { href: "https://www.linkedin.com/in/constayush/", icon: linkedin, alt: "LinkedIn" },
   { href: "https://www.instagram.com/maihoonayush/", icon: insta, alt: "Instagram" },
-  { href: "https://www.x.com/constayush/", icon: xIcon, alt: "X" },
-  { href: "mailto:constayush@gmail.com", icon: mail, alt: "Mail" }
+  { href: "https://www.x.com/srivastava-ayush/", icon: xIcon, alt: "X" },
+  { href: "mailto:srivastava-ayush@outlook.com", icon: mail, alt: "Mail" }
 ];
 
 export const PROJECTS = [
@@ -32,8 +32,8 @@ export const PROJECTS = [
     projectDescriptionShort: "Slices — a fresh collection of UI elements and reusable code snippets I cut, styled, and served.",
     projectDescriptionLong: "Inspired by libraries like Hero UI and Aceternity UI, Slices UI is a curated set of sleek, reusable components designed for fast, modern web dev. Built with love, Tailwind, and way too much coffee.",
     projectImg: projectImg1,
-    projectCode: "https://github.com/constayush/portfolio-AYUSH/tree/master/src/components/slices",
-    projectLive: "https://constayush.vercel.app/slices",
+    projectCode: "https://github.com/srivastava-ayush/portfolio-AYUSH/tree/master/src/components/slices",
+    projectLive: "https://srivastava-ayush.vercel.app/slices",
     projectId: 1,
   }
   ,
@@ -42,7 +42,7 @@ export const PROJECTS = [
     projectDescriptionShort: "Boxlit — boxing app that helps to learn, practice, & improve, offering valuable resources for all skill levels.",
     projectDescriptionLong: "Boxlit is a comprehensive boxing app designed for everyone—from beginners to experienced fighters. It features interactive tutorials, guided training sessions, and personalized workout plans to help users sharpen their skills and track their progress.",
     projectImg: projectImg2,
-    projectCode: "https://github.com/constayush/Boxit",
+    projectCode: "https://github.com/srivastava-ayush/Boxit",
     projectLive: "https://boxlit.vercel.app/",
     projectId: 2,
   },
@@ -51,7 +51,7 @@ export const PROJECTS = [
     projectDescriptionShort: "Kodak — is your always-listening local AI assistant built in Python.",
     projectDescriptionLong: "Kodak is an AI assistant that runs locally on your machine, ensuring your data stays private. Built with Python, it leverages advanced natural language processing to help you manage tasks, answer questions, and streamline your workflow without relying on cloud services.",
     projectImg: projectImg3,
-    projectCode: "https://github.com/constayush/Kodak",
+    projectCode: "https://github.com/srivastava-ayush/Kodak",
     // projectLive: "https://kodak.vercel.app/",
     projectId: 3,
   },
@@ -69,7 +69,7 @@ export const PROJECTS = [
   projectDescriptionShort: "Bunk-Tendance — a web app that tracks student bunks",
   projectDescriptionLong:" A simple yet powerful tool to help students track and plan their attendance strategically. This app lets you input your current academic stats and calculates exactly how many classes you can safely miss—or how many you must attend—to reach your desired attendance percentage.",
   projectImg: projectImg5,
-  projectCode: "https://github.com/constayush/Bunk-Tendence",
+  projectCode: "https://github.com/srivastava-ayush/Bunk-Tendence",
   projectLive: "https://bunk-tendance.vercel.app/",
   projectId: 5,
 }
