@@ -49,7 +49,7 @@ function page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {/* Add your content here */}
           <Link href="/slices/components" className="p-6 bg-[var(--accent-color)]/5 shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">
-           <h3 className="text-md font-bold mb-2 underline underline-offset-2">Components ⭧</h3>
+           <h3 className="text-md font-bold mb-2 underline underline-offset-2">Components 3</h3>
             
           </Link>
           <Link href="/slices/animations" className="p-6 bg-[var(--accent-color)]/5 shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">

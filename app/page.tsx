@@ -171,9 +171,16 @@ function PageClient() {
               <div className="netbox relative bg-[var(--netbox-bg-color)] border-[var(--border-color)] rounded-lg flex gap-4 p-3">
                 {renderSocialIcons}
               </div>
+
+             
+                      
               <a
-                download
-                className="p-4 h-full cursor-not-allowed flex items-center border-[var(--border-color)] bg-[var(--resume-btn-color)] w-full lg:w-auto text-center justify-center hover:bg-[#fff] text-(--text-color) hover:text-[var(--button-hover-text)] rounded transition duration-300 border"
+                
+
+                  onClick={() => window.open('/ayush_resume_intern.pdf', '_blank')}
+  target="_blank"
+  rel="noopener noreferrer"
+                className="p-4 h-full flex items-center border-[var(--border-color)] bg-[var(--resume-btn-color)] w-full lg:w-auto text-center justify-center hover:bg-[#fdb3682f] text-(--text-color) hover:text-[var(--button-hover-text)] cursor-pointer  rounded transition duration-300 border"
               >
                 <svg
                   stroke="currentColor"
@@ -187,6 +194,8 @@ function PageClient() {
                 </svg>
                 Resume
               </a>
+
+              {/* <embed src={resume} type="application/pdf" width="100%" height="100%" /> */}
             </div>
           </div>
 
