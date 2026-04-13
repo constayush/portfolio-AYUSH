@@ -8,5 +8,5 @@
 
 [data-theme="light"] .bg-grid {
       background-image: url('../public/lightSlice.svg');
-  opacity: 0.025;
+  opacity: 0.03;
 }

@@ -5,13 +5,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
+import { HomeIcon, List, NewspaperIcon, PlayIcon } from "lucide-react";
+import { Play } from "next/font/google";
 
 const demoItems = [
-  { id: 1, title: "Getting Started", icon: "-", slug: "getting-started" },
+  { id: 1, title: "Getting Started", icon: HomeIcon, slug: "getting-started" },
   {
     id: 2,
     title: "Components",
-    icon: "-",
+    icon: List,
     sub_list: ["cards", "buttons", "inputs"],
     slug: "components",
   },
@@ -19,11 +21,11 @@ const demoItems = [
   {
     id: 4,
     title: "Animations",
-    icon: "-",
+    icon:  PlayIcon,
     sub_list: ["scroll", "hover", "click", "landing"],
     slug: "animations",
   },
-  { id: 5, title: "Resources", icon: "-", slug: "resources" },
+  { id: 5, title: "Resources", icon: NewspaperIcon, slug: "resources" },
 ];
 
 export default function SlicesLayout({
@@ -109,9 +111,10 @@ export default function SlicesLayout({
               height={32}
               alt="Logo"
               className="w-8 h-fit rounded-full object-cover"
-            /> <span className=" px-4 py-2 text-[.75rem] rounded-full border z-999">under development</span>
+            /> 
           </motion.span>
         </div>
+        <span className=" px-4 py-2 text-[.75rem] rounded-full border z-999">under development</span>
         <span className="gap-1 flex justify-center items-center">
           <Link
             href="/"
@@ -140,11 +143,14 @@ export default function SlicesLayout({
           } ${sidebarOpen ? "w-64" : "md:w-0 hidden md:border-0"}`}
         >
           <div className="px-6 py-8 overflow-y-auto h-full">
-            <h2 className="text-sm font-semibold text-[var(--secondary-text)] mb-4 uppercase tracking-wider">
-              Navigation
-            </h2>
+          
             <ul className="space-y-2">
-              {demoItems.map((item) => (
+              {demoItems.map((item) =>{
+              
+              const Icon = item.icon;
+             
+
+              return (
                 <li key={item.id}>
                   <button
                     onClick={() => {
@@ -152,35 +158,28 @@ export default function SlicesLayout({
                     }}
                     className={`w-full text-left px-4 py-3 rounded-lg cursor-pointer transition-colors flex flex-col items-center gap-3 group ${
                       currentSection === item.slug
-                        ? "bg-white/20"
+                        ? "bg-white/30  shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] "
                         : "hover:bg-white/10"
                     }`}
                   >
                     <div className="flex items-center justify-start w-full gap-3">
                     <span className="text-xl group-hover:scale-110 transition-transform">
-                      {item.icon}
+                     <Icon />
                     </span>
                     <span className="text-[var(--text-color)]">
                       {item.title}
                     </span></div>
 
-                    {/* <ul className="flex flex-col gap-1">
-                      {item.sub_list && item.sub_list.map((item) => (
-                        <li
-                          key={item}
-                          className={`${
-                            currentSection === item
-                              ? "text-orange-500"
-                              : "text-[var(--text-color)]"
-                          } hover:text-orange-500 cursor-pointer`}
-                        >
-                          <Link href={`/slices/${item}`}>{item}</Link>
-                        </li>
-                      ))}
-                    </ul> */}
+                 
                   </button>
                 </li>
-              ))}
+              )
+            
+            }
+              )
+              
+
+              }
             </ul>
           </div>
         </aside>

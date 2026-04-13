@@ -1,11 +1,19 @@
+"use client";
 import Link from "next/link";
-
+import { motion } from "motion/react";
 function page() {
   return (
     <main className="flex-1 relative min-h-screen w-full max-w-4xl mx-auto px-4 md:px-8 py-12">
 
      
       <div className="bg-grid absolute inset-0 pointer-events-none" />
+
+      <motion.span
+        initial={{ opacity: 0, top: "-100px" }}
+        animate={{ opacity: 1, top: 0 }}
+        transition={{ duration: 1 }}
+        className="fixed pointer-events-none z-0 top-0 left-0 w-[60%] h-24 bg-(--blob-color) blur-[200px]"
+      />
       <div className="flex flex-col gap-8">
         <div className="flex flex-col items-center text-center">
               
@@ -45,14 +53,14 @@ function page() {
 
            <hr className="w-full border-[var(--border-color)]/40" />
 
-        <h1 className="text-xl font-bold">Latest Slices</h1>
+        <h1 className="text-xl font-bold">Explore</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {/* Add your content here */}
-          <Link href="/slices/components" className="p-6 bg-[var(--accent-color)]/5 shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">
-           <h3 className="text-md font-bold mb-2 underline underline-offset-2">Components 3</h3>
+          <Link href="/slices/components" className="p-6 bg-[#fff]/20  shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">
+           <h3 className="text-md font-bold mb-2 underline underline-offset-2">Components ⭧</h3>
             
           </Link>
-          <Link href="/slices/animations" className="p-6 bg-[var(--accent-color)]/5 shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">
+          <Link href="/slices/animations" className="p-6 bg-[#fff]/20 shadow border border-[var(--border-color)] rounded-lg flex justify-center items-center transition-colors">
             <h3 className="text-md font-bold mb-2 underline underline-offset-2">Animations ⭧</h3>
 
           </Link>

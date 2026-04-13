@@ -68,13 +68,13 @@
 /* ========== Light Theme Overrides ========== */
 [data-theme="light"] {
   --accent-color: var(--light-accent-color);
-  --bg-color: #fffffff0;
-  --text-color: #111111;
+  --bg-color: hsla(30, 100%, 98%, 0.941);
+  --text-color: #2a2a2a;
   --secondary-text: #333333;
   --border-color: #1e1d1d;
   --border-2-color: #0000007c;
   --glass: #ffffff4a;
-  --glass-bg-color: #ffffff88;
+  --glass-bg-color: #fff4f088;
   --grid-bg-color: #000000;
   --nav-bg-color: #ffffff88;
   --nav-text-color: #111111;

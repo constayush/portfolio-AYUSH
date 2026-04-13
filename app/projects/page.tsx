@@ -10,6 +10,12 @@ function Page() {
 <Navbar />
 <motion.main initial={{ opacity: 0}} animate={{ opacity: 1 }} transition={{duration:1}} className='  w-full max-w-4xl flex flex-col gap-8'>
       
+      <motion.span
+        initial={{ opacity: 0, top: "-100px" }}
+        animate={{ opacity: 1, top: 0 }}
+        transition={{ duration: 1 }}
+        className="fixed pointer-events-none z-0 top-0 left-0 w-[60%] h-24 bg-(--blob-color) blur-[200px]"
+      />
       <div className='flex flex-col items-center '>
         <h1 className='text-[1.8rem] md:text-[2.8rem] text-[var(--text-color)] font-bold'>Projects</h1>
 <p className='text-md text-[var(--secondary-text)]'>A showcase of projects built across diverse tech stacks.</p>
