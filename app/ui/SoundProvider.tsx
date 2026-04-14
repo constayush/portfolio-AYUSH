@@ -10,7 +10,7 @@ export function SoundProvider() {
   useEffect(() => {
     audioPool.current = Array.from({ length: 6 }, () => {
       const a = new Audio('/click_sound.wav');
-      a.volume = 0.05;
+      a.volume = 0.02;
       return a;
     });
   }, []);
