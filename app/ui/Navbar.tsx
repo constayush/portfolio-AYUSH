@@ -5,7 +5,11 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, Transition } from "motion/react";
+import { SunIcon , MoonIcon, HouseIcon } from "@phosphor-icons/react";
 
+function App() {
+  return <House size={32} weight="bold" />;
+}
 function Navbar() {
  const nav = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll();
@@ -89,7 +93,7 @@ function Navbar() {
           आ<span className="accent">1.</span>
         </Link>
 
-        <ul className="hidden md:flex ml-5 gap-2 text-center items-center  font-semibold justify-center">
+        <ul className="hidden md:flex ml-5 gap-2 text-center items-center font-semibold justify-center">
           <li className="text-[var(--secondary-text)] text-[.95rem] md:text-[1.1rem] navLinks">
             <a href="#about" onClick={(e) => handleHashNavigation(e, "#about")}>
               About
@@ -102,18 +106,43 @@ function Navbar() {
                <Link href="/slices">Slices</Link>{" "}
             
           </li>
-          <li>
-            <motion.button
-              aria-label="theme-button"
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.2, rotate: 90 }}
-              whileTap={{ scale: 1.5, rotate: 90 }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="theme-toggle text-[1rem] md:text-[1.15rem] "
-            >
-              {theme === "dark" ? "☀️" : "🌙"}
-            </motion.button>
-          </li>
+       <li>
+  <button
+    aria-label="theme-button"
+    onClick={toggleTheme}
+    className="relative cursor-pointer  group text-[1rem] md:text-[1.15rem] flex items-center justify-center"
+  >
+    {theme === "dark" ? (
+      <>
+        <motion.div
+          whileHover={{ scale: 1.2, rotate: 260 }}
+          whileTap={{ scale: 1.5, rotate: 90 }}
+          transition={{ type: "spring", stiffness: 200, damping: 10 }}
+        >
+          <SunIcon lightingColor={"red"} className="text-yellow-300 fill-amber-300" />
+        </motion.div>
+
+        <span className="absolute top-full mt-1 hidden group-hover:block border p-2 bg-black/30 text-white text-xs rounded whitespace-nowrap">
+          switch to light mode
+        </span>
+      </>
+    ) : (
+      <>
+        <motion.div
+          whileHover={{ scale: 1.2, rotate: 260 }}
+          whileTap={{ scale: 1.5, rotate: 90 }}
+          transition={{ type: "spring", stiffness: 200, damping: 10 }}
+        >
+          <MoonIcon className="hover:text-blue-300" />
+        </motion.div>
+
+        <span className="absolute top-full mt-1 hidden group-hover:block border p-2 bg-whit/10  text-black text-xs rounded whitespace-nowrap">
+          switch to dark mode
+        </span>
+      </>
+    )}
+  </button>
+</li>
         </ul>
 
         <button

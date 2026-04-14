@@ -2,14 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 
-import { Montserrat, Orbitron, Source_Code_Pro, Zen_Dots } from "next/font/google";
+import { Montserrat, Orbitron, Source_Code_Pro, Zen_Dots , Source_Serif_4, Lora} from "next/font/google";
 import ScrollToTop from "./ui/utils/ScrollToTop";
 
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"],
+  weight: ["100", "300", "400", "500", "600", "700", "900"],
   variable: "--font-montserrat",
+});
+
+const serif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-serif",
 });
 
 const orbitron = Orbitron({
@@ -32,23 +38,27 @@ const zen = Zen_Dots({
 export const metadata: Metadata = {
   title: "Ayush Srivastava Portfolio",
   description:
-    "It is a portfolio of Ayush Srivastava, Hey, I'm Ayush, an 19-year-old web developer fueled by curiosity and passionate about building ui interfaces...",
+    "It is a portfolio of Ayush Srivastava, Hey, I'm Ayush, an 20-year-old web developer fueled by curiosity and passionate about building ui interfaces...",
   authors: [{ name: "Ayush Srivastava" }],
   keywords: [
     "Ayush Srivastava",
     "ayush srivastava portfolio",
     "constayush",
-    "React",
-    "javascript",
+    "srivastava ayush",
+    "Ayush Portfolio",
     "AYUSH",
     "maihoonayush",
+    "ayush srivastava",
+    "ayush srivastava portfolio",
+    "ayush portfolio",
+    " srivastava-ayush portfolio",
   ],
   robots: "index, follow",
   openGraph: {
     title: "Ayush Srivastava Portfolio",
     description: "Ayush Srivastava (constayush), A Full-Stack Engineer",
-    url: "https://constayush.vercel.app",
-    images: "https://constayush.vercel.app/thumbnail.png",
+    url: "https://srivastava-ayush.vercel.app",
+    images: "https://srivastava-ayush.vercel.app/thumbnail.png",
     type: "article",
   },
   verification: {
@@ -67,7 +77,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/orange.svg" type="image/x-icon" />
       </head>
       <body
-        className={` ${montserrat.variable} ${orbitron.variable} ${code.variable} ${zen.variable} antialiased`}
+        className={` ${montserrat.variable} ${serif.variable} ${orbitron.variable} ${code.variable} ${zen.variable} antialiased`}
       >
         <ScrollToTop />
         {children}

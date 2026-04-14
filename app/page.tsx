@@ -17,7 +17,7 @@ import HighlightedLink from "./ui/HighlightedLink";
 function PageClient() {
   const theme = "dark";
   const cursorRef = useCustomCursor(".orgLogo");
-  const headingWords = " Hi I'm Ayush — A Full Stack Engineer from India";
+  const headingWords = " Hi I'm Ayush - A Full Stack Engineer from India";
   const org = useRef<HTMLImageElement>(null);
   const projectCon = useRef<HTMLElement>(null);
 
@@ -112,7 +112,7 @@ function PageClient() {
         {/* Main Hero Section */}
         <main className="main-hero-section-container text-center items-center justify-center flex flex-col gap-4 md:gap-8">
           <h1 className="hero-heading text-[var(--text-color)] text-[1.8rem] md:text-[2.8rem] inline text-center">
-            <TextGenerateEffect className="inline" words={headingWords} />
+            <TextGenerateEffect className="inline tracking-wide" words={headingWords} />
             <Link href="/orange_rolling">
               <motion.img
                 style={{
@@ -156,8 +156,8 @@ function PageClient() {
             </Link>
           </h1>
 
-          <p className="hero-para text-lg md:text-2xl md:max-w-[80%] text-(--secondary-text) text-shadow font-medium">
-            Creating UIs that pop with clean design and code with{" "}
+          <p className="hero-para text-lg md:text-2xl md:max-w-full text-(--secondary-text) text-shadow font-normal">
+          Creating UIs that pop with clean design and code, built using <br/>
             <HighlightedLink name="TypeScript" img="/typescript.svg" /> ,{" "}
             <HighlightedLink name="React" img="/react-2.svg" /> ,{" "}
             <HighlightedLink name="Next.js" img="/nextjs.svg" /> ,{" "}
@@ -172,7 +172,7 @@ function PageClient() {
                 {renderSocialIcons}
               </div>
 
-             
+        
                       
               <a
                 
@@ -195,7 +195,6 @@ function PageClient() {
                 Resume
               </a>
 
-              {/* <embed src={resume} type="application/pdf" width="100%" height="100%" /> */}
             </div>
           </div>
 
@@ -253,7 +252,12 @@ function PageClient() {
               </h1>
             </span>
 
-            <GitHubCalendar className="" username="srivastava-ayush" />
+            <GitHubCalendar className=""
+            theme={{
+    light: ["#fff", "#fff", "#fff", "#fff", "#fff"],
+    dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+  }}
+           username="srivastava-ayush" />
           </section>
 
           {/* About Me */}
@@ -294,9 +298,9 @@ function PageClient() {
             </div>
 
             <div>
-              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+              <h2 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
                 Education
-              </h1>
+              </h2>
               <div className="flex flex-col gap-2 hero-para text-[1.15rem] text-[var(--secondary-text)] text-shadow font-medium">
                 <span className="flex flex-wrap w-full justify-between">
                   <p>Bachelor of Technology in Computer Science</p>( Expected:
@@ -310,9 +314,9 @@ function PageClient() {
             </div>
 
             <div className="tech-stack-container">
-              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+              <h2 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
                 Tech Stack
-              </h1>
+              </h2>
               <span className="flex gap-4 flex-wrap">{renderTechStack}</span>
             </div>
 
@@ -320,9 +324,9 @@ function PageClient() {
 
             {/* Footer */}
             <footer className="relative">
-              <h1 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
+              <h2 className="text-[1.15rem] text-[var(--secondary-text)] text-shadow font-bold mb-4">
                 Contact
-              </h1>
+              </h2>
               <div className="flex flex-wrap gap-4 text-center items-center justify-center md:justify-between">
                 <div className="w-fit rounded-lg flex gap-4 flex-wrap justify-center items-center text-[var(--secondary-text)]">
                   <a

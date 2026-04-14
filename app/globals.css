@@ -63,6 +63,9 @@
     rgba(255, 255, 255, 0.025) 0px 12px 28px 0px,
     rgba(255, 255, 255, 0) 0px 2px 4px 0px,
     rgba(60, 60, 60, 0.527) 0px 0px 0px 1px inset;
+
+    --gh-empty-contrib: rgba(255, 255, 255, 0.1);
+    
 }
 
 /* ========== Light Theme Overrides ========== */
@@ -90,6 +93,8 @@
     rgba(0, 0, 0, 0.234) 0px 12px 28px 0px,
     rgba(0, 0, 0, 0.025) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+
+     --gh-empty-contrib: #afefae4e;
 }
 
 body,
@@ -101,6 +106,9 @@ html {
   scroll-behavior: smooth;
 }
 
+h1{
+  font-family: var(--font-serif), serif;
+}
 html {
   ::selection {
     color: var(--text-color);
@@ -254,3 +262,6 @@ html {
   animation: fadeIn 0.5s ease forwards;
 }
 
+.react-activity-calendar__calendar g rect[data-level="0"] {
+  fill: var(--gh-empty-contrib);
+}
