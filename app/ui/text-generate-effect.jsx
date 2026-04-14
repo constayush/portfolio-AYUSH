@@ -29,14 +29,14 @@ export const TextGenerateEffect = ({
         {wordsArray.map((word, idx) => {
 
             if(word === "from"){
-              return (<><br className="hidden md:block"/><motion.span
+              return (<span key={idx+word+idx}><br className="hidden md:block"/><motion.span
               key={word + idx}
               className=" opacity-0 inline text-orange-500 "
               style={{
                 filter: filter ? "blur(10px)" : "none",
               }}>
               {word}{" "}
-            </motion.span></>  )
+            </motion.span></span>  )
             }
 
 

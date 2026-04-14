@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { easeIn, motion } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 
 interface Ripple {
@@ -11,6 +11,80 @@ interface Ripple {
 }
 
 const Page = () => {
+
+  //sfx
+
+  const audioPoolClick = useRef<HTMLAudioElement[]>([]);
+  const poolIndex = useRef(0);
+  const unlocked = useRef(false);
+  const audioPoolStageClear = useRef<HTMLAudioElement[]>([]);
+  const audioPoolRoundOver = useRef<HTMLAudioElement[]>([]);
+
+  useEffect(() => {
+    audioPoolClick.current = Array.from({ length: 6 }, () => {
+      const a = new Audio('/jump.wav');
+      a.volume = 0.05;
+      return a;
+    });
+  }, []);
+
+    useEffect(() => {
+    audioPoolStageClear.current = Array.from({ length: 6 }, () => {
+      const a = new Audio('/stageCleared.wav');
+      a.volume = 0.05;
+      return a;
+    });
+  }, []);
+  useEffect(() => {
+    audioPoolRoundOver.current = Array.from({ length: 6 }, () => {
+      const a = new Audio('/roundOver.wav');
+      a.volume = 0.05;
+      return a;
+    });
+  }, []);
+
+
+  useEffect(() => {
+    const unlock = async () => {
+      if (unlocked.current) return;
+      for (const audio of audioPoolClick.current) {
+        try { await audio.play(); audio.pause(); audio.currentTime = 0; } catch {}
+      }
+      unlocked.current = true;
+      document.removeEventListener('click', unlock);
+    };
+    document.addEventListener('click', unlock);
+    return () => document.removeEventListener('click', unlock);
+  }, []);
+
+
+    const playClickSound = () => {
+      const pool = audioPoolClick.current;
+      if (!pool.length) return;
+      const audio = pool[poolIndex.current % pool.length];
+      poolIndex.current++;
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    };
+
+    const playStageClearSound = () => {
+      const pool = audioPoolStageClear.current;
+      if (!pool.length) return;
+      const audio = pool[poolIndex.current % pool.length];
+      poolIndex.current++;
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    };
+
+     const playRoundOverSound = () => {
+      const pool = audioPoolRoundOver.current;
+      if (!pool.length) return;
+      const audio = pool[poolIndex.current % pool.length];
+      poolIndex.current++;
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    };
+
   // Game constants
   const GAME_WIDTH =
     typeof window !== "undefined" && window.innerWidth < 700 ? 450 : 800;
@@ -51,6 +125,8 @@ const Page = () => {
   // Jump handler
   const handleJump = useCallback(
     (e?: React.MouseEvent | KeyboardEvent) => {
+      playClickSound();
+
       if (isGameOver || isJumping || isPaused) return;
 
       // Create ripple effect if mouse event
@@ -91,6 +167,7 @@ const Page = () => {
   const restartGame = useCallback(
     (e?: React.MouseEvent) => {
       if (e) e.stopPropagation();
+      playRoundOverSound();
       setIsGameOver(false);
       setIsPaused(false);
       setIsJumping(false);
@@ -146,12 +223,14 @@ const Page = () => {
 
           if (newX < -OBSTACLE_WIDTH) {
             obstaclePassedRef.current = false;
-
+            
             setObstaclesPassed((prev) => {
               const newPassed = prev + 1;
               gameSpeedRef.current = calculateSpeed(newPassed);
               return newPassed;
             });
+
+            playStageClearSound();
 
             setScore((prev) => prev + 10);
 
@@ -164,6 +243,7 @@ const Page = () => {
 
           setDinoY((currentDinoY) => {
             if (checkCollision(newX, currentDinoY)) {
+              playRoundOverSound();
               setIsGameOver(true);
               if (score > highscore) {
                 setHighscore(Math.round(score));

@@ -107,6 +107,7 @@ function Navbar() {
           </li>
        <li>
   <button
+    
     aria-label="theme-button"
     onClick={toggleTheme}
     className="relative cursor-pointer  group text-[1rem] md:text-[1.15rem] flex items-center justify-center"

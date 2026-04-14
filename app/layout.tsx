@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-
-import { Montserrat, Orbitron, Source_Code_Pro, Zen_Dots , Source_Serif_4, Lora} from "next/font/google";
+import { Montserrat, Orbitron, Source_Code_Pro, Zen_Dots , Source_Serif_4,} from "next/font/google";
 import ScrollToTop from "./ui/utils/ScrollToTop";
+import { SoundProvider } from "./ui/SoundProvider";
 
 
 const montserrat = Montserrat({
@@ -11,24 +10,20 @@ const montserrat = Montserrat({
   weight: ["100", "300", "400", "500", "600", "700", "900"],
   variable: "--font-montserrat",
 });
-
 const serif = Source_Serif_4({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-serif",
 });
-
 const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["600"],
   variable: "--font-orbitron",
 });
-
 const code = Source_Code_Pro({
   subsets: ["latin"],
   variable: "--font-code",
 });
-
 const zen = Zen_Dots({
   subsets: ["latin"],
   weight: ["400"],
@@ -71,6 +66,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+
   return (
     <html lang="en" data-theme="dark">
       <head>
@@ -79,6 +76,7 @@ export default function RootLayout({
       <body
         className={` ${montserrat.variable} ${serif.variable} ${orbitron.variable} ${code.variable} ${zen.variable} antialiased`}
       >
+        <SoundProvider/>
         <ScrollToTop />
         {children}
       </body>
