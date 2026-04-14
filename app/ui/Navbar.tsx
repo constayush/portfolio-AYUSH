@@ -5,11 +5,8 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, Transition } from "motion/react";
-import { SunIcon , MoonIcon, HouseIcon } from "@phosphor-icons/react";
+import { SunIcon , MoonIcon, } from "@phosphor-icons/react";
 
-function App() {
-  return <House size={32} weight="bold" />;
-}
 function Navbar() {
  const nav = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll();
@@ -40,6 +37,8 @@ function Navbar() {
 
   const toggleTheme = () => {
     setTheme((t) => (t === "dark" ? "light" : "dark"));
+      document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
   };
 
   // Scroll logic for naVbar

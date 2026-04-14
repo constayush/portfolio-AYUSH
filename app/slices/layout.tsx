@@ -138,7 +138,7 @@ export default function SlicesLayout({
       <div className="flex pt-[60px]">
         {/* Sidebar */}
         <aside
-          className={`fixed md:sticky top-[60px] left-0 h-[calc(100vh-60px)] bg-[var(--bg-color)] border-r border-[var(--border-2-color)] z-40 transition-all duration-300 ease-in-out ${
+          className={`fixed md:sticky top-[60px] left-0 h-[calc(100vh-60px)] bg-transparent border-r border-[var(--border-2-color)] z-40 transition-all duration-300 ease-in-out ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
           } ${sidebarOpen ? "w-64" : "md:w-0 hidden md:border-0"}`}
         >
