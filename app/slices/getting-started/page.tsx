@@ -12,7 +12,7 @@ function page() {
         initial={{ opacity: 0, top: "-100px" }}
         animate={{ opacity: 1, top: 0 }}
         transition={{ duration: 1 }}
-        className="fixed pointer-events-none z-0 top-0 left-0 w-[60%] h-24 bg-(--blob-color) blur-[200px]"
+        className="fixed pointer-events-none z-0 top-0 right-0 w-[60%] h-24 bg-(--blob-color) blur-[200px]"
       />
       <div className="flex flex-col gap-8">
         <div className="flex flex-col items-center text-center">

@@ -136,13 +136,14 @@ export default function SlicesLayout({
       </nav>
 
       <div className="flex pt-[60px]">
+
         {/* Sidebar */}
         <aside
           className={`fixed md:sticky top-[60px] left-0 h-[calc(100vh-60px)] bg-transparent border-r border-[var(--border-2-color)] z-40 transition-all duration-300 ease-in-out ${
-            sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-          } ${sidebarOpen ? "w-64" : "md:w-0 hidden md:border-0"}`}
+            sidebarOpen ? "w-fit" : "-translate-x-full md:translate-x-0"
+          } ${sidebarOpen ? "w-64 px-6 " : "w-fit border-0 px-2"}`}
         >
-          <div className="px-6 py-8 overflow-y-auto h-full">
+          <div className="py-8 overflow-y-auto h-full">
           
             <ul className="space-y-2">
               {demoItems.map((item) =>{
@@ -158,7 +159,7 @@ export default function SlicesLayout({
                     }}
                     className={`w-full text-left px-4 py-3 rounded-lg cursor-pointer transition-colors flex flex-col items-center gap-3 group ${
                       currentSection === item.slug
-                        ? "bg-gradient-to-r from-[var(--text-color)]/20 to-[var(--text-color)]/30 shadow-[inset_0_2px_3px_rgba(255,255,255,0.6),0_4px_10px_rgba(0,0,0,0.25)] "
+                        ? "bg-gradient-to-r from-[var(--text-color)]/20 to-[var(--text-color)]/10 shadow-[inset_0_2px_3px_rgba(255,255,255,0.6),0_4px_10px_rgba(0,0,0,0.05)] "
                         : "hover:bg-white/10"
                     }`}
                   >
@@ -166,9 +167,13 @@ export default function SlicesLayout({
                     <span className="text-xl group-hover:scale-110 transition-transform">
                      <Icon />
                     </span>
-                    <span className="text-[var(--text-color)]">
+                   
+                   
+                   {sidebarOpen ? <span className="text-[var(--text-color)]">
                       {item.title}
-                    </span></div>
+                    </span> : null} 
+                    
+                    </div>
 
                  
                   </button>
@@ -183,7 +188,7 @@ export default function SlicesLayout({
             </ul>
           </div>
         </aside>
-    <div className="bg-grid absolute inset-0 pointer-events-none"/>
+      
         {/* Overlay for mobile */}
         {sidebarOpen && (
           <div
@@ -192,7 +197,7 @@ export default function SlicesLayout({
           />
         )}
 
-        {/* Main Content - Children from individual pages */}
+      
         {children}
       </div>
     </motion.div>
