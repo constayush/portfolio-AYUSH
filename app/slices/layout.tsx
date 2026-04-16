@@ -158,7 +158,7 @@ export default function SlicesLayout({
                     }}
                     className={`w-full text-left px-4 py-3 rounded-lg cursor-pointer transition-colors flex flex-col items-center gap-3 group ${
                       currentSection === item.slug
-                        ? "bg-white/30  shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] "
+                        ? "bg-gradient-to-r from-[var(--text-color)]/20 to-[var(--text-color)]/30 shadow-[inset_0_2px_3px_rgba(255,255,255,0.6),0_4px_10px_rgba(0,0,0,0.25)] "
                         : "hover:bg-white/10"
                     }`}
                   >
